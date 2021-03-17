@@ -1,0 +1,56 @@
+{
+ "creation": "2021-03-17 01:25:02.556112",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "meeting_place",
+  "meeting_date",
+  "meeting_document",
+  "column_break_4",
+  "meeting_summery"
+ ],
+ "fields": [
+  {
+   "fieldname": "meeting_place",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Meeting Place",
+   "reqd": 1
+  },
+  {
+   "fieldname": "meeting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Meeting Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "meeting_document",
+   "fieldtype": "Attach",
+   "label": "Meeting Document"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "meeting_summery",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Meeting Summery",
+   "reqd": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-03-17 01:25:02.556112",
+ "modified_by": "Administrator",
+ "module": "Program Management",
+ "name": "Group Meeting Report",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

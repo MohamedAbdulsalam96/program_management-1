@@ -54,6 +54,10 @@ def get_data():
 				},
 				{
 					"type": "doctype",
+					"name": "Logframes",					
+				},
+				{
+					"type": "doctype",
 					"name": "Proposal Documents",
 					"description": _("Proposal Documents."),
 					"onboard": 1,
@@ -90,12 +94,39 @@ def get_data():
 		},
 
 		{
+			"label": _("Communication Documents"),
+			"items": [
+				{
+					"type": "doctype",
+					"name": "Per Project",
+					
+				},
+				{
+					"type": "doctype",
+					"name": "Per Coordinate",
+				},
+				{
+					"type": "doctype",
+					"name": "Cluster Documents",
+				},
+			]
+		},
+
+		{
 			"label": _("Reports"),
 			"items": [
 				{
 					"type": "doctype",
 					"name": "Monthly Report",
 					"description": _("Monthly Reports for Projects"),
+				},
+				{
+					"type": "doctype",
+					"name": "Narrative Report",
+				},
+				{
+					"type": "doctype",
+					"name": "Managers Monthly Report",
 				},
 				]
 		},

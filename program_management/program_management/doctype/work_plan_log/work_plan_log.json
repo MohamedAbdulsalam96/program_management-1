@@ -1,5 +1,5 @@
 {
- "autoname": "format:{project_proposal}-{activity}",
+ "autoname": "format:{project_proposal}-{subject}",
  "creation": "2021-01-10 19:30:31.119893",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -7,20 +7,28 @@
  "field_order": [
   "naming_series",
   "work_plan",
+  "parent_work_plan_log",
   "project_proposal",
-  "status",
-  "column_break_5",
+  "subject",
+  "column_break_6",
   "activity",
   "activity_name",
+  "status",
+  "is_group",
   "time_line_section",
   "expected_start_date",
-  "actual_start_date",
-  "column_break_11",
   "expected_end_date",
+  "planned_duration",
+  "column_break_11",
+  "actual_start_date",
   "actual_end_date",
+  "actual_duration",
   "progress",
   "section_break_15",
-  "details"
+  "details",
+  "lft",
+  "rgt",
+  "old_parent"
  ],
  "fields": [
   {
@@ -33,31 +41,39 @@
   {
    "fieldname": "work_plan",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Work Plan",
-   "options": "Work Plan"
+   "options": "Work Plan",
+   "read_only": 1
   },
   {
+   "fetch_from": "parent_work_plan_log.project_proposal",
+   "fetch_if_empty": 1,
    "fieldname": "project_proposal",
    "fieldtype": "Link",
    "label": "Project Proposal",
-   "options": "Project Proposal"
+   "options": "Project Proposal",
+   "read_only": 1
   },
   {
    "fieldname": "status",
    "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Status",
    "options": "Open\nWorking\nCompleted",
    "read_only": 1
   },
   {
-   "fieldname": "column_break_5",
-   "fieldtype": "Column Break"
-  },
-  {
+   "fetch_from": "parent_work_plan_log.activity",
+   "fetch_if_empty": 1,
    "fieldname": "activity",
    "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "Activity",
-   "options": "Activity"
+   "options": "Activity",
+   "read_only": 1
   },
   {
    "fetch_from": "activity.activity",
@@ -72,13 +88,17 @@
    "label": "Time Line"
   },
   {
+   "fetch_from": "parent_work_plan_log.expected_start_date",
+   "fetch_if_empty": 1,
    "fieldname": "expected_start_date",
    "fieldtype": "Date",
-   "label": "Expected Start Date"
+   "label": "Expected Start Date",
+   "read_only": 1
   },
   {
    "fieldname": "actual_start_date",
    "fieldtype": "Date",
+   "hidden": 1,
    "label": "Actual Start Date"
   },
   {
@@ -86,20 +106,27 @@
    "fieldtype": "Column Break"
   },
   {
+   "fetch_from": "parent_work_plan_log.expected_end_date",
+   "fetch_if_empty": 1,
    "fieldname": "expected_end_date",
    "fieldtype": "Date",
-   "label": "Expected End Date"
+   "label": "Expected End Date",
+   "read_only": 1
   },
   {
    "fieldname": "actual_end_date",
    "fieldtype": "Date",
+   "hidden": 1,
    "label": "Actual End Date"
   },
   {
    "default": "0",
    "fieldname": "progress",
    "fieldtype": "Percent",
-   "label": "Progress"
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Progress",
+   "read_only": 1
   },
   {
    "fieldname": "section_break_15",
@@ -109,12 +136,78 @@
    "fieldname": "details",
    "fieldtype": "Text Editor",
    "label": "Details"
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Group",
+   "read_only": 1
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Old Parent",
+   "options": "Work Plan Log"
+  },
+  {
+   "fieldname": "parent_work_plan_log",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Parent Work Plan Log",
+   "options": "Work Plan Log"
+  },
+  {
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Subject"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "parent_work_plan_log.planned_duration",
+   "fetch_if_empty": 1,
+   "fieldname": "planned_duration",
+   "fieldtype": "Int",
+   "label": "Planned Duration",
+   "read_only": 1
+  },
+  {
+   "fieldname": "actual_duration",
+   "fieldtype": "Int",
+   "label": "Actual Duration",
+   "read_only": 1
   }
  ],
- "modified": "2021-01-24 22:51:07.329620",
+ "is_tree": 1,
+ "modified": "2021-02-17 23:22:39.473635",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Work Plan Log",
+ "nsm_parent_field": "parent_work_plan_log",
  "owner": "Administrator",
  "permissions": [
   {
@@ -142,7 +235,6 @@
    "write": 1
   }
  ],
- "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

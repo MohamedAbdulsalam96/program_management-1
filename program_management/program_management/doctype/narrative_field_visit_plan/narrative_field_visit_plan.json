@@ -1,0 +1,68 @@
+{
+ "creation": "2021-02-07 19:56:08.177639",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "field_visit_plan",
+  "date",
+  "location",
+  "responsible_staff",
+  "column_break_5",
+  "visit_objective_scope"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "field_visit_plan",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Field Visit Plan",
+   "options": "Field Visit Plan"
+  },
+  {
+   "columns": 1,
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date"
+  },
+  {
+   "columns": 1,
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Location"
+  },
+  {
+   "columns": 1,
+   "fieldname": "responsible_staff",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Responsible Staff",
+   "options": "Designation"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 2,
+   "fieldname": "visit_objective_scope",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Visit Objective Scope"
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-02-07 20:37:28.594250",
+ "modified_by": "Administrator",
+ "module": "Program Management",
+ "name": "Narrative Field Visit Plan",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

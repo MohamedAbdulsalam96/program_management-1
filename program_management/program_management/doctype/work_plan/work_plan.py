@@ -56,9 +56,12 @@ class WorkPlan(Document):
 					"work_plan": self.name,
 					"project_proposal": self.project_proposal,
 					"activity": m.activity,
+					"subject":m.activity,
 					"activity_name": m.activity_name,
 					"expected_start_date": m.start_date,
 					"expected_end_date": m.end_date,
+					"is_group":1,
+					"planned_duration": m.planned_duration,
 				})
 				il = frappe.get_doc(log_args)
 				il.insert()

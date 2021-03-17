@@ -1,0 +1,187 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2021-03-17 01:25:12.837949",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "column_break_2",
+  "cluster_document_title",
+  "project_details_section",
+  "project",
+  "project_title",
+  "project_manager",
+  "project_manager_name",
+  "column_break_9",
+  "sector",
+  "donor",
+  "project_start_date",
+  "project_end_date",
+  "section_break_13",
+  "cluster_documents",
+  "cluster_training_details_section",
+  "cluster_training",
+  "meeting_report_details_section",
+  "meeting_report",
+  "technical_working_group_section",
+  "group_meeting_report"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "CLU-DOC-.YYYY.-"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cluster_document_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Cluster Document Title ",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "project_details_section",
+   "fieldtype": "Section Break",
+   "label": "Project Details"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Project",
+   "options": "Project",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "project.project_name",
+   "fieldname": "project_title",
+   "fieldtype": "Small Text",
+   "label": "Project Title",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.project_manager",
+   "fieldname": "project_manager",
+   "fieldtype": "Link",
+   "label": "Project Manager",
+   "options": "Employee",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.project_manager_name",
+   "fieldname": "project_manager_name",
+   "fieldtype": "Data",
+   "label": "Project Manager Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sector",
+   "fieldtype": "Link",
+   "label": "Sector",
+   "options": "Programs"
+  },
+  {
+   "fetch_from": "project.donor",
+   "fieldname": "donor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Donor",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.expected_start_date",
+   "fieldname": "project_start_date",
+   "fieldtype": "Date",
+   "label": "Project Start Date",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.expected_end_date",
+   "fieldname": "project_end_date",
+   "fieldtype": "Data",
+   "label": "Project End Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_13",
+   "fieldtype": "Section Break",
+   "label": "Cluster Document Details"
+  },
+  {
+   "fieldname": "cluster_documents",
+   "fieldtype": "Table",
+   "label": "Cluster Documents",
+   "options": "Cluster Document Details"
+  },
+  {
+   "fieldname": "cluster_training_details_section",
+   "fieldtype": "Section Break",
+   "label": "Cluster Training Details"
+  },
+  {
+   "fieldname": "cluster_training",
+   "fieldtype": "Table",
+   "label": "Cluster Training",
+   "options": "Cluster Training"
+  },
+  {
+   "fieldname": "meeting_report_details_section",
+   "fieldtype": "Section Break",
+   "label": "Meeting Report Details"
+  },
+  {
+   "fieldname": "meeting_report",
+   "fieldtype": "Table",
+   "label": "Meeting Report",
+   "options": "Meeting Report"
+  },
+  {
+   "fieldname": "technical_working_group_section",
+   "fieldtype": "Section Break",
+   "label": "Technical Working Group "
+  },
+  {
+   "fieldname": "group_meeting_report",
+   "fieldtype": "Table",
+   "label": "Group Meeting Report",
+   "options": "Group Meeting Report"
+  }
+ ],
+ "modified": "2021-03-17 01:26:53.950624",
+ "modified_by": "Administrator",
+ "module": "Program Management",
+ "name": "Cluster Documents",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "cluster_document_title",
+ "track_changes": 1
+}

@@ -1,0 +1,149 @@
+{
+ "creation": "2021-02-07 19:04:46.634929",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "governorate",
+  "column_break_2",
+  "district",
+  "column_break_4",
+  "category",
+  "column_break_6",
+  "type",
+  "column_break_8",
+  "age_group",
+  "section_break_10",
+  "total_men",
+  "column_break_12",
+  "total_woman",
+  "column_break_14",
+  "total_boys",
+  "column_break_16",
+  "total_girls",
+  "column_break_18",
+  "unclassified",
+  "column_break_20",
+  "total"
+ ],
+ "fields": [
+  {
+   "fieldname": "total_men",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total Men"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_woman",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total Women"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_boys",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total Boys"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_girls",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total Girls"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "unclassified",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Unclassified "
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total",
+   "read_only": 1
+  },
+  {
+   "fieldname": "governorate",
+   "fieldtype": "Link",
+   "label": "Governorate",
+   "options": "Territory"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "Territory"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "label": "Category",
+   "options": "Beneficiaries Category"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Link",
+   "label": "Type",
+   "options": "Beneficiaries Type"
+  },
+  {
+   "fieldname": "age_group",
+   "fieldtype": "Link",
+   "label": "Age Group",
+   "options": "Age Group"
+  },
+  {
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-03-15 11:22:28.821738",
+ "modified_by": "o.mutawakel@partner-cons.com",
+ "module": "Program Management",
+ "name": "Target Group",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

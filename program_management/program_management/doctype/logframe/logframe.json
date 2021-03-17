@@ -14,6 +14,9 @@
   "rgt",
   "is_group",
   "old_parent",
+  "outcome_and_output",
+  "activity",
+  "indicator",
   "parent_logical_framework_chart"
  ],
  "fields": [
@@ -82,11 +85,32 @@
    "fieldtype": "Link",
    "label": "Parent Logical Framework Chart",
    "options": "Logframe"
+  },
+  {
+   "depends_on": "eval:in_list([\"Objective\", \"Outcome\", \"Output\"], doc.type)",
+   "fieldname": "outcome_and_output",
+   "fieldtype": "Link",
+   "label": "Outcome and Output",
+   "options": "Outcome and Output"
+  },
+  {
+   "depends_on": "eval:doc.type==\"Activity\"",
+   "fieldname": "activity",
+   "fieldtype": "Link",
+   "label": "Activity",
+   "options": "Activity"
+  },
+  {
+   "depends_on": "eval:doc.type==\"Indicator\"",
+   "fieldname": "indicator",
+   "fieldtype": "Link",
+   "label": "Indicator",
+   "options": "Indicators"
   }
  ],
  "is_tree": 1,
- "modified": "2020-07-18 23:45:33.579105",
- "modified_by": "Administrator",
+ "modified": "2021-03-15 23:45:17.551059",
+ "modified_by": "o.mutawakel@partner-cons.com",
  "module": "Program Management",
  "name": "Logframe",
  "nsm_parent_field": "parent_logical_framework_chart",
@@ -105,7 +129,6 @@
    "write": 1
   }
  ],
- "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

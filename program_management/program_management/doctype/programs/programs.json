@@ -1,4 +1,5 @@
 {
+ "allow_rename": 1,
  "autoname": "field:program_name",
  "creation": "2020-07-18 20:18:21.479140",
  "doctype": "DocType",
@@ -7,6 +8,11 @@
  "field_order": [
   "program_name",
   "program_manager",
+  "program_manager_name",
+  "column_break_4",
+  "emergency_and_humanitarian_response",
+  "development_and_gender",
+  "section_break_7",
   "about_program"
  ],
  "fields": [
@@ -28,9 +34,36 @@
    "fieldname": "about_program",
    "fieldtype": "Text Editor",
    "label": "About Program"
+  },
+  {
+   "fetch_from": "program_manager.employee_name",
+   "fieldname": "program_manager_name",
+   "fieldtype": "Data",
+   "label": "Program Manager Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "emergency_and_humanitarian_response",
+   "fieldtype": "Check",
+   "label": "Emergency and Humanitarian Response "
+  },
+  {
+   "default": "0",
+   "fieldname": "development_and_gender",
+   "fieldtype": "Check",
+   "label": "Development and Gender"
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break"
   }
  ],
- "modified": "2020-09-20 08:37:59.233582",
+ "modified": "2021-03-15 14:27:48.033929",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Programs",

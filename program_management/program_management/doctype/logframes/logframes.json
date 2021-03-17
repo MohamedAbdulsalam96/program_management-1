@@ -1,0 +1,128 @@
+{
+ "autoname": "field:project_proposal",
+ "creation": "2021-02-21 18:33:44.664432",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "project_proposal",
+  "setcor",
+  "get_logframe",
+  "outcome_and_output",
+  "indicators_details_section",
+  "get_indicators",
+  "indicators",
+  "activities_details_section",
+  "get_activities",
+  "activities",
+  "section_break_10",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "project_proposal",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Project Proposal",
+   "options": "Project Proposal",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "depends_on": "eval:doc.project_proposal",
+   "fieldname": "outcome_and_output",
+   "fieldtype": "Table",
+   "label": "Outcome and Output",
+   "options": "Outcomes and Outputs"
+  },
+  {
+   "depends_on": "eval:doc.project_proposal",
+   "fieldname": "indicators_details_section",
+   "fieldtype": "Section Break",
+   "label": "Indicators Details "
+  },
+  {
+   "fieldname": "indicators",
+   "fieldtype": "Table",
+   "label": "Indicators",
+   "options": "Indicator Progress Tracking"
+  },
+  {
+   "depends_on": "eval:!doc.__islocal",
+   "fieldname": "get_logframe",
+   "fieldtype": "Button",
+   "label": "Get Logframe"
+  },
+  {
+   "depends_on": "eval:!doc.__islocal",
+   "fieldname": "get_indicators",
+   "fieldtype": "Button",
+   "label": "Get Indicators"
+  },
+  {
+   "fieldname": "activities_details_section",
+   "fieldtype": "Section Break",
+   "label": "Activities Details"
+  },
+  {
+   "fieldname": "get_activities",
+   "fieldtype": "Button",
+   "label": "Get Activities"
+  },
+  {
+   "fieldname": "activities",
+   "fieldtype": "Table",
+   "label": "Activities",
+   "options": "Activity Progress Tracking"
+  },
+  {
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Long Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "setcor",
+   "fieldtype": "Link",
+   "label": "Setcor",
+   "options": "Programs"
+  }
+ ],
+ "modified": "2021-03-15 12:04:13.378887",
+ "modified_by": "Administrator",
+ "module": "Program Management",
+ "name": "Logframes",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

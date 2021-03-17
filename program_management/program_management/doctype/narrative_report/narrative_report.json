@@ -1,0 +1,364 @@
+{
+ "autoname": "format:{project_proposal}-{MM}-{YYYY}",
+ "creation": "2021-02-07 19:48:36.140699",
+ "doctype": "DocType",
+ "document_type": "System",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "project_description",
+  "project_proposal",
+  "agreement_no",
+  "project_start_date",
+  "project_end_date",
+  "column_break_5",
+  "project_title",
+  "name_of_the_implementing_partner",
+  "name_and_title_of_the_contact_person",
+  "target_groups_section",
+  "target_group",
+  "assessment_of_implementation_of_project_activities",
+  "executive_summary_of_the_project",
+  "activities_and_results",
+  "planned_activities",
+  "section_break_16",
+  "what_is_your_assessment_of_the_results_of_the_project_so_far",
+  "column_break_18",
+  "please_provide_an_updated_activity_plan",
+  "work_plan_details_section",
+  "project_work_plan",
+  "cooperation",
+  "how_do_you_assess_your_relationship_with_donor",
+  "assess_the_relationship_between_org_loc_athu",
+  "stakeholders_relationship",
+  "developed_synergies",
+  "visibility",
+  "how_is_the_visibility_of_the_donor_being_ensured_in_the_project",
+  "indicator_progress_tracking_details_section",
+  "get_indicators",
+  "indicator_progress_tracking",
+  "total_target",
+  "total_achieved",
+  "monitoring_visits_updates_details_section",
+  "monitoring_visits_updates",
+  "section_break_28",
+  "responsible_person",
+  "responsible_person_name",
+  "location",
+  "column_break_32",
+  "date_report_due",
+  "date_report_sent",
+  "section_break_39",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "project_description",
+   "fieldtype": "Section Break",
+   "label": "1. Project Description"
+  },
+  {
+   "fieldname": "project_proposal",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Project Proposal",
+   "options": "Project Proposal",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "project_proposal.project_title",
+   "fieldname": "project_title",
+   "fieldtype": "Small Text",
+   "label": "Project Title",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project_proposal.fund_code",
+   "fieldname": "agreement_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Agreement No.",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Abs Development Organization",
+   "fieldname": "name_of_the_implementing_partner",
+   "fieldtype": "Link",
+   "label": "Name of the Implementing Partner",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "fieldname": "name_and_title_of_the_contact_person",
+   "fieldtype": "Link",
+   "label": "Name and Title of the Contact Person",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "project_proposal.planned_start_date",
+   "fieldname": "project_start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Project Start Date",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project_proposal.planned_end_date",
+   "fieldname": "project_end_date",
+   "fieldtype": "Date",
+   "label": "Project End Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "target_groups_section",
+   "fieldtype": "Section Break",
+   "label": "Target Groups"
+  },
+  {
+   "description": "(Including Numbers of Women and Men)",
+   "fieldname": "target_group",
+   "fieldtype": "Table",
+   "label": "Target Group",
+   "options": "Target Group",
+   "read_only": 1
+  },
+  {
+   "fieldname": "assessment_of_implementation_of_project_activities",
+   "fieldtype": "Section Break",
+   "label": "2. Assessment of Implementation of Project Activities"
+  },
+  {
+   "fieldname": "executive_summary_of_the_project",
+   "fieldtype": "Text Editor",
+   "label": "Executive Summary of the Project",
+   "reqd": 1
+  },
+  {
+   "fieldname": "activities_and_results",
+   "fieldtype": "Text Editor",
+   "label": "Activities and Results",
+   "reqd": 1
+  },
+  {
+   "description": "Please list activities that were planned and that you were not able to implement, explaining the reasons for these.",
+   "fieldname": "planned_activities",
+   "fieldtype": "Text Editor",
+   "label": "Planned Activities "
+  },
+  {
+   "fieldname": "section_break_16",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "what_is_your_assessment_of_the_results_of_the_project_so_far",
+   "fieldtype": "Text Editor",
+   "label": "What is Your Assessment of the Results of the Project So Far"
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "please_provide_an_updated_activity_plan",
+   "fieldtype": "Text Editor",
+   "label": "Please Provide an Updated Activity Plan"
+  },
+  {
+   "fieldname": "cooperation",
+   "fieldtype": "Section Break",
+   "label": "3. Cooperation"
+  },
+  {
+   "fieldname": "how_do_you_assess_your_relationship_with_donor",
+   "fieldtype": "Text Editor",
+   "label": "How Do You Assess Your Relationship with Donor"
+  },
+  {
+   "default": "How would you assess the relationship between your organisation and local authorities in the Project country(ies)? How has this relationship affected the Project?",
+   "fieldname": "assess_the_relationship_between_org_loc_athu",
+   "fieldtype": "Text Editor",
+   "label": "Assess the Relationship Between your Organization and Local Authorities in the Location of the Relationship"
+  },
+  {
+   "fieldname": "stakeholders_relationship",
+   "fieldtype": "Text Editor",
+   "label": "Where Applicable, Describe your Relationship with any Other Stakeholders Involved in Implementing the Project"
+  },
+  {
+   "fieldname": "developed_synergies",
+   "fieldtype": "Text Editor",
+   "label": "Where Applicable, Outline Any Links and Synergies you Have Developed with Other Projects"
+  },
+  {
+   "description": "(WHEN REQUIRED)",
+   "fieldname": "visibility",
+   "fieldtype": "Section Break",
+   "label": "4. Visibility"
+  },
+  {
+   "fieldname": "how_is_the_visibility_of_the_donor_being_ensured_in_the_project",
+   "fieldtype": "Text Editor",
+   "label": "How is the Visibility of the Donor Being Ensured in the Project"
+  },
+  {
+   "fieldname": "section_break_28",
+   "fieldtype": "Section Break",
+   "label": "More Information"
+  },
+  {
+   "fieldname": "responsible_person",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Responsible Person",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "responsible_person.employee_name",
+   "fieldname": "responsible_person_name",
+   "fieldtype": "Data",
+   "label": "Responsible Person Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "column_break_32",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date_report_due",
+   "fieldtype": "Date",
+   "label": "Date Report Due",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_report_sent",
+   "fieldtype": "Date",
+   "label": "Date Report Sent",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Narrative Report",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "indicator_progress_tracking_details_section",
+   "fieldtype": "Section Break",
+   "label": "Indicator Progress Tracking Details"
+  },
+  {
+   "fieldname": "monitoring_visits_updates_details_section",
+   "fieldtype": "Section Break",
+   "label": "Monitoring Visits Updates Details"
+  },
+  {
+   "fieldname": "monitoring_visits_updates",
+   "fieldtype": "Table",
+   "label": "Monitoring Visits Updates",
+   "options": "Narrative Field Visit Plan"
+  },
+  {
+   "fieldname": "section_break_39",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "work_plan_details_section",
+   "fieldtype": "Section Break",
+   "label": "Work Plan Details"
+  },
+  {
+   "fieldname": "total_target",
+   "fieldtype": "Data",
+   "label": "Total Target",
+   "read_only": 1
+  },
+  {
+   "fieldname": "indicator_progress_tracking",
+   "fieldtype": "Table",
+   "label": "Indicator Progress Tracking",
+   "options": "Indicator Progress Tracking"
+  },
+  {
+   "fieldname": "project_work_plan",
+   "fieldtype": "Table",
+   "label": "Project Work Plan",
+   "options": "Narrative Work Plan"
+  },
+  {
+   "fieldname": "total_achieved",
+   "fieldtype": "Data",
+   "label": "Total Achieved of This Month",
+   "read_only": 1
+  },
+  {
+   "fieldname": "get_indicators",
+   "fieldtype": "Button",
+   "label": "Get Indicators"
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2021-03-15 02:12:24.770505",
+ "modified_by": "o.mutawakel@partner-cons.com",
+ "module": "Program Management",
+ "name": "Narrative Report",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

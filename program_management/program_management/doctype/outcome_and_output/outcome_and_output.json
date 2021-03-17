@@ -101,7 +101,7 @@
    "fieldtype": "Select",
    "in_standard_filter": 1,
    "label": "Type",
-   "options": "Objective\nOutcome\nOutput",
+   "options": "Objective\nImpact\nResult\nOutcome\nOutput",
    "reqd": 1
   },
   {
@@ -126,7 +126,7 @@
   }
  ],
  "is_tree": 1,
- "modified": "2020-11-24 23:27:52.693892",
+ "modified": "2021-03-15 13:06:55.926108",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Outcome and Output",

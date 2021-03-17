@@ -13,7 +13,9 @@
   "project_proposal",
   "linked_with",
   "output",
+  "activity",
   "section_break_5",
+  "is_percentage",
   "indicator_detail",
   "section_break_10",
   "total_men",
@@ -48,6 +50,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "depends_on": "eval:doc.linked_with!=\"Activity\"",
    "fieldname": "output",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -80,7 +83,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Linked With",
-   "options": "Objective\nOutcome\nOutput"
+   "options": "Objective\nOutcome\nOutput\nActivity"
   },
   {
    "fieldname": "code",
@@ -148,9 +151,22 @@
    "fieldtype": "Int",
    "label": "Total",
    "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.linked_with==\"Activity\"",
+   "fieldname": "activity",
+   "fieldtype": "Link",
+   "label": "Activity",
+   "options": "Activity"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_percentage",
+   "fieldtype": "Check",
+   "label": "Is Percentage"
   }
  ],
- "modified": "2020-11-24 23:32:32.633436",
+ "modified": "2021-02-13 23:50:38.523175",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Indicators",
@@ -165,6 +181,30 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects Manager",
    "share": 1,
    "write": 1
   }

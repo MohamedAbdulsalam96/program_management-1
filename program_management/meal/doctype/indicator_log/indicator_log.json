@@ -9,11 +9,13 @@
   "project",
   "indicator",
   "indicator_subject",
+  "indicator_type",
   "column_break_3",
   "remaining",
   "cumulative_progress",
   "in_progress",
   "section_break_5",
+  "is_percentage",
   "indicator_log_detail",
   "section_break_6",
   "total_men",
@@ -249,9 +251,24 @@
    "label": "Project",
    "options": "Project",
    "read_only": 1
+  },
+  {
+   "fetch_from": "indicator.linked_with",
+   "fieldname": "indicator_type",
+   "fieldtype": "Data",
+   "label": "Indicator Type",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "indicator.is_percentage",
+   "fieldname": "is_percentage",
+   "fieldtype": "Check",
+   "label": "Is Percentage",
+   "read_only": 1
   }
  ],
- "modified": "2021-01-14 02:36:29.259404",
+ "modified": "2021-02-17 23:04:34.104675",
  "modified_by": "Administrator",
  "module": "MEAL",
  "name": "Indicator Log",

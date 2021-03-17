@@ -5,7 +5,8 @@
  "engine": "InnoDB",
  "field_order": [
   "donor",
-  "donor_name"
+  "donor_name",
+  "donor_focalpoint"
  ],
  "fields": [
   {
@@ -13,18 +14,26 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Donor",
-   "options": "Donor"
+   "options": "Customer"
   },
   {
-   "fetch_from": "donor.donor_name",
+   "fetch_from": "donor.customer_name",
    "fieldname": "donor_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Donor Name"
+   "label": "Donor Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "donor.email_id",
+   "fieldname": "donor_focalpoint",
+   "fieldtype": "Data",
+   "label": "Donor Focalpoint",
+   "read_only": 1
   }
  ],
  "istable": 1,
- "modified": "2020-07-18 23:40:27.011429",
+ "modified": "2021-03-15 11:56:53.105985",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Donors Details",

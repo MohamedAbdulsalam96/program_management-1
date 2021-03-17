@@ -1,4 +1,5 @@
 {
+ "allow_rename": 1,
  "autoname": "field:category",
  "creation": "2020-07-20 00:39:52.295871",
  "doctype": "DocType",
@@ -23,7 +24,7 @@
    "label": "Description"
   }
  ],
- "modified": "2020-09-20 08:43:32.023875",
+ "modified": "2021-03-15 12:29:15.977734",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Beneficiaries Category",

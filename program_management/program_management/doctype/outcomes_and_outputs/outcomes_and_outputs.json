@@ -1,0 +1,71 @@
+{
+ "creation": "2021-02-21 18:33:05.146875",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "type",
+  "outcome_and_output",
+  "is_group",
+  "column_break_4",
+  "subject",
+  "program"
+ ],
+ "fields": [
+  {
+   "fieldname": "outcome_and_output",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Outcome and Output",
+   "options": "Outcome and Output"
+  },
+  {
+   "fetch_from": "outcome_and_output.subject",
+   "fieldname": "subject",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Subject",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "outcome_and_output.program",
+   "fieldname": "program",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Program",
+   "options": "Programs",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "outcome_and_output.type",
+   "fieldname": "type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Type",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "outcome_and_output.is_group",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Is Group",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-03-01 18:50:35.134111",
+ "modified_by": "a.mutaher@partner-cons.com",
+ "module": "Program Management",
+ "name": "Outcomes and Outputs",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
