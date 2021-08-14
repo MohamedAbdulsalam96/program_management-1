@@ -1,0 +1,70 @@
+{
+ "creation": "2021-03-14 18:03:33.897806",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "project_name",
+  "target_sector",
+  "donor",
+  "from_date",
+  "to_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "project_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Project Name",
+   "options": "Project"
+  },
+  {
+   "fetch_from": "project.project_sector",
+   "fieldname": "target_sector",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Target Sector",
+   "options": "Programs",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.donor",
+   "fieldname": "donor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Donor",
+   "options": "Customer"
+  },
+  {
+   "fetch_from": "project.expected_start_date",
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "From Date",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.expected_end_date",
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "To Date"
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-03-24 10:17:11.582166",
+ "modified_by": "Administrator",
+ "module": "Program Management",
+ "name": "Project Description List",
+ "owner": "o.mutawakel@partner-cons.com",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

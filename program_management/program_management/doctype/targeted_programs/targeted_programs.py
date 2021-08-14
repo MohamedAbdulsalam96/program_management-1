@@ -28,7 +28,11 @@ def get_approvers(doctype, txt, searchfield, start, page_len, filters):
 	if filters.get("doctype") == "Outcome and Output":
 		parentfield = "targeted_programs"
 		field_name = "Targeted Programs"
-	
+
+	if filters.get("doctype") == "Project":
+		parentfield = "targeted_programs"
+		field_name = "Targeted Programs"
+
 	if department_list:
 		for d in department_list:
 			approvers += frappe.db.sql("""select programs.name from

@@ -12,6 +12,7 @@
   "progress",
   "raised_by",
   "employee_name",
+  "status",
   "discerption"
  ],
  "fields": [
@@ -26,7 +27,8 @@
    "fieldname": "attachment",
    "fieldtype": "Attach",
    "in_list_view": 1,
-   "label": "Attachment"
+   "label": "Attachment",
+   "reqd": 1
   },
   {
    "fieldname": "date",
@@ -73,10 +75,17 @@
    "fieldname": "discerption",
    "fieldtype": "Small Text",
    "label": "Discerption "
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nOpen\nPending\nCompleted\nCanceled",
+   "reqd": 1
   }
  ],
  "istable": 1,
- "modified": "2021-03-17 00:23:17.823106",
+ "modified": "2021-03-22 09:51:13.178564",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Per Coordinate Details",

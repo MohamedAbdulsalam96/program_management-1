@@ -5,24 +5,30 @@
  "engine": "InnoDB",
  "field_order": [
   "activity",
-  "stakeholder",
+  "activity_subject",
   "communication_type",
   "required_information",
   "responsibility",
+  "employee_name",
+  "column_break_7",
+  "date",
+  "stakeholder",
+  "attachment",
   "notes"
  ],
  "fields": [
   {
    "fieldname": "activity",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Activity"
+   "fieldtype": "Link",
+   "label": "Activity",
+   "options": "Activity"
   },
   {
    "fieldname": "stakeholder",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Stakeholder"
+   "label": "Stakeholder",
+   "options": "Customer"
   },
   {
    "fieldname": "communication_type",
@@ -49,11 +55,42 @@
    "fieldtype": "Small Text",
    "in_list_view": 1,
    "label": "Notes"
+  },
+  {
+   "fetch_from": "responsibility.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "activity.activity",
+   "fieldname": "activity_subject",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Activity Subject",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "attachment",
+   "fieldtype": "Attach",
+   "label": "Attachment"
+  },
+  {
+   "columns": 1,
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of Communication"
   }
  ],
  "istable": 1,
- "modified": "2020-07-19 23:58:12.430208",
- "modified_by": "t.azzan@partner-cons.com",
+ "modified": "2021-05-03 15:01:11.818961",
+ "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Communication Plan Table",
  "owner": "Administrator",

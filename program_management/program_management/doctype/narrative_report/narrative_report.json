@@ -14,19 +14,17 @@
   "column_break_5",
   "project_title",
   "name_of_the_implementing_partner",
-  "name_and_title_of_the_contact_person",
   "target_groups_section",
   "target_group",
   "assessment_of_implementation_of_project_activities",
   "executive_summary_of_the_project",
-  "activities_and_results",
+  "project_work_plan",
   "planned_activities",
   "section_break_16",
   "what_is_your_assessment_of_the_results_of_the_project_so_far",
   "column_break_18",
   "please_provide_an_updated_activity_plan",
   "work_plan_details_section",
-  "project_work_plan",
   "cooperation",
   "how_do_you_assess_your_relationship_with_donor",
   "assess_the_relationship_between_org_loc_athu",
@@ -94,13 +92,6 @@
    "read_only": 1
   },
   {
-   "fieldname": "name_and_title_of_the_contact_person",
-   "fieldtype": "Link",
-   "label": "Name and Title of the Contact Person",
-   "options": "Employee",
-   "reqd": 1
-  },
-  {
    "fetch_from": "project_proposal.planned_start_date",
    "fieldname": "project_start_date",
    "fieldtype": "Date",
@@ -138,12 +129,6 @@
    "fieldname": "executive_summary_of_the_project",
    "fieldtype": "Text Editor",
    "label": "Executive Summary of the Project",
-   "reqd": 1
-  },
-  {
-   "fieldname": "activities_and_results",
-   "fieldtype": "Text Editor",
-   "label": "Activities and Results",
    "reqd": 1
   },
   {
@@ -314,8 +299,8 @@
   }
  ],
  "is_submittable": 1,
- "modified": "2021-03-15 02:12:24.770505",
- "modified_by": "o.mutawakel@partner-cons.com",
+ "modified": "2021-04-11 10:18:05.769752",
+ "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Narrative Report",
  "owner": "Administrator",

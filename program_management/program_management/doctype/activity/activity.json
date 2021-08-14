@@ -9,6 +9,7 @@
   "code",
   "activity",
   "description",
+  "means_of_verification",
   "column_break_3",
   "project_proposal",
   "linked_with",
@@ -125,9 +126,14 @@
    "fieldname": "edit_dates",
    "fieldtype": "Check",
    "label": "Edit Dates"
+  },
+  {
+   "fieldname": "means_of_verification",
+   "fieldtype": "Data",
+   "label": "Means of Verification"
   }
  ],
- "modified": "2021-03-15 13:19:33.204372",
+ "modified": "2021-04-07 17:57:30.115651",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Activity",
@@ -170,7 +176,6 @@
    "write": 1
   }
  ],
- "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

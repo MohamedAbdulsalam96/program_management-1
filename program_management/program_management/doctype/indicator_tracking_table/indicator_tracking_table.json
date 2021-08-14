@@ -1,0 +1,153 @@
+{
+ "creation": "2021-04-17 15:15:05.922849",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "indicator",
+  "indicator_subject",
+  "target",
+  "achieved_of_this_month",
+  "column_break_4",
+  "is_percentage",
+  "remaining",
+  "in_progress",
+  "section_break_8",
+  "achieved_men",
+  "achieved_women",
+  "column_break_12",
+  "achieved_boys",
+  "achieved_girls",
+  "column_break_15",
+  "achieved_unclassified",
+  "total_achieved",
+  "section_break_18",
+  "comment"
+ ],
+ "fields": [
+  {
+   "fieldname": "indicator",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Indicator",
+   "options": "Indicator Log",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "indicator.indicator_subject",
+   "fieldname": "indicator_subject",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Indicator Subject",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "indicator.total",
+   "fieldname": "target",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Target",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "indicator.total_achieved",
+   "fieldname": "achieved_of_this_month",
+   "fieldtype": "Int",
+   "label": "Achieved of This Month"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fetch_from": "indicator.is_percentage",
+   "fieldname": "is_percentage",
+   "fieldtype": "Check",
+   "label": "Is Percentage",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "indicator.remaining",
+   "fieldname": "remaining",
+   "fieldtype": "Data",
+   "label": "Remaining",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "indicator.in_progress",
+   "fieldname": "in_progress",
+   "fieldtype": "Percent",
+   "label": "In Progress",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "indicator.achieved_men",
+   "fieldname": "achieved_men",
+   "fieldtype": "Int",
+   "label": "Achieved Men"
+  },
+  {
+   "fetch_from": "indicator.achieved_women",
+   "fieldname": "achieved_women",
+   "fieldtype": "Int",
+   "label": "Achieved Women"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "indicator.achieved_boys",
+   "fieldname": "achieved_boys",
+   "fieldtype": "Int",
+   "label": "Achieved Boys"
+  },
+  {
+   "fetch_from": "indicator.achieved_girls",
+   "fieldname": "achieved_girls",
+   "fieldtype": "Int",
+   "label": "Achieved Girls"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "indicator.achieved_unclassified",
+   "fieldname": "achieved_unclassified",
+   "fieldtype": "Int",
+   "label": "Achieved Unclassified"
+  },
+  {
+   "fetch_from": "indicator.total_achieved",
+   "fieldname": "total_achieved",
+   "fieldtype": "Int",
+   "label": "Total Achieved"
+  },
+  {
+   "fieldname": "section_break_18",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "comment",
+   "fieldtype": "Small Text",
+   "label": "Comment"
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-04-17 15:18:26.204262",
+ "modified_by": "Administrator",
+ "module": "Program Management",
+ "name": "Indicator Tracking Table",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

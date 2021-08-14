@@ -9,10 +9,10 @@
   "project",
   "project_name",
   "fund_project_code",
-  "donor",
   "column_break_5",
+  "project_proposal",
+  "donor",
   "project_manager",
-  "project_location",
   "expected_start_date",
   "expected_end_date",
   "communication_plan_details_section",
@@ -22,8 +22,10 @@
   {
    "fieldname": "project",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Project",
-   "options": "Project"
+   "options": "Project",
+   "reqd": 1
   },
   {
    "fetch_from": "project.project_name",
@@ -33,7 +35,7 @@
    "read_only": 1
   },
   {
-   "fetch_from": "project.fund_project_code",
+   "fetch_from": "project.fund_code",
    "fieldname": "fund_project_code",
    "fieldtype": "Data",
    "label": "Fund Project Code",
@@ -58,13 +60,6 @@
    "read_only": 1
   },
   {
-   "fetch_from": "project.project_location",
-   "fieldname": "project_location",
-   "fieldtype": "Data",
-   "label": "Project Location",
-   "read_only": 1
-  },
-  {
    "fetch_from": "project.expected_start_date",
    "fieldname": "expected_start_date",
    "fieldtype": "Data",
@@ -79,6 +74,7 @@
    "read_only": 1
   },
   {
+   "depends_on": "project",
    "fieldname": "communication_plan_details_section",
    "fieldtype": "Section Break",
    "label": "Communication Plan Details"
@@ -87,16 +83,25 @@
    "fieldname": "communication_plan",
    "fieldtype": "Table",
    "label": "Communication Plan",
-   "options": "Communication Plan Table"
+   "options": "Communication Plan Table",
+   "reqd": 1
   },
   {
    "fieldname": "naming_series",
    "fieldtype": "Select",
    "label": "Naming Series",
    "options": "CP-.YYYY.-"
+  },
+  {
+   "fetch_from": "project.project_proposal",
+   "fieldname": "project_proposal",
+   "fieldtype": "Link",
+   "label": "Project Proposal",
+   "options": "Project Proposal",
+   "read_only": 1
   }
  ],
- "modified": "2020-09-20 08:42:17.997142",
+ "modified": "2021-04-05 21:19:33.978168",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Communication Plan",
@@ -123,6 +128,18 @@
    "read": 1,
    "report": 1,
    "role": "Projects User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects Manager",
    "share": 1,
    "write": 1
   }

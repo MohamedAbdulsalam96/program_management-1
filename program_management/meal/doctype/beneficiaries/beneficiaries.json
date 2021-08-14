@@ -1,0 +1,84 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2021-06-23 11:02:47.255440",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "name1",
+  "age",
+  "gender",
+  "column_break_4",
+  "living",
+  "mobile_number",
+  "offered_service"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Int",
+   "label": "Age"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "\n\u0630\u0643\u0631\n\u0627\u0646\u062b\u0649"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "living",
+   "fieldtype": "Data",
+   "label": "Living"
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile Number"
+  },
+  {
+   "fieldname": "offered_service",
+   "fieldtype": "Data",
+   "label": "Offered Service"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "BEN-.YYYY.-"
+  }
+ ],
+ "modified": "2021-06-23 11:06:30.530562",
+ "modified_by": "Administrator",
+ "module": "MEAL",
+ "name": "Beneficiaries",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

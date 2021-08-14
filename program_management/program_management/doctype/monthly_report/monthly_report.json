@@ -81,7 +81,7 @@
    "read_only": 1
   },
   {
-   "fetch_from": "project.fund_project_code",
+   "fetch_from": "project.fund_code",
    "fieldname": "fund_project_code",
    "fieldtype": "Data",
    "label": "Fund Project Code",
@@ -108,7 +108,7 @@
    "read_only": 1
   },
   {
-   "fetch_from": "project.project_location",
+   "fetch_from": "project.allocation_type",
    "fieldname": "project_location",
    "fieldtype": "Data",
    "label": "Project Location",
@@ -221,7 +221,6 @@
    "options": "Indicator Log Monthly Report"
   },
   {
-   "fetch_from": "project.cluster",
    "fieldname": "sector",
    "fieldtype": "Data",
    "label": "Sector",
@@ -245,13 +244,14 @@
   }
  ],
  "is_submittable": 1,
- "modified": "2020-12-31 23:45:37.453926",
+ "modified": "2021-06-21 11:11:06.734903",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Monthly Report",
  "owner": "Administrator",
  "permissions": [
   {
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -261,6 +261,7 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   },
   {
@@ -288,6 +289,7 @@
    "write": 1
   },
   {
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -297,9 +299,11 @@
    "report": 1,
    "role": "Projects User",
    "share": 1,
+   "submit": 1,
    "write": 1
   },
   {
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -309,6 +313,7 @@
    "report": 1,
    "role": "Projects Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],

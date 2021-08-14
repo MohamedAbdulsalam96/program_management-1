@@ -1,0 +1,250 @@
+{
+ "autoname": "format:MRR-{MM}-{project}",
+ "creation": "2021-04-07 20:04:50.937833",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "project_detail_section",
+  "project",
+  "project_title",
+  "project_manager",
+  "project_manager_name",
+  "project_manager_email",
+  "column_break_7",
+  "project_proposal",
+  "sector",
+  "project_start_date",
+  "project_end_date",
+  "donor",
+  "risk_period_section",
+  "from_date",
+  "column_break_15",
+  "to_date",
+  "date_of_preparing_section",
+  "prepare_date",
+  "column_break_19",
+  "review_date",
+  "section_break_21",
+  "risk_register_details",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "project_detail_section",
+   "fieldtype": "Section Break",
+   "label": "Project Detail"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Project",
+   "options": "Project",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "project.project_name",
+   "fieldname": "project_title",
+   "fieldtype": "Small Text",
+   "label": "Project Title",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.project_manager",
+   "fieldname": "project_manager",
+   "fieldtype": "Link",
+   "label": "Project Manager",
+   "options": "Employee",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.project_manager_email",
+   "fieldname": "project_manager_name",
+   "fieldtype": "Data",
+   "label": "Project Manager Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.project_manager_email",
+   "fieldname": "project_manager_email",
+   "fieldtype": "Link",
+   "label": "Project Manager Email",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "project.project_proposal",
+   "fieldname": "project_proposal",
+   "fieldtype": "Link",
+   "label": "Project Proposal",
+   "options": "Project Proposal",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.project_sector",
+   "fieldname": "sector",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Sector",
+   "options": "Programs",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.expected_start_date",
+   "fieldname": "project_start_date",
+   "fieldtype": "Date",
+   "label": "Project Start Date",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.expected_end_date",
+   "fieldname": "project_end_date",
+   "fieldtype": "Data",
+   "label": "Project End Date",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.donor",
+   "fieldname": "donor",
+   "fieldtype": "Link",
+   "label": "Donor",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "risk_period_section",
+   "fieldtype": "Section Break",
+   "label": "Risk Period"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_of_preparing_section",
+   "fieldtype": "Section Break",
+   "label": "Date of Preparing"
+  },
+  {
+   "fieldname": "prepare_date",
+   "fieldtype": "Date",
+   "label": "Prepare Date"
+  },
+  {
+   "fieldname": "column_break_19",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "review_date",
+   "fieldtype": "Date",
+   "label": "Review Date"
+  },
+  {
+   "fieldname": "section_break_21",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "risk_register_details",
+   "fieldtype": "Table",
+   "label": "Risk Register Details",
+   "options": "Risk Register Details"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Risk Register",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2021-04-07 20:08:49.359721",
+ "modified_by": "Administrator",
+ "module": "Program Management",
+ "name": "Risk Register",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "set_user_permissions": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "if_owner": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "report": 1,
+   "role": "Projects Manager"
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Programs Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects User"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

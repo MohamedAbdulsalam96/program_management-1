@@ -20,6 +20,7 @@
   "over_spending",
   "justification",
   "section_break_2",
+  "means_of_verification",
   "description"
  ],
  "fields": [
@@ -134,10 +135,17 @@
    "fieldname": "justification",
    "fieldtype": "Small Text",
    "label": "Justification"
+  },
+  {
+   "fetch_from": "activity.means_of_verification",
+   "fieldname": "means_of_verification",
+   "fieldtype": "Data",
+   "label": "Means of Verification",
+   "read_only": 1
   }
  ],
  "istable": 1,
- "modified": "2021-02-13 23:27:06.489313",
+ "modified": "2021-05-09 15:35:29.211838",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Work Plan Details",

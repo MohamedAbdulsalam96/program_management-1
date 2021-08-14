@@ -6,6 +6,7 @@ from __future__ import unicode_literals
 import frappe
 from frappe import _
 from frappe.model.document import Document
+from frappe.model.mapper import get_mapped_doc
 from frappe.utils import (flt)
 from frappe.contacts.address_and_contact import load_address_and_contact
 
@@ -24,3 +25,23 @@ class ProjectProposal(Document):
 	def onload(self):
 		"""Load address and contacts in `__onload`"""
 		load_address_and_contact(self)
+
+@frappe.whitelist()
+def make_project(source_name, target_doc=None):
+	target_doc = get_mapped_doc("Project Proposal", source_name, {
+		"Project Proposal": {
+			"doctype": "Project",
+			"field_map": {
+				"name": "project_proposal",
+				"project_title":"project_name",
+				"project_no":"project_code",
+				"fund_code":"fund_code",
+				"planned_start_date":"expected_start_date",
+				"planned_end_date":"expected_end_date",
+				"budget":"estimated_costing",
+			}
+
+		}
+	}, target_doc)
+	target_doc.from_assessment = "Project Proposal"
+	return target_doc

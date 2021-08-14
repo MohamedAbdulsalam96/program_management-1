@@ -4,16 +4,14 @@
 frappe.ui.form.on('Project Proposal', {
     refresh(frm) {
 		if (frm.doc.docstatus==1){
-			frm.add_custom_button(__("Project"),
-				() => frm.events.make_project(frm), __('Create'));
+				frm.add_custom_button(__("Project"), function () {
+					frappe.model.open_mapped_doc({
+						method: "program_management.program_management.doctype.project_proposal.project_proposal.make_project",
+						frm: frm
+					});
+				},__('Create'));
+				frm.page.set_inner_btn_group_as_primary(__('Create'));
 		}		
-	},
-	make_project: function(frm) {
-		frappe.route_options = {"project_proposal": frm.doc.name,
-			"project_code": frm.doc.project_no,
-			"estimated_costing": frm.doc.budget}
-		frappe.set_route("Form", 'Project', 'New Project 1');
-
 	},
 
     validate: function(frm) {

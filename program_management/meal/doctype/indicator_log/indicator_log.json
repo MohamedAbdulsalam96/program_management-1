@@ -10,10 +10,14 @@
   "indicator",
   "indicator_subject",
   "indicator_type",
+  "output",
+  "activity",
+  "means_of_verification",
   "column_break_3",
   "remaining",
   "cumulative_progress",
   "in_progress",
+  "status",
   "section_break_5",
   "is_percentage",
   "indicator_log_detail",
@@ -42,7 +46,8 @@
   "column_break_27",
   "achieved_unclassified",
   "column_break_29",
-  "total_achieved"
+  "total_achieved",
+  "section_break_43"
  ],
  "fields": [
   {
@@ -256,6 +261,8 @@
    "fetch_from": "indicator.linked_with",
    "fieldname": "indicator_type",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Indicator Type",
    "read_only": 1
   },
@@ -266,9 +273,44 @@
    "fieldtype": "Check",
    "label": "Is Percentage",
    "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "\nAchieved\nUnder Achieved\nOver Achieved",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "indicator.mean_of_verification",
+   "fieldname": "means_of_verification",
+   "fieldtype": "Data",
+   "label": "Means of Verification"
+  },
+  {
+   "fetch_from": "indicator.output",
+   "fieldname": "output",
+   "fieldtype": "Link",
+   "label": "Linked With",
+   "options": "Outcome and Output",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "indicator.activity",
+   "fieldname": "activity",
+   "fieldtype": "Link",
+   "label": "Linked With",
+   "options": "Activity",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_43",
+   "fieldtype": "Section Break"
   }
  ],
- "modified": "2021-02-17 23:04:34.104675",
+ "modified": "2021-05-03 14:27:24.828695",
  "modified_by": "Administrator",
  "module": "MEAL",
  "name": "Indicator Log",

@@ -14,13 +14,13 @@
   "column_break_8",
   "age_group",
   "section_break_10",
-  "total_men",
+  "men",
   "column_break_12",
-  "total_woman",
+  "women",
   "column_break_14",
-  "total_boys",
+  "boys",
   "column_break_16",
-  "total_girls",
+  "girls",
   "column_break_18",
   "unclassified",
   "column_break_20",
@@ -28,52 +28,32 @@
  ],
  "fields": [
   {
-   "fieldname": "total_men",
-   "fieldtype": "Int",
-   "in_list_view": 1,
-   "label": "Total Men"
-  },
-  {
    "fieldname": "column_break_2",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "total_woman",
-   "fieldtype": "Int",
-   "in_list_view": 1,
-   "label": "Total Women"
   },
   {
    "fieldname": "column_break_4",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "total_boys",
-   "fieldtype": "Int",
-   "in_list_view": 1,
-   "label": "Total Boys"
-  },
-  {
    "fieldname": "column_break_6",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "total_girls",
-   "fieldtype": "Int",
-   "in_list_view": 1,
-   "label": "Total Girls"
   },
   {
    "fieldname": "column_break_8",
    "fieldtype": "Column Break"
   },
   {
+   "columns": 1,
+   "default": "0",
    "fieldname": "unclassified",
    "fieldtype": "Int",
    "in_list_view": 1,
-   "label": "Unclassified "
+   "label": "Unclassified"
   },
   {
+   "columns": 1,
+   "default": "0",
    "fieldname": "total",
    "fieldtype": "Int",
    "in_list_view": 1,
@@ -133,11 +113,43 @@
   {
    "fieldname": "column_break_20",
    "fieldtype": "Column Break"
+  },
+  {
+   "columns": 2,
+   "default": "0",
+   "fieldname": "men",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total Men"
+  },
+  {
+   "columns": 2,
+   "default": "0",
+   "fieldname": "women",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total Women"
+  },
+  {
+   "columns": 2,
+   "default": "0",
+   "fieldname": "boys",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total Boys"
+  },
+  {
+   "columns": 2,
+   "default": "0",
+   "fieldname": "girls",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total Girls"
   }
  ],
  "istable": 1,
- "modified": "2021-03-15 11:22:28.821738",
- "modified_by": "o.mutawakel@partner-cons.com",
+ "modified": "2021-05-05 21:35:27.834749",
+ "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Target Group",
  "owner": "Administrator",

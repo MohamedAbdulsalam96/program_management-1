@@ -1,0 +1,37 @@
+{
+ "creation": "2021-03-24 10:25:02.018934",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "problems_and_risks",
+  "solutions_and_mitigation"
+ ],
+ "fields": [
+  {
+   "fieldname": "problems_and_risks",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Problems and Risks",
+   "reqd": 1
+  },
+  {
+   "fieldname": "solutions_and_mitigation",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Solutions and Mitigation",
+   "reqd": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-04-05 22:21:46.375371",
+ "modified_by": "Administrator",
+ "module": "Program Management",
+ "name": "Risks and Solutions",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

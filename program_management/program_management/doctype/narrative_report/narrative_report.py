@@ -8,8 +8,19 @@ from frappe import _
 from frappe.model.document import Document
 
 class NarrativeReport(Document):
+	
 	def validate(self):
+		total_target=0
+		total_achieved=0
+		for d in self.indicator_progress_tracking:			
+			if d.is_percentage==0:
+				total_target += d.target
+				total_achieved += d.achieved_of_this_month			
+		self.total_target=total_target
+		self.total_achieved=total_achieved
+
 		self.sort_details()
+
 	def get_existing_activity_list(self):
 		"""
 			Returns list of active employees based on selected criteria
@@ -32,9 +43,16 @@ class NarrativeReport(Document):
 		if not activities:
 			frappe.throw(_("No indicators for the mentioned project proposal"))
 		existing_activities=self.get_existing_activity_list()
+		total_target=0.0
+		total_achieved=0.0
 		for d in activities:
 			if d.indicator not in existing_activities:
+				if d.is_percentage==0:
+					total_target += d.target
+					total_achieved += d.achieved_of_this_month
 				self.append('indicator_progress_tracking', d)
+		self.total_target=total_target
+		self.total_achieved=total_achieved
 		#self.sort_details()
 
 	def sort_details(self):

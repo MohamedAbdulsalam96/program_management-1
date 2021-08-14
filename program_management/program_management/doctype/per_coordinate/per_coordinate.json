@@ -8,16 +8,7 @@
   "naming_series",
   "column_break_2",
   "per_coordinate_title",
-  "project_details_section",
-  "project",
-  "project_title",
-  "project_manager",
-  "project_manager_name",
-  "column_break_9",
-  "sector",
   "donor",
-  "project_start_date",
-  "project_end_date",
   "section_break_13",
   "per_project_details"
  ],
@@ -33,73 +24,12 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "project_details_section",
-   "fieldtype": "Section Break",
-   "label": "Project Details"
-  },
-  {
-   "fieldname": "project",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Project",
-   "options": "Project",
-   "reqd": 1
-  },
-  {
-   "fetch_from": "project.project_name",
-   "fieldname": "project_title",
-   "fieldtype": "Small Text",
-   "label": "Project Title",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "project.project_manager",
-   "fieldname": "project_manager",
-   "fieldtype": "Link",
-   "label": "Project Manager",
-   "options": "Employee",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "project.project_manager_name",
-   "fieldname": "project_manager_name",
-   "fieldtype": "Data",
-   "label": "Project Manager Name",
-   "read_only": 1
-  },
-  {
-   "fieldname": "column_break_9",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "sector",
-   "fieldtype": "Link",
-   "label": "Sector",
-   "options": "Programs"
-  },
-  {
-   "fetch_from": "project.donor",
    "fieldname": "donor",
    "fieldtype": "Link",
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Donor",
    "options": "Customer",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "project.expected_start_date",
-   "fieldname": "project_start_date",
-   "fieldtype": "Date",
-   "label": "Project Start Date",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "project.expected_end_date",
-   "fieldname": "project_end_date",
-   "fieldtype": "Data",
-   "label": "Project End Date",
    "read_only": 1
   },
   {
@@ -121,7 +51,7 @@
    "unique": 1
   }
  ],
- "modified": "2021-03-17 00:26:54.380681",
+ "modified": "2021-03-23 11:43:25.327369",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Per Coordinate",

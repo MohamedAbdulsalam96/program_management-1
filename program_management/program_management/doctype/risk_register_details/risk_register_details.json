@@ -1,0 +1,207 @@
+{
+ "creation": "2021-04-07 20:04:45.695183",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "risk_identification_section",
+  "risk_category",
+  "risk",
+  "column_break_4",
+  "risk_status",
+  "source",
+  "raised_date",
+  "risk_analysis_section",
+  "likelihood_score",
+  "impact_score",
+  "column_break_11",
+  "risk_scores",
+  "risk_rating",
+  "risk_mitigation_plan_section",
+  "risk_strategy",
+  "preventative_actions",
+  "column_break_17",
+  "responsible",
+  "responsible_name",
+  "time",
+  "monitoring_actions_section",
+  "plan_status",
+  "completed_action",
+  "column_break_24",
+  "uncompleted_action",
+  "status",
+  "closed_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "risk_identification_section",
+   "fieldtype": "Section Break",
+   "label": "Risk Identification"
+  },
+  {
+   "fieldname": "risk_category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Risk Category",
+   "options": "\nGovernance\nFinancial\nInternal Support Systems\nCoordination and Partnerships\nExternal Risks",
+   "reqd": 1
+  },
+  {
+   "fieldname": "risk",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Risk",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "risk_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Risk Status",
+   "options": "\nPotential\nActive\nClosed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Data",
+   "label": "Source",
+   "reqd": 1
+  },
+  {
+   "fieldname": "raised_date",
+   "fieldtype": "Date",
+   "label": "Raised Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "risk_analysis_section",
+   "fieldtype": "Section Break",
+   "label": "Risk Analysis"
+  },
+  {
+   "fieldname": "likelihood_score",
+   "fieldtype": "Select",
+   "label": "Likelihood Score",
+   "options": "\n1\n2\n3\n4\n5",
+   "reqd": 1
+  },
+  {
+   "fieldname": "impact_score",
+   "fieldtype": "Select",
+   "label": "Impact Score",
+   "options": "\n1\n2\n3\n4\n5",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "risk_scores",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Risk Scores",
+   "read_only": 1
+  },
+  {
+   "fieldname": "risk_rating",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Risk Rating",
+   "options": "\nLow\nMedium\nVery High",
+   "read_only": 1
+  },
+  {
+   "fieldname": "risk_mitigation_plan_section",
+   "fieldtype": "Section Break",
+   "label": "Risk Mitigation Plan"
+  },
+  {
+   "fieldname": "risk_strategy",
+   "fieldtype": "Select",
+   "label": "Risk Strategy",
+   "options": "\nReduce Risk\nAvoid Risk\nTransfer Risk\nAccept Risk"
+  },
+  {
+   "fieldname": "preventative_actions",
+   "fieldtype": "Small Text",
+   "label": "Preventative Actions"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "responsible",
+   "fieldtype": "Data",
+   "label": "Responsible",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "responsible.employee_name",
+   "fieldname": "responsible_name",
+   "fieldtype": "Data",
+   "label": "Responsible Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "time",
+   "fieldtype": "Time",
+   "label": "Time"
+  },
+  {
+   "fieldname": "monitoring_actions_section",
+   "fieldtype": "Section Break",
+   "label": "Monitoring Actions"
+  },
+  {
+   "fieldname": "plan_status",
+   "fieldtype": "Select",
+   "label": "Plan Status",
+   "options": "\nNo Response Planned\nPlan Idle\nPlan in Progress\nPlan Implemented\nPlan Failed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "completed_action",
+   "fieldtype": "Small Text",
+   "label": "Completed Action"
+  },
+  {
+   "fieldname": "column_break_24",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "uncompleted_action",
+   "fieldtype": "Small Text",
+   "label": "Uncompleted Action"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nRisk Open\nRisk Closed\nRisk Escalated to Issue",
+   "reqd": 1
+  },
+  {
+   "fieldname": "closed_date",
+   "fieldtype": "Date",
+   "label": "Closed Date"
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-04-07 20:09:30.083043",
+ "modified_by": "Administrator",
+ "module": "Program Management",
+ "name": "Risk Register Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -17,15 +17,15 @@ class Logframes(Document):
 			Returns list of active employees based on selected criteria
 			and for which salary structure exists
 		"""
-		return frappe.db.sql_list("""select indicator as indicator from `tabIndicator Progress Tracking` 
-		where parentfield='indicators' and parent=%s order by indicator ASC""",self.name)
+		return frappe.db.sql_list("""select indicator as indicator from `tabIndicator Tracking Table` 
+		where parentfield='itt' and parent=%s order by indicator ASC""",self.name)
 
 	def get_existing_out_list(self):
 		"""
 			Returns list of active employees based on selected criteria
 			and for which salary structure exists
 		"""
-		return frappe.db.sql_list("""select outcome_and_output as outcome_and_output from `tabOutcomes and Outputs` 
+		return frappe.db.sql_list("""select outcome_and_output as outcome_and_output from `tabOutcome and Output` 
 		where parentfield='outcome_and_output' and parent=%s order by outcome_and_output ASC""",self.name)
 
 	def get_existing_act_list(self):
@@ -57,18 +57,20 @@ class Logframes(Document):
 			Returns list of active employees based on selected criteria
 			and for which salary structure exists
 		"""
-		return frappe.db.sql("""select ind.name as indicator, ind.indicator_subject as indicator_subject from `tabIndicator Log` ind 
-		where ind.project_proposal=%s """,self.project_proposal, as_dict=True)
+		return frappe.db.sql("""select * from `tabIndicators` ind 
+		inner join `tabIndicator Log` log
+		on ind.name = log.indicator
+		where ind.output=%s """,self.come_put, as_dict=True)
 
 	def fill_indicators(self):			
 		#self.set('work_plan_details', [])
 		activities = self.get_indicator_list()
 		if not activities:
 			frappe.throw(_("No indicators for the mentioned project proposal"))
-		existing_activities=self.get_existing_activity_list()
-		for d in activities:
-			if d.indicator not in existing_activities:
-				self.append('indicators', d)
+		self.set('itt', [])
+		for a in activities:
+			self.append('itt', a)
+		
 		#self.sort_details()
 
 	def fill_out(self):			

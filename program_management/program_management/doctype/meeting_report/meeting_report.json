@@ -4,7 +4,10 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "meeting_title",
   "meeting_place",
+  "column_break_3",
+  "cluster_minutes",
   "meeting_date",
   "meeting_document",
   "column_break_4",
@@ -40,10 +43,26 @@
    "in_list_view": 1,
    "label": "Meeting Summery",
    "reqd": 1
+  },
+  {
+   "fieldname": "meeting_title",
+   "fieldtype": "Data",
+   "label": "Meeting Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cluster_minutes",
+   "fieldtype": "Data",
+   "label": "Cluster Minutes ",
+   "reqd": 1
   }
  ],
  "istable": 1,
- "modified": "2021-03-17 01:10:16.741377",
+ "modified": "2021-03-22 09:58:00.348418",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Meeting Report",

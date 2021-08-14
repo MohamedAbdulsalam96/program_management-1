@@ -13,20 +13,9 @@ def get_data():
 				},
 				{
 					"type": "doctype",
-					"name": "Location",
-					
-				},
-				{
-					"type": "doctype",
 					"name": "Programs",
 					
 				},
-				{
-					"type": "doctype",
-					"name": "Budget Lines",
-					
-				},
-
 
 				
 			]
@@ -55,6 +44,12 @@ def get_data():
 				{
 					"type": "doctype",
 					"name": "Logframes",					
+				},
+				{
+					"type": "report",
+					"name": "Logframe Summery Report",	
+					"doctype": "Project Proposal",
+					"is_query_report": True				
 				},
 				{
 					"type": "doctype",

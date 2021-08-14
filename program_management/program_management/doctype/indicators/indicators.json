@@ -28,7 +28,9 @@
   "column_break_18",
   "total_unclassified",
   "column_break_20",
-  "total"
+  "total",
+  "section_break_24",
+  "mean_of_verification"
  ],
  "fields": [
   {
@@ -164,9 +166,18 @@
    "fieldname": "is_percentage",
    "fieldtype": "Check",
    "label": "Is Percentage"
+  },
+  {
+   "fieldname": "section_break_24",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "mean_of_verification",
+   "fieldtype": "Data",
+   "label": "Mean of Verification"
   }
  ],
- "modified": "2021-02-13 23:50:38.523175",
+ "modified": "2021-05-03 13:56:44.321886",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Indicators",

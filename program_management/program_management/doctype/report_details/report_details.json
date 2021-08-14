@@ -1,0 +1,123 @@
+{
+ "creation": "2021-03-14 18:25:11.752248",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "activity",
+  "activity_subject",
+  "outputs_and_practices",
+  "column_break_4",
+  "from_date",
+  "to_date",
+  "means_of_verification",
+  "attachment",
+  "more_attach",
+  "attachment_2",
+  "attachment_3",
+  "attachment_4",
+  "section_break_8",
+  "problems_and_risks",
+  "solutions_and_recommendations"
+ ],
+ "fields": [
+  {
+   "fieldname": "activity",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Activity",
+   "options": "Activity"
+  },
+  {
+   "fieldname": "outputs_and_practices",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Outputs and Practices"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date"
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "problems_and_risks",
+   "fieldtype": "Small Text",
+   "label": "Problems and Risks"
+  },
+  {
+   "fieldname": "solutions_and_recommendations",
+   "fieldtype": "Small Text",
+   "label": "Solutions and Recommendations"
+  },
+  {
+   "fieldname": "attachment",
+   "fieldtype": "Attach",
+   "label": "Attachment"
+  },
+  {
+   "default": "0",
+   "fieldname": "more_attach",
+   "fieldtype": "Check",
+   "label": "Add More then one Attach"
+  },
+  {
+   "depends_on": "more_attach",
+   "fieldname": "attachment_2",
+   "fieldtype": "Attach",
+   "label": "Attachment 2"
+  },
+  {
+   "depends_on": "more_attach",
+   "fieldname": "attachment_3",
+   "fieldtype": "Attach",
+   "label": "Attachment 3"
+  },
+  {
+   "depends_on": "more_attach",
+   "fieldname": "attachment_4",
+   "fieldtype": "Attach",
+   "label": "Attachment 4"
+  },
+  {
+   "fetch_from": "activity.activity",
+   "fieldname": "activity_subject",
+   "fieldtype": "Small Text",
+   "label": "Activity Subject",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "activity.means_of_verification",
+   "fieldname": "means_of_verification",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Means of Verification",
+   "options": "Means of Verification",
+   "read_only": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-04-07 12:06:25.268990",
+ "modified_by": "Administrator",
+ "module": "Program Management",
+ "name": "Report Details",
+ "owner": "o.mutawakel@partner-cons.com",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,251 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2021-03-14 18:36:44.951094",
+ "doctype": "DocType",
+ "document_type": "Other",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "project_details_section",
+  "project",
+  "project_title",
+  "project_proposal",
+  "donor",
+  "sector",
+  "column_break_7",
+  "project_manager",
+  "project_manager_name",
+  "project_manager_email",
+  "project_start_date",
+  "project_end_date",
+  "project_description_list",
+  "section_break_2",
+  "action_plan",
+  "get_activities",
+  "report_details",
+  "section_break_4",
+  "strengths_and_weaknesses",
+  "section_break_8",
+  "project_team",
+  "section_break_10",
+  "risks_and_solutions",
+  "section_break_6",
+  "recommendations_for_programs"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "MMR-.MM.-.YYYY.-"
+  },
+  {
+   "fieldname": "project_description_list",
+   "fieldtype": "Table",
+   "hidden": 1,
+   "label": "Project Description List",
+   "options": "Project Description List"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "action_plan",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "label": "Action Plan"
+  },
+  {
+   "fieldname": "report_details",
+   "fieldtype": "Table",
+   "label": "Report Details",
+   "options": "Report Details",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "strengths_and_weaknesses",
+   "fieldtype": "Table",
+   "label": "Strengths and Weaknesses",
+   "options": "Table strengths and weaknesses"
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "project_team",
+   "fieldtype": "Table",
+   "label": "Project Team",
+   "options": "Project Team"
+  },
+  {
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "risks_and_solutions",
+   "fieldtype": "Table",
+   "label": "Risks and Solutions",
+   "options": "Risks and Solutions"
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "recommendations_for_programs",
+   "fieldtype": "Table",
+   "label": "Recommendations for programs",
+   "options": "Recommendations for programs"
+  },
+  {
+   "fieldname": "project_details_section",
+   "fieldtype": "Section Break",
+   "label": "Project Details"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Project",
+   "options": "Project",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "project.project_name",
+   "fieldname": "project_title",
+   "fieldtype": "Small Text",
+   "label": "Project Title",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.project_proposal",
+   "fieldname": "project_proposal",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Project Proposal",
+   "options": "Project Proposal",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.donor",
+   "fieldname": "donor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Donor",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "project.project_manager",
+   "fieldname": "project_manager",
+   "fieldtype": "Link",
+   "label": "Project Manager",
+   "options": "Employee",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.project_manager_name",
+   "fieldname": "project_manager_name",
+   "fieldtype": "Data",
+   "label": "Project Manager Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.project_manager_email",
+   "fieldname": "project_manager_email",
+   "fieldtype": "Link",
+   "label": "Project Manager Email",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.expected_start_date",
+   "fieldname": "project_start_date",
+   "fieldtype": "Date",
+   "label": "Project Start Date",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.expected_end_date",
+   "fieldname": "project_end_date",
+   "fieldtype": "Date",
+   "label": "Project End Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "get_activities",
+   "fieldtype": "Button",
+   "hidden": 1,
+   "label": "Get Activities"
+  },
+  {
+   "fetch_from": "project.project_sector",
+   "fieldname": "sector",
+   "fieldtype": "Link",
+   "label": "Sector",
+   "options": "Programs",
+   "read_only": 1
+  }
+ ],
+ "modified": "2021-04-07 12:07:32.075463",
+ "modified_by": "Administrator",
+ "module": "Program Management",
+ "name": "Managers Monthly Report",
+ "owner": "o.mutawakel@partner-cons.com",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "if_owner": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

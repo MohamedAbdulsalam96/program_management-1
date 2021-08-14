@@ -5,24 +5,45 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "project",
+  "project_title",
   "project_proposal",
-  "setcor",
   "get_logframe",
+  "come_put",
+  "type",
+  "subject",
   "outcome_and_output",
   "indicators_details_section",
   "get_indicators",
   "indicators",
+  "itt",
+  "section_break_12",
+  "achieved_men",
+  "column_break_14",
+  "achieved_women",
+  "column_break_16",
+  "achieved_boys",
+  "column_break_18",
+  "achieved_girls",
+  "column_break_20",
+  "achieved_unclassified",
+  "column_break_22",
+  "total_achieved",
   "activities_details_section",
   "get_activities",
   "activities",
   "section_break_10",
-  "notes"
+  "notes",
+  "more_information_section",
+  "letter_head"
  ],
  "fields": [
   {
+   "fetch_from": "project.project_proposal",
    "fieldname": "project_proposal",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Project Proposal",
    "options": "Project Proposal",
    "reqd": 1,
@@ -32,6 +53,7 @@
    "depends_on": "eval:doc.project_proposal",
    "fieldname": "outcome_and_output",
    "fieldtype": "Table",
+   "hidden": 1,
    "label": "Outcome and Output",
    "options": "Outcomes and Outputs"
   },
@@ -44,6 +66,7 @@
   {
    "fieldname": "indicators",
    "fieldtype": "Table",
+   "hidden": 1,
    "label": "Indicators",
    "options": "Indicator Progress Tracking"
   },
@@ -51,6 +74,7 @@
    "depends_on": "eval:!doc.__islocal",
    "fieldname": "get_logframe",
    "fieldtype": "Button",
+   "hidden": 1,
    "label": "Get Logframe"
   },
   {
@@ -62,6 +86,7 @@
   {
    "fieldname": "activities_details_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Activities Details"
   },
   {
@@ -85,13 +110,128 @@
    "label": "Notes"
   },
   {
-   "fieldname": "setcor",
+   "fieldname": "come_put",
    "fieldtype": "Link",
-   "label": "Setcor",
-   "options": "Programs"
+   "label": "Outcome and Output",
+   "options": "Outcome and Output"
+  },
+  {
+   "fieldname": "itt",
+   "fieldtype": "Table",
+   "label": "Indicates",
+   "options": "Indicator Tracking Table"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Project",
+   "options": "Project",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "project.project_name",
+   "fieldname": "project_title",
+   "fieldtype": "Small Text",
+   "label": "Project Title",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "come_put.subject",
+   "fieldname": "subject",
+   "fieldtype": "Small Text",
+   "label": "Subject",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_12",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "achieved_men",
+   "fieldtype": "Int",
+   "label": "Achieved Men",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "achieved_women",
+   "fieldtype": "Int",
+   "label": "Achieved Women",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "achieved_boys",
+   "fieldtype": "Int",
+   "label": "Achieved Boys",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "achieved_girls",
+   "fieldtype": "Int",
+   "label": "Achieved Girls",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "achieved_unclassified",
+   "fieldtype": "Int",
+   "label": "Achieved Unclassified",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_22",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_achieved",
+   "fieldtype": "Int",
+   "label": "Total Achieved",
+   "read_only": 1
+  },
+  {
+   "fieldname": "more_information_section",
+   "fieldtype": "Section Break",
+   "label": "More Information"
+  },
+  {
+   "default": "Logframes",
+   "fieldname": "letter_head",
+   "fieldtype": "Link",
+   "label": "Letter Head",
+   "options": "Letter Head",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "come_put.type",
+   "fieldname": "type",
+   "fieldtype": "Data",
+   "label": "Type",
+   "read_only": 1
   }
  ],
- "modified": "2021-03-15 12:04:13.378887",
+ "modified": "2021-04-20 02:58:02.856150",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Logframes",
