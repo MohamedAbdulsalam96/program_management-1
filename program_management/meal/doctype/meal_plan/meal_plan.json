@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "autoname": "naming_series:",
  "creation": "2020-08-15 11:36:56.736127",
  "doctype": "DocType",
@@ -6,14 +7,10 @@
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
-  "meal_paln",
   "project",
   "project_name",
-  "fund_project_code",
-  "donor",
   "column_breack_6",
   "project_manager",
-  "project_location",
   "expected_start_date",
   "expected_end_date",
   "section_break_12",
@@ -29,15 +26,9 @@
    "options": "MEAL-Plan-.YYYY.-"
   },
   {
-   "fieldname": "meal_paln",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "MEAL Plan",
-   "reqd": 1
-  },
-  {
    "fieldname": "project",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Project",
    "options": "Project",
    "reqd": 1
@@ -50,20 +41,6 @@
    "read_only": 1
   },
   {
-   "fetch_from": "project.fund_project_code",
-   "fieldname": "fund_project_code",
-   "fieldtype": "Data",
-   "label": "Fund Project Code",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "project.donor",
-   "fieldname": "donor",
-   "fieldtype": "Data",
-   "label": "Donor",
-   "read_only": 1
-  },
-  {
    "fieldname": "column_breack_6",
    "fieldtype": "Column Break"
   },
@@ -72,13 +49,6 @@
    "fieldname": "project_manager",
    "fieldtype": "Data",
    "label": "Project Manager",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "project.project_location",
-   "fieldname": "project_location",
-   "fieldtype": "Data",
-   "label": "Project Location",
    "read_only": 1
   },
   {
@@ -120,8 +90,10 @@
    "read_only": 1
   }
  ],
+ "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "modified": "2020-09-20 08:41:35.291717",
+ "links": [],
+ "modified": "2021-09-28 20:54:19.118071",
  "modified_by": "Administrator",
  "module": "MEAL",
  "name": "MEAL Plan",

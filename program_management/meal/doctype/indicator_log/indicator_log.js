@@ -35,6 +35,7 @@ frappe.ui.form.on('Indicator Log',
 					frm.fields_dict.indicator_log_detail.get_value()[i].unclassified = indicator_detail[i].unclassified;
 					frm.fields_dict.indicator_log_detail.get_value()[i].total = indicator_detail[i].total;
 					frm.fields_dict.indicator_log_detail.get_value()[i].verification_method = indicator_detail[i].verification_method;
+					frm.fields_dict.indicator_log_detail.get_value()[i].hhs = indicator_detail[i].hhs;
 				}
 				frm.refresh();
 				grid_row.toggle_editable("indicator_log_detail", 0);

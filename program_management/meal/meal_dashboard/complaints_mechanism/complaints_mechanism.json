@@ -1,0 +1,33 @@
+{
+ "cards": [],
+ "charts": [
+  {
+   "chart": "Complaint Mechanism - By Channel",
+   "width": "Half"
+  },
+  {
+   "chart": "Complaint Mechanism - By Cities",
+   "width": "Half"
+  },
+  {
+   "chart": "Complaint Mechanism - Donor",
+   "width": "Half"
+  },
+  {
+   "chart": "Complaint Mechanism - By Programs",
+   "width": "Half"
+  }
+ ],
+ "creation": "2021-09-17 00:20:25.284149",
+ "dashboard_name": "Complaints Mechanism",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "modified": "2021-09-18 12:03:00.634853",
+ "modified_by": "Administrator",
+ "module": "MEAL",
+ "name": "Complaints Mechanism",
+ "owner": "Administrator"
+}

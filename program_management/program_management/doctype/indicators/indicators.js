@@ -2,39 +2,20 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Indicators', {
-	// refresh: function(frm) {
-
-	// }
-});
-frappe.ui.form.on('Indicators', {
 	refresh(frm) {
-	cur_frm.set_query("governorate", "indicator_detail", function(doc, cdt, cdn) {
-	var d = locals[cdt][cdn];
-	return{
-		filters: [
-		    
-			['Territory', 'is_Group', '=', 1],
-		
-		]
-	}
-});    
-	cur_frm.set_query("district", "indicator_detail", function(doc, cdt, cdn) {
-	var d = locals[cdt][cdn];
-	return{
-		filters: [
-		    
-			['Territory', 'parent_territory', '=', d.governorate],
-		
-		]
-	}
-});
-    
-	}
-})
+        frm.set_query("governorate", "indicator_detail", function(doc, cdt, cdn) {
+            return {
+				query:"program_management.program_management.doctype.indicators.indicators.get_governorate",
+				filters: {'parent': frm.doc.project_proposal}
+			}
+        });    
+            cur_frm.set_query("district", "indicator_detail", function(doc, cdt, cdn) {
+                return {
+                    query:"program_management.program_management.doctype.indicators.indicators.get_district",
+                    filters: {'parent': frm.doc.project_proposal}
+                }
+        });
 
-
-frappe.ui.form.on('Indicators', {
-	refresh(frm) {
 	cur_frm.set_query("output", function(doc, cdt, cdn) {
 	    var d = locals[cdt][cdn];
     	return{
@@ -45,34 +26,54 @@ frappe.ui.form.on('Indicators', {
 	    	]
             	}
         });
-	}
+
+	},
 })
 
 frappe.ui.form.on('Indicator Detail', {
     
     indicator_detail_remove: function(frm, cdt, cdn) {
-        cur_frm.cscript.calculate_final(frm, cdt, cdn)
+        cur_frm.cscript.calculate_totals(frm);
     },
     men: function(frm, cdt, cdn) {
-        cur_frm.cscript.calculate_final(frm, cdt, cdn)
+        cur_frm.cscript.update_row_amount(frm, cdt, cdn)
     },
     women: function(frm, cdt, cdn) {
-        cur_frm.cscript.calculate_final(frm, cdt, cdn)
+        cur_frm.cscript.update_row_amount(frm, cdt, cdn)
     },
     boys: function(frm, cdt, cdn) {
-        cur_frm.cscript.calculate_final(frm, cdt, cdn)
+        cur_frm.cscript.update_row_amount(frm, cdt, cdn)
     },
     girls: function(frm, cdt, cdn) {
-        cur_frm.cscript.calculate_final(frm, cdt, cdn)
+        cur_frm.cscript.update_row_amount(frm, cdt, cdn)
     },
     unclassified: function(frm, cdt, cdn) {
-       cur_frm.cscript.calculate_final(frm, cdt, cdn)
-    }
+       cur_frm.cscript.update_row_amount(frm, cdt, cdn)
+    },
+    category: function(frm, cdt, cdn) {
+        var u = locals[cdt][cdn];
+        frappe.model.set_value(u.doctype, u.name, "men", 0);
+        frappe.model.set_value(u.doctype, u.name, "women", 0);
+        frappe.model.set_value(u.doctype, u.name, "boys", 0);
+        frappe.model.set_value(u.doctype, u.name, "girls", 0);
+        frappe.model.set_value(u.doctype, u.name, "unclassified", 0);
+        frappe.model.set_value(u.doctype, u.name, "total", 0);
+     }
 })
-cur_frm.cscript.calculate_final= function(frm, cdt, cdn) {
-        var d = locals[cdt][cdn];
-        var final =(d.men+d.women+d.boys+d.girls+d.unclassified);
-        frappe.model.set_value(cdt, cdn, 'total', final);
+
+cur_frm.cscript.update_row_amount = function(frm, cdt, cdn){
+    var u = locals[cdt][cdn];
+    
+    if(u.is_unclassified == 1){
+        frappe.model.set_value(u.doctype, u.name, "total", u.unclassified);
+    }else{
+        var total = u.men +  u.women +  u.boys +  u.girls +  u.unclassified;
+        frappe.model.set_value(u.doctype, u.name, "total", total);
+    }
+    cur_frm.cscript.calculate_totals(frm);
+},
+
+cur_frm.cscript.calculate_totals= function(frm, cdt, cdn) {
         var total_m = 0;
         var total_w = 0;
         var total_b = 0;
@@ -99,9 +100,3 @@ cur_frm.cscript.calculate_final= function(frm, cdt, cdn) {
         refresh_field("total");
     }
     
-frappe.ui.form.on('Indicators', {
-	validate : function(frm, cdt, cdn) {
-       cur_frm.cscript.calculate_final(frm, cdt, cdn)
-   
-	}
-})

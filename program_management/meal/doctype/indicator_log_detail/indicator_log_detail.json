@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "creation": "2020-08-10 00:22:52.158417",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -25,7 +26,7 @@
   "column_break_18",
   "total",
   "section_break_20",
-  "verification_method"
+  "remarks"
  ],
  "fields": [
   {
@@ -57,6 +58,7 @@
   {
    "fieldname": "category",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Category",
    "options": "Beneficiaries Category",
    "read_only": 1
@@ -167,15 +169,15 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "verification_method",
-   "fieldtype": "Link",
-   "label": "Means of Verification",
-   "options": "Means of Verification",
-   "read_only": 1
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
   }
  ],
+ "index_web_pages_for_search": 1,
  "istable": 1,
- "modified": "2020-11-23 10:41:11.988466",
+ "links": [],
+ "modified": "2021-10-07 19:09:48.836228",
  "modified_by": "Administrator",
  "module": "MEAL",
  "name": "Indicator Log Detail",

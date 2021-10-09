@@ -1,0 +1,209 @@
+{
+ "actions": [],
+ "creation": "2021-10-06 16:01:36.951823",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "month",
+  "section_break_2",
+  "governorate",
+  "column_break_2",
+  "district",
+  "column_break_4",
+  "category",
+  "column_break_6",
+  "type",
+  "column_break_8",
+  "age_group",
+  "section_break_8",
+  "men",
+  "column_break_10",
+  "women",
+  "column_break_12",
+  "boys",
+  "column_break_14",
+  "girls",
+  "column_break_16",
+  "unclassified",
+  "column_break_18",
+  "total",
+  "section_break_24",
+  "hhs",
+  "indicator_detail"
+ ],
+ "fields": [
+  {
+   "columns": 1,
+   "fieldname": "month",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Month",
+   "options": "Jan\nFeb\nMar\nApr\nMay\nJun\nJul\nAug\nSep\nOct\nNov\nDec"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "governorate",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Governorate",
+   "options": "Territory"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "Territory"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Category",
+   "options": "Beneficiaries Category"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Type",
+   "options": "Beneficiaries Type"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "age_group",
+   "fieldtype": "Link",
+   "label": "Age Group",
+   "options": "Age Group"
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "columns": 1,
+   "default": "0",
+   "fieldname": "men",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Men"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "default": "0",
+   "fieldname": "women",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Women"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "default": "0",
+   "fieldname": "boys",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Boys"
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "default": "0",
+   "fieldname": "girls",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Girls"
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "unclassified",
+   "fieldtype": "Int",
+   "label": "Unclassified"
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "total",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_24",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "hhs",
+   "fieldtype": "Int",
+   "label": "HHs"
+  },
+  {
+   "fieldname": "indicator_detail",
+   "fieldtype": "Link",
+   "label": "Indicator Detail",
+   "options": "Indicator Detail"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-10-06 16:01:36.951823",
+ "modified_by": "Administrator",
+ "module": "MEAL",
+ "name": "Achieved Indicator",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,26 +1,29 @@
 {
+ "actions": [],
  "allow_rename": 1,
- "autoname": "format:{code} {type}-{project_no}/{program}",
+ "autoname": "format:{code} {type}-{project}/{program}",
  "creation": "2020-07-19 21:43:06.148154",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
-  "type",
-  "subject",
-  "column_break_4",
-  "code",
+  "project",
+  "column_break_3",
   "project_proposal",
-  "project_no",
+  "section_break_5",
+  "type",
   "program",
+  "is_group",
+  "parent_outcome_and_output",
+  "column_break_10",
+  "code",
+  "subject",
+  "section_break_13",
+  "details",
   "lft",
   "rgt",
-  "is_group",
-  "old_parent",
-  "parent_outcome_and_output",
-  "section_break_10",
-  "details"
+  "old_parent"
  ],
  "fields": [
   {
@@ -31,6 +34,7 @@
    "options": "LOG-.YYYY.-#####"
   },
   {
+   "depends_on": "project",
    "fieldname": "subject",
    "fieldtype": "Small Text",
    "in_list_view": 1,
@@ -38,7 +42,8 @@
    "reqd": 1
   },
   {
-   "fetch_from": "project_no.project_proposal",
+   "depends_on": "project",
+   "fetch_from": "project.project_proposal",
    "fieldname": "project_proposal",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -67,10 +72,11 @@
   {
    "allow_in_quick_entry": 1,
    "default": "0",
-   "depends_on": "eval:doc.type!=\"Output\"",
+   "depends_on": "project",
    "fieldname": "is_group",
    "fieldtype": "Check",
-   "label": "Is Group"
+   "label": "Is Group",
+   "read_only": 1
   },
   {
    "fieldname": "old_parent",
@@ -80,19 +86,12 @@
    "options": "Outcome and Output"
   },
   {
-   "allow_in_quick_entry": 1,
+   "depends_on": "eval:doc.project && doc.type!=\"Objective\" ",
    "fieldname": "parent_outcome_and_output",
    "fieldtype": "Link",
    "label": "Parent Outcome and Output",
+   "mandatory_depends_on": "eval:doc.type!=\"Objective\"",
    "options": "Outcome and Output"
-  },
-  {
-   "fieldname": "column_break_4",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "section_break_10",
-   "fieldtype": "Section Break"
   },
   {
    "fieldname": "details",
@@ -100,36 +99,60 @@
    "label": "Details"
   },
   {
+   "depends_on": "project",
    "fieldname": "type",
    "fieldtype": "Select",
    "in_standard_filter": 1,
    "label": "Type",
-   "options": "\nObjective\nImpact\nResult\nOutcome\nOutput",
+   "options": "\nObjective\nOutcome\nOutput",
    "reqd": 1
   },
   {
+   "depends_on": "project",
    "fieldname": "code",
    "fieldtype": "Data",
    "label": "Code",
    "reqd": 1
   },
   {
-   "fieldname": "project_no",
+   "depends_on": "eval:doc.project && doc.type!=\"Objective\" ",
+   "fieldname": "program",
+   "fieldtype": "Link",
+   "label": "Program",
+   "mandatory_depends_on": "eval:doc.type!=\"Objective\"",
+   "options": "Programs"
+  },
+  {
+   "fieldname": "project",
    "fieldtype": "Link",
    "label": "Project",
    "options": "Project",
    "reqd": 1
   },
   {
-   "fieldname": "program",
-   "fieldtype": "Link",
-   "label": "Program",
-   "options": "Programs",
-   "reqd": 1
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "project",
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_13",
+   "fieldtype": "Section Break",
+   "label": "More Details"
   }
  ],
+ "index_web_pages_for_search": 1,
  "is_tree": 1,
- "modified": "2021-05-07 17:34:34.475483",
+ "links": [],
+ "modified": "2021-09-28 19:54:35.246257",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Outcome and Output",

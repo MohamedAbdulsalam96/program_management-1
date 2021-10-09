@@ -1,0 +1,105 @@
+<style>
+	tr.odd td:first-child,
+	tr.even td:first-child {
+		padding-left: 8em;
+	}
+</style>
+
+<table class="table table-bordered display indicators">
+	<thead>
+	</thead>
+	<tbody>
+		{% for obj in indicators %}
+		<tr>
+			<td>
+					Objevtive
+				</td>
+			<td>{{ obj.code }} - {{ obj.subject }}
+				{% if(obj.outcomes) { %}
+				</td>
+				</tr>
+				<tr>
+				<td>
+					<table class="table table-bordered display indicators">
+					<thead>
+						<td style="width: 20%">Result</td>
+						<td style="width: 80%">Indicators</td>
+						<td>2</td>	
+					</thead>
+					<tbody>
+					{% for outcome in obj.outcomes %}
+						<tr>
+						<td>
+						<pre>  {{ outcome.code }}:{{ outcome.subject }}</pre>
+
+						{% if(outcome.indicators) { %}
+							</td>
+							<td>
+							<table class="table table-bordered display indicators">	
+								<thead>	
+								</thead>
+							<tbody>
+							{% for indicator in outcome.indicators %}
+								<tr>								
+								<td>
+								<pre>    {{ indicator.code }}:{{ indicator.indicator }}</pre>
+								</td>
+								</tr>
+							{% endfor %}	
+							</td>
+							</tbody>			
+							</table>			
+						{% } %}
+
+						{% if(outcome.outputs) { %}
+							{% if(!outcome.indicators) { %}
+								</td>
+								</tr>
+							{% } %}
+							{% for output in outcome.outputs %}
+								<tr>
+								<td>
+								<pre>    {{ output.code }}:{{ output.subject }}</pre>
+								
+								{% if(output.indicators) { %}
+									</td>
+									<td>
+									<table class="table table-bordered display indicators">	
+									<tbody>
+									{% for indicator in output.indicators %}
+										<tr>
+										<td>
+										<pre>      {{ indicator.code }}:{{ indicator.indicator }}</pre>
+										</td>
+										</tr>
+									{% endfor %}
+									</td>	
+									
+									</tbody>			
+									</table>
+								{% } %}
+
+							{% endfor %}				
+						{% } %}
+
+
+					{% endfor %}
+					</tbody>
+					</table>
+				</td>
+				</tr>				
+				{% } %}
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+
+<ul>{% for indicator, items in output.indicators|groupby("Output") %}
+	<li>{{ Output }}
+	  <ul>{% for output.indicators in items %}
+		<li>{{ output.indicators.name }}
+	  {% endfor %}</ul>
+	</li>
+  {% endfor %}</ul>

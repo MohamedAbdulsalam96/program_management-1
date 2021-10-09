@@ -1,0 +1,32 @@
+{
+ "actions": [],
+ "creation": "2021-09-15 19:46:01.251731",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "ir_global_goal"
+ ],
+ "fields": [
+  {
+   "fieldname": "ir_global_goal",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "IR Global Goal",
+   "options": "IR Global Goal",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-09-15 19:58:40.474941",
+ "modified_by": "Administrator",
+ "module": "Program Management",
+ "name": "IR Global Goals",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

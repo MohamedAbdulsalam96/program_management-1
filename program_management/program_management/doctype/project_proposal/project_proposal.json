@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "allow_events_in_timeline": 1,
  "allow_import": 1,
  "autoname": "format:PP-{project_no}",
@@ -8,47 +9,55 @@
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
-  "per_project",
-  "project",
+  "source_of_fund",
+  "section_break_3",
   "project_title",
-  "fund_code",
-  "budget",
+  "submitted_by",
   "submitted_date",
+  "field_office_contact_person",
+  "irw_contact_person",
+  "governorates",
+  "districts",
   "column_break_3",
+  "project_no",
   "planned_start_date",
   "planned_end_date",
   "project_duration",
-  "project_no",
-  "currency",
-  "governorates",
-  "districts",
+  "project_budget_usd",
+  "project_budget_gbp",
+  "lead_implementing_partner",
+  "downstream_delivery_partners",
   "section_break_7",
   "project_summery",
-  "section_break_13",
+  "section_break_24",
+  "ir_global_goals",
+  "section_break_26",
+  "strategies_types",
+  "section_break_28",
   "targeted_programs",
   "target_groups_section",
   "target_group",
-  "section_break_22",
+  "section_break_32",
   "total_men",
-  "column_break_24",
+  "column_break_34",
   "total_women",
-  "column_break_26",
+  "column_break_36",
   "total_boys",
-  "column_break_28",
+  "column_break_38",
   "total_girls",
-  "column_break_30",
+  "column_break_40",
   "total_unclassified",
-  "column_break_32",
+  "column_break_42",
   "total",
-  "section_break_18",
+  "section_break_44",
   "donors",
   "address_contacts",
   "contact_html",
-  "column_break_17",
-  "section_break_20",
+  "column_break_48",
+  "country_context_funding",
   "needs_assessment_summary",
   "grant_request_justification",
-  "section_break_24",
+  "participation_population",
   "accountability_to_affected_persons",
   "protection_mainstreaming_and_gbv",
   "gam_reference_number",
@@ -56,9 +65,9 @@
   "risk_management",
   "access",
   "monitoring_and_reporting_plan",
-  "section_break_32",
+  "coordination_and_complementary_section",
   "coordination_and_complementary",
-  "section_break_39",
+  "section_break_62",
   "problem_statement",
   "amended_from"
  ],
@@ -75,22 +84,7 @@
    "fieldtype": "Small Text",
    "in_global_search": 1,
    "in_standard_filter": 1,
-   "label": "Project Title",
-   "reqd": 1
-  },
-  {
-   "fieldname": "fund_code",
-   "fieldtype": "Data",
-   "label": "Fund Code",
-   "reqd": 1
-  },
-  {
-   "fieldname": "budget",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "Budget",
-   "options": "currency",
-   "reqd": 1
+   "label": "Project Title"
   },
   {
    "fieldname": "column_break_3",
@@ -105,7 +99,8 @@
   {
    "fieldname": "planned_end_date",
    "fieldtype": "Date",
-   "label": "Planned End Date"
+   "label": "Planned End Date",
+   "reqd": 1
   },
   {
    "bold": 1,
@@ -115,14 +110,8 @@
    "read_only": 1
   },
   {
-   "fieldname": "currency",
-   "fieldtype": "Link",
-   "in_standard_filter": 1,
-   "label": "Currency",
-   "options": "Currency"
-  },
-  {
    "collapsible": 1,
+   "depends_on": "source_of_fund",
    "fieldname": "section_break_7",
    "fieldtype": "Section Break",
    "label": "Summery"
@@ -130,25 +119,13 @@
   {
    "fieldname": "project_summery",
    "fieldtype": "Text Editor",
-   "label": "Project Summery",
-   "reqd": 1
-  },
-  {
-   "fieldname": "section_break_13",
-   "fieldtype": "Section Break",
-   "hidden": 1
+   "label": "Project Summery"
   },
   {
    "fieldname": "targeted_programs",
    "fieldtype": "Table",
    "label": "Targeted Programs",
-   "options": "Targeted Programs",
-   "reqd": 1
-  },
-  {
-   "collapsible": 1,
-   "fieldname": "section_break_18",
-   "fieldtype": "Section Break"
+   "options": "Targeted Programs"
   },
   {
    "fieldname": "donors",
@@ -157,6 +134,7 @@
    "options": "Donors Details"
   },
   {
+   "depends_on": "source_of_fund",
    "fieldname": "address_contacts",
    "fieldtype": "Section Break",
    "label": "Contacts",
@@ -166,16 +144,6 @@
    "fieldname": "contact_html",
    "fieldtype": "HTML",
    "label": "Contact HTML"
-  },
-  {
-   "fieldname": "column_break_17",
-   "fieldtype": "Column Break"
-  },
-  {
-   "collapsible": 1,
-   "fieldname": "section_break_20",
-   "fieldtype": "Section Break",
-   "label": "COUNTRY CONTEXT & FUNDING"
   },
   {
    "fieldname": "needs_assessment_summary",
@@ -188,10 +156,9 @@
    "label": "Grant Request Justification"
   },
   {
-   "collapsible": 1,
+   "depends_on": "eval:doc.source_of_fund==\"IRW\"",
    "fieldname": "section_break_24",
-   "fieldtype": "Section Break",
-   "label": "PARTICIPATION OF AND ACCOUNTABILITY TO THE AFFECTED POPULATION"
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "accountability_to_affected_persons",
@@ -210,6 +177,7 @@
   },
   {
    "collapsible": 1,
+   "depends_on": "source_of_fund",
    "fieldname": "risk_management_section",
    "fieldtype": "Section Break",
    "label": "RISK MANAGEMENT"
@@ -230,10 +198,9 @@
    "label": "Monitoring and Reporting plan"
   },
   {
-   "collapsible": 1,
+   "depends_on": "source_of_fund",
    "fieldname": "section_break_32",
-   "fieldtype": "Section Break",
-   "label": "COORDINATION AND COMPLEMENTARY"
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "coordination_and_complementary",
@@ -254,18 +221,11 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Project No",
+   "label": "Project Pin Code",
    "reqd": 1
   },
   {
-   "allow_on_submit": 1,
-   "fieldname": "project",
-   "fieldtype": "Link",
-   "label": "Project",
-   "options": "Project",
-   "permlevel": 5
-  },
-  {
+   "depends_on": "source_of_fund",
    "fieldname": "target_groups_section",
    "fieldtype": "Section Break",
    "label": "Target Groups"
@@ -283,28 +243,11 @@
    "label": "Submitted Date"
   },
   {
-   "collapsible": 1,
-   "fieldname": "section_break_39",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "problem_statement",
    "fieldtype": "Text Editor",
-   "label": "Problem Statement "
+   "label": "Problem Statement"
   },
   {
-   "fieldname": "per_project",
-   "fieldtype": "Link",
-   "label": "Per Project",
-   "options": "Per Project",
-   "read_only": 1
-  },
-  {
-   "fieldname": "section_break_22",
-   "fieldtype": "Section Break"
-  },
-  {
-   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "total_men",
    "fieldtype": "Int",
@@ -312,14 +255,13 @@
    "read_only": 1
   },
   {
-   "allow_on_submit": 1,
+   "default": "0",
    "fieldname": "total_women",
    "fieldtype": "Int",
    "label": "Total Women",
    "read_only": 1
   },
   {
-   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "total_boys",
    "fieldtype": "Int",
@@ -327,7 +269,6 @@
    "read_only": 1
   },
   {
-   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "total_girls",
    "fieldtype": "Int",
@@ -335,7 +276,6 @@
    "read_only": 1
   },
   {
-   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "total_unclassified",
    "fieldtype": "Int",
@@ -343,7 +283,6 @@
    "read_only": 1
   },
   {
-   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "total",
    "fieldtype": "Int",
@@ -351,27 +290,6 @@
    "read_only": 1
   },
   {
-   "fieldname": "column_break_24",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_26",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_28",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_30",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_32",
-   "fieldtype": "Column Break"
-  },
-  {
-   "depends_on": "eval:doc.governorates",
    "fieldname": "districts",
    "fieldtype": "Table MultiSelect",
    "label": "Districts",
@@ -381,12 +299,145 @@
    "fieldname": "governorates",
    "fieldtype": "Table MultiSelect",
    "label": "Governorates",
-   "options": "Governorates",
+   "options": "Governorates"
+  },
+  {
+   "fieldname": "submitted_by",
+   "fieldtype": "Data",
+   "label": "Submitted By"
+  },
+  {
+   "fieldname": "field_office_contact_person",
+   "fieldtype": "Data",
+   "label": "Field Office Contact Person"
+  },
+  {
+   "depends_on": "eval:doc.source_of_fund==\"IRW\"",
+   "fieldname": "irw_contact_person",
+   "fieldtype": "Data",
+   "label": "IRW Contact Person",
+   "mandatory_depends_on": "eval:doc.source_of_fund==\"IRW\""
+  },
+  {
+   "fieldname": "lead_implementing_partner",
+   "fieldtype": "Data",
+   "label": "Lead Implementing Partner"
+  },
+  {
+   "fieldname": "downstream_delivery_partners",
+   "fieldtype": "Data",
+   "label": "Downstream Delivery Partners"
+  },
+  {
+   "fieldname": "ir_global_goals",
+   "fieldtype": "Table MultiSelect",
+   "label": "IR Global Goals",
+   "mandatory_depends_on": "eval:doc.source_of_fund==\"IRW\"",
+   "options": "IR Global Goals"
+  },
+  {
+   "depends_on": "eval:doc.source_of_fund==\"IRW\"",
+   "fieldname": "section_break_26",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "source_of_fund",
+   "fieldname": "section_break_28",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_34",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_36",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_38",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_40",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_42",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "source_of_fund",
+   "fieldname": "section_break_44",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_48",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "source_of_fund",
+   "fieldname": "country_context_funding",
+   "fieldtype": "Section Break",
+   "label": "COUNTRY CONTEXT & FUNDING"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "source_of_fund",
+   "fieldname": "participation_population",
+   "fieldtype": "Section Break",
+   "label": "PARTICIPATION OF AND ACCOUNTABILITY TO THE AFFECTED POPULATION"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "source_of_fund",
+   "fieldname": "coordination_and_complementary_section",
+   "fieldtype": "Section Break",
+   "label": "COORDINATION AND COMPLEMENTARY"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "source_of_fund",
+   "fieldname": "section_break_62",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "source_of_fund",
+   "fieldtype": "Link",
+   "label": "Source Of Fund",
+   "options": "Source Of Fund",
    "reqd": 1
+  },
+  {
+   "depends_on": "source_of_fund",
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "project_budget_usd",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Project Budget - USD"
+  },
+  {
+   "fieldname": "project_budget_gbp",
+   "fieldtype": "Currency",
+   "in_standard_filter": 1,
+   "label": "Project Budget - GBP"
+  },
+  {
+   "fieldname": "strategies_types",
+   "fieldtype": "Table MultiSelect",
+   "label": "Strategies Types",
+   "mandatory_depends_on": "eval:doc.source_of_fund==\"IRW\"",
+   "options": "Strategies Types"
   }
  ],
+ "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "modified": "2021-06-17 19:46:20.395812",
+ "links": [],
+ "modified": "2021-10-03 17:17:49.353053",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Project Proposal",
@@ -405,35 +456,9 @@
    "write": 1
   },
   {
-   "amend": 1,
-   "cancel": 1,
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
    "read": 1,
-   "report": 1,
    "role": "Projects User",
-   "share": 1,
-   "submit": 1,
-   "write": 1
-  },
-  {
-   "amend": 1,
-   "cancel": 1,
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "if_owner": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Employee",
-   "share": 1,
-   "submit": 1,
-   "write": 1
+   "select": 1
   },
   {
    "amend": 1,

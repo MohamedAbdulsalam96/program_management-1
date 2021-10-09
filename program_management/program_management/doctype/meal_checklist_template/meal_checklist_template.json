@@ -1,0 +1,156 @@
+{
+ "actions": [],
+ "autoname": "field:meal_checklist_template_title",
+ "creation": "2021-09-26 18:17:55.715311",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "meal_checklist_template_title",
+  "project_budget_section",
+  "budget",
+  "column_break_4",
+  "from_budget",
+  "to_budget",
+  "project_duration_section",
+  "from_period_",
+  "to_period",
+  "analysis_and_design_stage_details_section",
+  "analysis_and_design_stage",
+  "planning_stage_details_section",
+  "planning_stage",
+  "implementation_stage_details_section",
+  "implementation_stage",
+  "evaluations_and_reporting_and_project_closure_stage_section",
+  "evaluations_and_reporting_and_project_closure_stage"
+ ],
+ "fields": [
+  {
+   "fieldname": "meal_checklist_template_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "MEAL Checklist Template Title",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "project_budget_section",
+   "fieldtype": "Section Break",
+   "label": "Project Budget"
+  },
+  {
+   "fieldname": "from_budget",
+   "fieldtype": "Currency",
+   "label": "From Budget",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_budget",
+   "fieldtype": "Currency",
+   "label": "To Budget",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "project_duration_section",
+   "fieldtype": "Section Break",
+   "label": "Project Duration"
+  },
+  {
+   "fieldname": "analysis_and_design_stage_details_section",
+   "fieldtype": "Section Break",
+   "label": "Analysis and Design Stage Details"
+  },
+  {
+   "fieldname": "analysis_and_design_stage",
+   "fieldtype": "Table",
+   "label": "Analysis and Design Stage",
+   "options": "Analysis and Design Stage"
+  },
+  {
+   "fieldname": "planning_stage_details_section",
+   "fieldtype": "Section Break",
+   "label": "Planning Stage Details"
+  },
+  {
+   "fieldname": "planning_stage",
+   "fieldtype": "Table",
+   "label": "Planning Stage",
+   "options": "Planning Stage"
+  },
+  {
+   "fieldname": "implementation_stage_details_section",
+   "fieldtype": "Section Break",
+   "label": "Implementation Stage Details"
+  },
+  {
+   "fieldname": "implementation_stage",
+   "fieldtype": "Table",
+   "label": "Implementation Stage",
+   "options": "Implementation Stage"
+  },
+  {
+   "fieldname": "evaluations_and_reporting_and_project_closure_stage_section",
+   "fieldtype": "Section Break",
+   "label": "Evaluations, Reporting and Project Closure Stage Details"
+  },
+  {
+   "fieldname": "evaluations_and_reporting_and_project_closure_stage",
+   "fieldtype": "Table",
+   "label": "Evaluations, Reporting and Project Closure Stage",
+   "options": "Evaluations and Reporting and Project Closure Stage"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "budget",
+   "fieldtype": "Select",
+   "label": "Budget",
+   "options": "\nMore Than\nLess Than\nBetween",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "to_period",
+   "fieldtype": "Int",
+   "label": "To Period",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "from_period_",
+   "fieldtype": "Int",
+   "label": "From Period",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-09-29 14:00:31.470072",
+ "modified_by": "Administrator",
+ "module": "Program Management",
+ "name": "MEAL Checklist Template",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "meal_checklist_template_title",
+ "track_changes": 1
+}

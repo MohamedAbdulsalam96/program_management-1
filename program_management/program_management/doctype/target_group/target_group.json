@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "creation": "2021-02-07 19:04:46.634929",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -29,7 +30,8 @@
  "fields": [
   {
    "fieldname": "column_break_2",
-   "fieldtype": "Column Break"
+   "fieldtype": "Column Break",
+   "hidden": 1
   },
   {
    "fieldname": "column_break_4",
@@ -48,7 +50,6 @@
    "default": "0",
    "fieldname": "unclassified",
    "fieldtype": "Int",
-   "in_list_view": 1,
    "label": "Unclassified"
   },
   {
@@ -81,6 +82,7 @@
   {
    "fieldname": "type",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Type",
    "options": "Beneficiaries Type"
   },
@@ -147,8 +149,10 @@
    "label": "Total Girls"
   }
  ],
+ "index_web_pages_for_search": 1,
  "istable": 1,
- "modified": "2021-05-05 21:35:27.834749",
+ "links": [],
+ "modified": "2021-09-28 12:45:03.666127",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Target Group",

@@ -1,0 +1,55 @@
+<style>
+    table td {
+        word-break: break-all;
+    }
+    </style>
+    
+    <div style="overflow-x:auto;">
+    <table class="table table-bordered assessment-result-tool">
+        <thead>
+            <tr>
+                <th style="width: 90px" rowspan="2">Indicator</th>
+                <th style="width: 170px" rowspan="2">Governorate</th>
+                <th style="width: 170px" rowspan="2">District</th>
+                <th style="width: 170px" rowspan="2">Category</th>
+                <th style="width: 170px" rowspan="2">Total</th>
+                {% for(const [key, value] of Object.entries(years)) { %}
+                    {% for(const [key_m, value_m] of Object.entries(value)) { %}
+                     <th class="score" style="width: 100px">{{ value_m["month"] }}</th>
+                    {% endfor %}
+                {% endfor %}
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in indicators %}
+            <tr class="text-muted" data-indicator="{{i.ind_detail}}">
+    
+                <td>{{ i.indicator }}</td>
+                <td>{{ i.governorate }}</td>
+                <td>{{ i.district }}</td>
+                <td>{{ i.category }}</td>
+                <td>{{ i.total }}</td>
+    
+                {% for(const [key, value] of Object.entries(years)) { %}
+                  {% for(const [key_m, value_m] of Object.entries(value)) { %}
+                    <td>
+                        <span data-indicator="{{i.ind_detail}}" data-month="{{value_m.month}}" class="indicator-result-grade badge" >
+                            {{value_m.month}}
+                        </span>
+                        <input type="number" class="indicator-result-data" style="width:70%; float:right;"
+                        
+                        data-month="{{value_m.month}}"
+                        data-date="{{value_m.date}}"
+                        data-detail="{{i.ind_detail}}"
+                        data-indicator="{{i.indicator}}"
+                        value="{{i.years[key][value_m.month]}}"
+                            />
+                    </td>
+                 {% endfor %} 
+                {% endfor %} 
+            </tr>
+            {% endfor %} 
+        </tbody>
+    </table>
+    </div>

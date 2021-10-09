@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "creation": "2020-08-10 00:49:46.469194",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -25,7 +26,11 @@
   "column_break_16",
   "unclassified",
   "column_break_18",
-  "total"
+  "total",
+  "section_break_24",
+  "hhs",
+  "indicator_detail",
+  "date"
  ],
  "fields": [
   {
@@ -62,8 +67,10 @@
    "fieldtype": "Column Break"
   },
   {
+   "columns": 1,
    "fieldname": "category",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Category",
    "options": "Beneficiaries Category"
   },
@@ -158,10 +165,32 @@
    "in_list_view": 1,
    "label": "Total",
    "read_only": 1
+  },
+  {
+   "fieldname": "hhs",
+   "fieldtype": "Int",
+   "label": "HHs"
+  },
+  {
+   "fieldname": "section_break_24",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "indicator_detail",
+   "fieldtype": "Link",
+   "label": "Indicator Detail",
+   "options": "Indicator Detail"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
   }
  ],
+ "index_web_pages_for_search": 1,
  "istable": 1,
- "modified": "2020-11-23 11:56:13.461754",
+ "links": [],
+ "modified": "2021-10-07 22:25:44.842616",
  "modified_by": "Administrator",
  "module": "MEAL",
  "name": "Achieved Indicators",

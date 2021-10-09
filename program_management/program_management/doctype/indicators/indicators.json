@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "allow_rename": 1,
  "autoname": "format:{code} Indicator-{output}",
  "creation": "2020-07-20 00:47:35.911028",
@@ -7,30 +8,40 @@
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
-  "code",
-  "indicator",
+  "project",
   "column_break_3",
   "project_proposal",
+  "section_break_5",
+  "code",
+  "indicator",
+  "column_break_8",
   "linked_with",
   "output",
+  "linked_with_outcome",
+  "linked_with_objective",
   "activity",
-  "section_break_5",
+  "section_break_12",
   "is_percentage",
+  "is_cumulative",
   "indicator_detail",
-  "section_break_10",
+  "section_break_15",
   "total_men",
-  "column_break_12",
+  "column_break_17",
   "total_women",
-  "column_break_14",
+  "column_break_19",
   "total_boys",
-  "column_break_16",
+  "column_break_21",
   "total_girls",
-  "column_break_18",
+  "column_break_23",
   "total_unclassified",
-  "column_break_20",
+  "column_break_25",
   "total",
-  "section_break_24",
-  "mean_of_verification"
+  "section_break_27",
+  "mean_of_verification",
+  "frequency",
+  "responsible",
+  "meal_activities",
+  "location"
  ],
  "fields": [
   {
@@ -57,10 +68,11 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Objective/Outcome/Output",
-   "options": "Outcome and Output",
-   "reqd": 1
+   "mandatory_depends_on": "eval:doc.linked_with!=\"Activity\"",
+   "options": "Outcome and Output"
   },
   {
+   "depends_on": "project",
    "fieldname": "section_break_5",
    "fieldtype": "Section Break"
   },
@@ -71,12 +83,14 @@
    "options": "Indicator Detail"
   },
   {
+   "fetch_from": "project.project_proposal",
    "fieldname": "project_proposal",
    "fieldtype": "Link",
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Project Proposal",
    "options": "Project Proposal",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -85,7 +99,8 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Linked With",
-   "options": "Objective\nOutcome\nOutput\nActivity"
+   "options": "\nObjective\nOutcome\nOutput",
+   "reqd": 1
   },
   {
    "fieldname": "code",
@@ -95,18 +110,10 @@
    "reqd": 1
   },
   {
-   "fieldname": "section_break_10",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "total_men",
    "fieldtype": "Int",
    "label": "Total Men",
    "read_only": 1
-  },
-  {
-   "fieldname": "column_break_12",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "total_women",
@@ -115,18 +122,10 @@
    "read_only": 1
   },
   {
-   "fieldname": "column_break_14",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "total_boys",
    "fieldtype": "Int",
    "label": "Total Boys",
    "read_only": 1
-  },
-  {
-   "fieldname": "column_break_16",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "total_girls",
@@ -135,18 +134,10 @@
    "read_only": 1
   },
   {
-   "fieldname": "column_break_18",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "total_unclassified",
    "fieldtype": "Int",
    "label": "Total Unclassified",
    "read_only": 1
-  },
-  {
-   "fieldname": "column_break_20",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "total",
@@ -158,26 +149,121 @@
    "depends_on": "eval:doc.linked_with==\"Activity\"",
    "fieldname": "activity",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Activity",
+   "mandatory_depends_on": "eval:doc.linked_with==\"Activity\"",
    "options": "Activity"
   },
   {
    "default": "0",
+   "depends_on": "eval:doc.is_cumulative==0",
    "fieldname": "is_percentage",
    "fieldtype": "Check",
    "label": "Is Percentage"
   },
   {
-   "fieldname": "section_break_24",
+   "fieldname": "mean_of_verification",
+   "fieldtype": "Data",
+   "label": "Mean of Verification",
+   "reqd": 1
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Project",
+   "options": "Project",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "project",
+   "fieldname": "section_break_12",
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "mean_of_verification",
+   "depends_on": "project",
+   "fieldname": "section_break_15",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_19",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_21",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_23",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_25",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "project",
+   "fieldname": "section_break_27",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.is_percentage==0",
+   "fieldname": "is_cumulative",
+   "fieldtype": "Check",
+   "label": "Is Cumulative"
+  },
+  {
+   "fieldname": "frequency",
+   "fieldtype": "Select",
+   "label": "Frequency",
+   "options": "\nOnce\nMonthly\nBeginning project / End Project"
+  },
+  {
+   "fieldname": "responsible",
    "fieldtype": "Data",
-   "label": "Mean of Verification"
+   "label": "Responsible"
+  },
+  {
+   "fieldname": "meal_activities",
+   "fieldtype": "Small Text",
+   "label": "MEAL Activities"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "output.parent_outcome_and_output",
+   "fieldname": "linked_with_outcome",
+   "fieldtype": "Link",
+   "label": "Linked With Outcome",
+   "options": "Outcome and Output",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "linked_with_outcome.parent_outcome_and_output",
+   "fieldname": "linked_with_objective",
+   "fieldtype": "Link",
+   "label": "Linked With Objective",
+   "options": "Outcome and Output",
+   "read_only": 1
   }
  ],
- "modified": "2021-05-03 13:56:44.321886",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-10-05 23:58:20.324859",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Indicators",

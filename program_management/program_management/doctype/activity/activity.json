@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "autoname": "format:{code} Activity-{output}",
  "creation": "2020-07-20 00:59:36.347861",
  "doctype": "DocType",
@@ -6,12 +7,15 @@
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
+  "project",
+  "column_break_3",
+  "project_proposal",
+  "section_break_5",
   "code",
   "activity",
   "description",
   "means_of_verification",
-  "column_break_3",
-  "project_proposal",
+  "column_break_10",
   "linked_with",
   "output",
   "indicator",
@@ -19,7 +23,7 @@
   "end_date",
   "edit_dates",
   "duration",
-  "section_break_5",
+  "section_break_18",
   "assumption"
  ],
  "fields": [
@@ -51,9 +55,11 @@
    "fieldtype": "Link",
    "in_standard_filter": 1,
    "label": "Objective/Outcome/Output",
+   "mandatory_depends_on": "eval:doc.linked_with!=\"Indicator\"",
    "options": "Outcome and Output"
   },
   {
+   "depends_on": "project",
    "fieldname": "section_break_5",
    "fieldtype": "Section Break"
   },
@@ -76,13 +82,14 @@
    "label": "Description"
   },
   {
-   "allow_in_quick_entry": 1,
+   "fetch_from": "project.project_proposal",
    "fieldname": "project_proposal",
    "fieldtype": "Link",
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Project Proposal",
    "options": "Project Proposal",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -92,7 +99,8 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Linked With",
-   "options": "Objective\nOutcome\nOutput\nIndicator"
+   "options": "\nObjective\nOutcome\nOutput\nIndicator",
+   "reqd": 1
   },
   {
    "allow_in_quick_entry": 1,
@@ -101,6 +109,7 @@
    "fieldtype": "Link",
    "in_standard_filter": 1,
    "label": "Indicator",
+   "mandatory_depends_on": "eval:doc.linked_with==\"Indicator\"",
    "options": "Indicators"
   },
   {
@@ -131,9 +140,29 @@
    "fieldname": "means_of_verification",
    "fieldtype": "Data",
    "label": "Means of Verification"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Project",
+   "options": "Project",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "project",
+   "fieldname": "section_break_18",
+   "fieldtype": "Section Break"
   }
  ],
- "modified": "2021-04-07 17:57:30.115651",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-09-29 11:05:09.574656",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Activity",

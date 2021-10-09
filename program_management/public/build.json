@@ -1,0 +1,6 @@
+{
+	"js/erpnext.min.js": [		
+		"public/js/meal/indicator_log_tool.html",
+		"public/js/meal/meal_plan_tool.html"
+	]
+}

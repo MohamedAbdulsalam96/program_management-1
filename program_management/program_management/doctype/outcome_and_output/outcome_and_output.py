@@ -10,6 +10,7 @@ from frappe.utils import add_days, cstr, date_diff, get_link_to_form, getdate
 from frappe.utils.nestedset import NestedSet
 from frappe.desk.form.assign_to import close_all_assignments, clear
 from frappe.utils import date_diff
+from frappe.model.document import Document
 
 class CircularReferenceError(frappe.ValidationError): pass
 class EndDateCannotBeGreaterThanProjectEndDateError(frappe.ValidationError): pass
@@ -17,7 +18,7 @@ class EndDateCannotBeGreaterThanProjectEndDateError(frappe.ValidationError): pas
 class OutcomeandOutput(NestedSet):
 	nsm_parent_field = 'parent_outcome_and_output'
 
-def populate_depends_on(self):
+	def populate_depends_on(self):
 		if self.parent_outcome_and_output:
 			parent = frappe.get_doc('Outcome and Output', self.parent_outcome_and_output)
 			if not self.name in [row.outcome_and_output for row in parent.depends_on]:
@@ -27,6 +28,9 @@ def populate_depends_on(self):
 					"subject": self.subject
 				})
 				parent.save()
+
+	def on_trash(self):
+		NestedSet.on_trash(self, allow_root_deletion = True)				
 
 @frappe.whitelist()
 def check_if_child_exists(name):
