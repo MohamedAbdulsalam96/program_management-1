@@ -10,10 +10,12 @@
   "district",
   "column_break_4",
   "category",
+  "is_unclassified",
   "column_break_6",
   "type",
   "column_break_8",
   "age_group",
+  "disability",
   "section_break_10",
   "men",
   "column_break_12",
@@ -46,6 +48,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "allow_on_submit": 1,
    "columns": 1,
    "default": "0",
    "fieldname": "unclassified",
@@ -53,6 +56,7 @@
    "label": "Unclassified"
   },
   {
+   "allow_on_submit": 1,
    "columns": 1,
    "default": "0",
    "fieldname": "total",
@@ -62,37 +66,42 @@
    "read_only": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "governorate",
    "fieldtype": "Link",
    "label": "Governorate",
    "options": "Territory"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "district",
    "fieldtype": "Link",
    "label": "District",
    "options": "Territory"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "category",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Category",
    "options": "Beneficiaries Category"
   },
   {
    "fieldname": "type",
    "fieldtype": "Link",
-   "in_list_view": 1,
    "label": "Type",
    "options": "Beneficiaries Type"
   },
   {
    "fieldname": "age_group",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Age Group",
    "options": "Age Group"
   },
   {
+   "depends_on": "category",
    "fieldname": "section_break_10",
    "fieldtype": "Section Break"
   },
@@ -117,6 +126,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "allow_on_submit": 1,
    "columns": 2,
    "default": "0",
    "fieldname": "men",
@@ -125,6 +135,7 @@
    "label": "Total Men"
   },
   {
+   "allow_on_submit": 1,
    "columns": 2,
    "default": "0",
    "fieldname": "women",
@@ -133,6 +144,7 @@
    "label": "Total Women"
   },
   {
+   "allow_on_submit": 1,
    "columns": 2,
    "default": "0",
    "fieldname": "boys",
@@ -141,18 +153,35 @@
    "label": "Total Boys"
   },
   {
+   "allow_on_submit": 1,
    "columns": 2,
    "default": "0",
    "fieldname": "girls",
    "fieldtype": "Int",
    "in_list_view": 1,
    "label": "Total Girls"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fetch_from": "category.is_unclassified",
+   "fieldname": "is_unclassified",
+   "fieldtype": "Check",
+   "label": "Is Unclassified",
+   "read_only": 1
+  },
+  {
+   "fieldname": "disability",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Disability",
+   "options": "\nWith\nWithout"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2021-09-28 12:45:03.666127",
+ "modified": "2021-12-18 18:20:43.675827",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Target Group",

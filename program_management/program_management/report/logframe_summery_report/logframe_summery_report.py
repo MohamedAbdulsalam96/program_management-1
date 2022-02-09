@@ -12,7 +12,8 @@ from frappe.utils import (flt,cstr)
 def execute(filters=None):
 
 	columns = get_columns()
-	data = get_data(filters)
+	is_sector=True if filters.name else False
+	data = get_data(filters,filters.group_by_sector,is_sector=is_sector)
 	return columns, data
 
 
@@ -44,12 +45,41 @@ def get_columns():
 		},
 	]
 
-def get_proposal(filters):
-	return frappe.db.sql("""SELECT name, project_title FROM `tabProject Proposal` 
-	{conditions} order by name ASC""".format(conditions=get_conditions(filters),), filters, as_dict=1)
+def get_proposal(filters,is_sector,group_by_sector):
+	if is_sector:
+		group_by_sector=True
+	if group_by_sector:
+		return frappe.db.sql("""SELECT program_name as name, program_name as project_title FROM `tabPrograms` 
+		{conditions} order by name ASC""".format(conditions=get_conditions(filters),), filters, as_dict=1)
+	else:
+		return frappe.db.sql("""SELECT 'All Projects' as name, 'All Projects' as project_title """, as_dict=1)
 
-def get_project(proposal):
-	return frappe.db.sql("""SELECT name, project_code, project_name FROM `tabProject` WHERE project_proposal=%s order by name ASC""",proposal, as_dict=True)
+def get_project(sector,is_sector,group_by_sector):
+	if group_by_sector:
+		is_sector=True
+	if is_sector:
+		group_by_sector=True
+	if group_by_sector:
+		if is_sector:
+			return frappe.db.sql("""SELECT p.name, p.project_code, p.project_name, p.project_proposal FROM `tabProject` p
+			INNER JOIN `tabProject Proposal` pp on p.project_proposal=pp.name
+			INNER JOIN `tabTargeted Programs` s on pp.name = s.parent
+			WHERE s.program=%s 
+			order by p.name ASC""",sector, as_dict=True)
+		else:
+			return frappe.db.sql("""SELECT p.name, p.project_code, p.project_name, p.project_proposal FROM `tabProject` p
+			order by p.name ASC""", as_dict=True)
+	else:
+		if is_sector:
+			return frappe.db.sql("""SELECT p.name, p.project_code, p.project_name, p.project_proposal FROM `tabProject` p
+			INNER JOIN `tabProject Proposal` pp on p.project_proposal=pp.name
+			INNER JOIN `tabTargeted Programs` s on pp.name = s.parent
+			WHERE s.program=%s 
+			order by p.name ASC""",sector, as_dict=True)
+		else:
+			return frappe.db.sql("""SELECT p.name, p.project_code, p.project_name, p.project_proposal FROM `tabProject` p
+			order by p.name ASC""", as_dict=True)
+	
 
 def get_in_out_obj(prop):
 	return frappe.db.sql("""SELECT name, code, subject FROM `tabOutcome and Output`
@@ -90,7 +120,7 @@ def get_work_plan(in_out):
 
 	return data
 
-def get_data(conditions):
+def get_data(filters,group_by_sector=True,is_sector=False):	
 	alltree = {}
 	count = 0
 	percount = 0
@@ -104,7 +134,7 @@ def get_data(conditions):
 	totalPlanned = 0
 	totalAchieved = 0
 	lastCount = 0
-	for prop in get_proposal(conditions):
+	for prop in get_proposal(filters,is_sector,group_by_sector):
 		count += 1
 		alltree[count] = {}
 		alltree[count].setdefault(count)
@@ -115,8 +145,8 @@ def get_data(conditions):
 		alltree[count]['parent']=None
 		alltree[count]['indent']=0
 		pertotal = 0
-		percount = count
-		for proj in get_project(prop.name):
+		percount = count		
+		for proj in get_project(prop.name,is_sector,group_by_sector):
 			count += 1
 			alltree[count] = {}
 			alltree[count].setdefault(count)
@@ -128,7 +158,7 @@ def get_data(conditions):
 			alltree[count]['indent']=1
 			objtotal = 0
 			objcount = count
-			for obj in get_in_out_obj(prop.name):
+			for obj in get_in_out_obj(proj.project_proposal):
 				count += 1
 				alltree[count] = {}
 				alltree[count].setdefault(count)
@@ -138,7 +168,7 @@ def get_data(conditions):
 				alltree[count]['achieved']=None
 				alltree[count]['parent']=proj.name
 				alltree[count]['indent'] = 2
-				for outcome in get_in_out2( {'prop':prop.name, 'type':'Outcome', 'parent':obj.name}):
+				for outcome in get_in_out2( {'prop':proj.project_proposal, 'type':'Outcome', 'parent':obj.name}):
 					count += 1
 					alltree[count] = {}
 					alltree[count].setdefault(count)
@@ -148,7 +178,7 @@ def get_data(conditions):
 					alltree[count]['achieved']=None
 					alltree[count]['parent']=obj.name
 					alltree[count]['indent'] = 3
-					for output in get_in_out2({'prop':prop.name, 'type':'Output', 'parent':outcome.name}):
+					for output in get_in_out2({'prop':proj.project_proposal, 'type':'Output', 'parent':outcome.name}):
 						count += 1
 						alltree[count] = {}
 						alltree[count].setdefault(count)

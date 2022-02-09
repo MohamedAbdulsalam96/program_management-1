@@ -131,10 +131,10 @@ def get_student_guardians(student):
 
 @frappe.whitelist()
 def get_project_indicators(project):
-	ss_list = frappe.db.sql("""
-			select t1.name, ind.linked_with, ind.output, ind.linked_with_outcome, ind.linked_with_objective from `tabIndicators` ind
-			INNER JOIN `tabOutcome and Output` on ind
-			where ind.project = %s 
+	ss_list = frappe.db.sql("""			
+			select IFNULL(GROUP_CONCAT(ide.governorate SEPARATOR ', '),"") as location
+			from `tabIndicator Detail` ide 
+			where ide.parent = %s group by ide.parent
 		""", (project), as_dict=0)
 	"""Returns List of student, student_name in Student Group.
 
@@ -142,7 +142,12 @@ def get_project_indicators(project):
 	"""	
 	# indicators = frappe.get_list("Indicators", fields=["name","docstatus","indicator","project","linked_with","output","frequency","responsible","meal_activities","location","mean_of_verification","linked_with_outcome","linked_with_objective","total"] ,
 	# 	filters={"project": project}, order_by= "output asc")
-	return indicators
+	return ss_list
+
+# def get_gov(indicators):	
+# 	conditions = "parent = '%s'" % project_proposal
+# 	govs = frappe.db.sql("""SELECT IFNULL(GROUP_CONCAT(donor SEPARATOR ', '),"") as donors FROM `tabIndicator Detail` WHERE %s limit 1""" % conditions)
+# 	return govs[0][0]	
 
 @frappe.whitelist()
 def get_project_outcome_and_output(project,type,objective=None,outcome=None,output=None):
@@ -152,16 +157,24 @@ def get_project_outcome_and_output(project,type,objective=None,outcome=None,outp
 	"""	
 	filters={"project": project,"type":type}
 	if type=="Outcome" or type=="Output":
+		if type=="Outcome":
+			filters.update({
+				"type": ['in',("Outcome","Immediate Outcomes","Intermediate Outcome")]
+			})
 		if objective:					
 			filters.update({
 				"parent_outcome_and_output": objective
 			})
-		if outcome:					
+		elif outcome:					
 			filters.update({
 				"parent_outcome_and_output": outcome
 			})
-	outcome_and_outputs = frappe.get_list("Outcome and Output", fields=["name","docstatus","subject","project","code"] ,
-		filters=filters, order_by= "name asc")
+	elif type=="Objective":
+		filters.update({
+			"type": ['in',("Objective","Impact","Project Goal","Ultimate Outcome")]
+		})
+	outcome_and_outputs = frappe.get_list("Outcome and Output", fields=["name","docstatus","subject","project","code","type"] ,
+		filters=filters, order_by= "creation asc")
 	return outcome_and_outputs
 
 @frappe.whitelist()
@@ -171,8 +184,10 @@ def get_project_outcome_and_output_indicators(project,output):
 	:param student_group: Student Group.
 	"""	
 	filters={"project": project,"output":output}
-	inds = frappe.get_list("Indicators", fields=["code","name","docstatus","indicator","project","linked_with","output","frequency","responsible","meal_activities","location","mean_of_verification","linked_with_outcome","linked_with_objective","total"] ,
-		filters=filters, order_by= "name asc")
+	inds = frappe.get_list("Indicators", fields=["code","name","docstatus","indicator","project","linked_with","output","frequency","responsible","important_assumptions","location","mean_of_verification","total"] ,
+		filters=filters, order_by= "creation asc")
+	for ind in inds:
+		ind.location=get_project_indicators(ind.name)[0]
 	return inds
 
 
@@ -251,6 +266,7 @@ def get_assessment_criteria(course):
 
 	:param Course: Course
 	"""
+
 	return frappe.get_list("Course Assessment Criteria", \
 		fields=["assessment_criteria", "weightage"], filters={"parent": course}, order_by= "idx")
 
@@ -263,7 +279,8 @@ def get_indicators(project):
 		outcome_list=get_project_outcome_and_output(project,"Outcome",objective=obj.name)
 		obj.update({
 			"outcomes": outcome_list,
-			"outcomes_len": len(outcome_list)
+			"outcomes_len": len(outcome_list),
+			"has_multi_outcome":False
 		})
 		indicator_list=get_project_outcome_and_output_indicators(project,obj.name)
 		obj.update({
@@ -286,7 +303,38 @@ def get_indicators(project):
 				output.update({
 					"indicators": indicator_list,
 					"indicators_len":len(indicator_list)
-				})				
+				})
+			# 
+			outcome_list2=get_project_outcome_and_output(project,"Outcome",objective=outcome.name)
+			outcome.update({
+				"outcomes": outcome_list2,
+				"outcomes_len": len(outcome_list2)
+			})
+			for z, outcome2 in enumerate(outcome_list2):
+				
+				output_list=get_project_outcome_and_output(project,"Output",outcome=outcome2.name)
+				outcome2.update({
+					"outputs": output_list,
+					"outputs_len":len(output_list)
+				})
+				indicator_list=get_project_outcome_and_output_indicators(project,outcome2.name)
+				outcome2.update({
+					"indicators": indicator_list,
+					"indicators_len":len(indicator_list)
+				})
+				obj.update({
+					"has_multi_outcome":True
+				})
+				# obj["outcomes"].append(outcome2)
+				for x, output in enumerate(output_list):
+					indicator_list=get_project_outcome_and_output_indicators(project,output.name)
+					output.update({
+						"indicators": indicator_list,
+						"indicators_len":len(indicator_list)
+					})
+					outcome["outputs"].append(output)
+			# 
+							
 
 
 	# for obj in obj_list:

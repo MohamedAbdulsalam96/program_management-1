@@ -1,0 +1,49 @@
+<style>
+	.thead-dark th
+	{
+		vertical-align: inherit !important;
+	}
+	.outcome-bg
+	{
+		background-color: antiquewhite;
+	}
+	.output-bg
+	{
+		background-color: azure;
+	}
+</style>
+<table class="table table-bordered display indicators">
+	<thead>
+		<tr style="background-color: #404040; color:cornsilk; text-align:center">
+			<th style="width: 70px"> # </th>
+			<th style="width: 300px"> Performance Indicators </th>
+			<th style="width: 170px"> Person(s) in Charge </th>
+			<th style="width: 170px"> Indicator Weight </th>
+			<th style="width: 100px"> Target </th>
+			<th style="width: 100px"> To Date Achievement </th>
+			<th style="width: 100px"> % Achieved </th>
+			<th style="width: 100px"> Achieved Against Project % </th>
+			<!-- <th style="width: 100px"> Remaining </th> -->
+			<th style="width: 100px"> % Remaining </th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for i in indicators %}
+					<tr class="text-muted">
+					
+					<td class="total"> {{ i.code }} </td>
+					<td class="total"> {{ i.indicator_subject }} </td>
+					<th class="total"> {{ i.responsible }} </th>
+					<td class="total"> {{ i.indicator_weight }} </td>
+					<td class="total"> {{ i.total }} </td>
+					<td class="total"> {{ i.total_achieved }} </td>
+					<td class="total"> {{ i.cumulative_progress }} %</td>
+					<td class="total"> {{ i.achieved_against_project }} %</td>
+					<!-- <td class="total"> {{ i.remaining }} </td> -->
+					<td class="total"> {{ i.in_progress }} %</td>
+						
+					</tr>
+
+		{% endfor %} 
+	</tbody>
+</table>

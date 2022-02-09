@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "autoname": "Prompt",
  "creation": "2021-10-04 17:54:38.728947",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -13,7 +14,8 @@
   "start_date",
   "end_date",
   "section_break_3",
-  "logs_html"
+  "logs_html",
+  "user"
  ],
  "fields": [
   {
@@ -35,6 +37,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "depends_on": "project",
    "fieldname": "logs_html",
    "fieldtype": "HTML",
    "label": "Logs HTML"
@@ -52,24 +55,34 @@
   {
    "fieldname": "district",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "District",
    "options": "Territory"
   },
   {
    "fieldname": "start_date",
    "fieldtype": "Date",
+   "hidden": 1,
    "label": "Start Date"
   },
   {
    "fieldname": "end_date",
    "fieldtype": "Date",
+   "hidden": 1,
    "label": "End Date"
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "User",
+   "options": "User"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-10-05 16:56:13.943214",
+ "modified": "2022-01-04 21:56:27.815223",
  "modified_by": "Administrator",
  "module": "MEAL",
  "name": "Indicator Log Tool",
@@ -82,6 +95,16 @@
    "print": 1,
    "read": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Projects Manager",
    "share": 1,
    "write": 1
   }

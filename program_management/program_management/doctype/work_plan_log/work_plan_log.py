@@ -7,7 +7,7 @@ from __future__ import unicode_literals
 import frappe
 from frappe import _, throw
 from frappe.utils import add_days, flt, cstr, date_diff, get_link_to_form, getdate
-from frappe.utils.nestedset import NestedSet
+from frappe.utils.nestedset import NestedSet, get_root_of
 from frappe.desk.form.assign_to import close_all_assignments, clear
 from frappe.utils import date_diff
 from frappe.model.document import Document
@@ -73,29 +73,51 @@ def check_if_child_exists(name):
 
  
 @frappe.whitelist()
-def get_children(doctype, parent, work_plan_log=None, work_plan=None, is_root=False):
+def get_children(doctype, parent,project=None, work_plan_log=None, work_plan=None, is_root=False):
+	# frappe.msgprint(project)
+	if project:
+		condition = "a.project=%(project)s"
+		var_dict = {
+			# "name": get_root_of("Project Activity"),
+			"parent": parent,
+			"project": project
+		}
+		# frappe.msgprint("befor")
+		if parent:
+			if parent==project:
+				doctype="Project Activity"
+				activities = frappe.db.sql("""
+					select
+						a.name as value,
+						1 as expandable,
+						(select IFNULL(sum(l.progress)/count(l.name),0) from `tabWork Plan Log` l where l.activity=a.name group by l.activity) as progress
+					from `tab{doctype}` a
+					where
+						{condition}
+					order by name""".format(doctype=doctype, condition=condition), var_dict, as_dict=1)
 
-	filters = [['docstatus', '<', '2']]
+				# return activities
+				# frappe.msgprint(frappe.as_json(activities))
+				return activities
 
-	if work_plan_log:
-		filters.append(['parent_work_plan_log', '=', work_plan_log])
-	elif parent and not is_root:
-		# via expand child
-		filters.append(['parent_work_plan_log', '=', parent])
-	else:
-		filters.append(['ifnull(`parent_work_plan_log`, "")', '=', ''])
+			# frappe.msgprint("innnn")
+			# frappe.msgprint(parent)
+			condition = "activity=%(parent)s"
+			return frappe.db.sql("""
+				select
+					name as value,
+					subject as title,
+					progress as progress
+				from `tabWork Plan Log`
+				where is_group=0 and 
+					{condition}
+				order by name""".format(condition=condition), var_dict, as_dict=1)
 
-	if work_plan:
-		filters.append(['work_plan', '=', work_plan])
-
-	activities = frappe.get_list(doctype, fields=[
-		'name as value',
-		'subject as title',
-		'is_group as expandable'
-	], filters=filters, order_by='name')
-
-	# return activities
-	return activities
+		else:
+			# frappe.msgprint("not innn")
+			condition = "name=%(name)s"
+		# frappe.msgprint("after")
+		
 
 @frappe.whitelist()
 def add_node():

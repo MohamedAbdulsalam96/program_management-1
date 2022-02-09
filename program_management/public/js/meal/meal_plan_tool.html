@@ -1,105 +1,173 @@
 <style>
-	tr.odd td:first-child,
-	tr.even td:first-child {
-		padding-left: 8em;
+	.thead-dark th
+	{
+		vertical-align: inherit !important;
+	}
+	.outcome-bg
+	{
+		background-color: antiquewhite;
+	}
+	.has_multi_outcome-bg
+	{
+		background-color: #acdfff;
+	}
+	.output-bg
+	{
+		background-color: #b7ffff;
 	}
 </style>
-
 <table class="table table-bordered display indicators">
-	<thead>
-	</thead>
 	<tbody>
-		{% for obj in indicators %}
-		<tr>
-			<td>
-					Objevtive
+		{% for obj in indicators %}		
+			<tr>
+				<td style="background-color: black; color:cornsilk">
+					{{ obj.type }}
 				</td>
-			<td>{{ obj.code }} - {{ obj.subject }}
-				{% if(obj.outcomes) { %}
+				<td style="background-color: black; color:cornsilk" colspan="8">
+					<!-- {{ obj.code }} - {{ obj.subject }} -->
+					{{ obj.subject }}
+
 				</td>
-				</tr>
-				<tr>
-				<td>
-					<table class="table table-bordered display indicators">
-					<thead>
-						<td style="width: 20%">Result</td>
-						<td style="width: 80%">Indicators</td>
-						<td>2</td>	
-					</thead>
-					<tbody>
-					{% for outcome in obj.outcomes %}
+			</tr>
+			{% if(obj.outcomes[0].indicators.length == 0) { %}
+			<tr>
+				<th class="outcome-bg">
+					{{obj.outcomes[0].type}}s
+				</th>
+				<th colspan="8" class="outcome-bg">
+					{{obj.outcomes[0].subject}}
+				</th>
+			</tr>
+			{% } %}
+
+			<tr class="thead-light cen">
+				<th>Results</th>
+				<th>No.</th>
+				<th>Indicators</th>
+				<th>Target</th>
+				<th>Mean of verifications</th>
+				<th>Location</th>
+				<th>Frequency</th>
+				<th>Responsible</th>
+				<th>Important Assumptions</th>
+			</tr>
+			
+			{% if(obj.outcomes) { %}
+
+				{% if(obj.outcomes[0].indicators.length > 0) { %}
+					<tr>
+						<th colspan="9" class="outcome-bg">
+							{{obj.outcomes[0].type}}s
+						</th>
+					</tr>
+				{% } %}
+
+				
+				{% for outcome in obj.outcomes %}					
+					{% var counter=1; %}	
+					{% for indicator in outcome.indicators %}
 						<tr>
-						<td>
-						<pre>  {{ outcome.code }}:{{ outcome.subject }}</pre>
-
-						{% if(outcome.indicators) { %}
-							</td>
-							<td>
-							<table class="table table-bordered display indicators">	
-								<thead>	
-								</thead>
-							<tbody>
-							{% for indicator in outcome.indicators %}
-								<tr>								
-								<td>
-								<pre>    {{ indicator.code }}:{{ indicator.indicator }}</pre>
-								</td>
-								</tr>
-							{% endfor %}	
-							</td>
-							</tbody>			
-							</table>			
-						{% } %}
-
-						{% if(outcome.outputs) { %}
-							{% if(!outcome.indicators) { %}
-								</td>
-								</tr>
+							{% if(counter == 1) { %}
+							<td rowspan="{{ outcome.indicators_len }}" class="outcome-bg">{{ outcome.code }} {{ outcome.subject }}</td>
 							{% } %}
-							{% for output in outcome.outputs %}
-								<tr>
-								<td>
-								<pre>    {{ output.code }}:{{ output.subject }}</pre>
-								
-								{% if(output.indicators) { %}
-									</td>
-									<td>
-									<table class="table table-bordered display indicators">	
-									<tbody>
-									{% for indicator in output.indicators %}
-										<tr>
-										<td>
-										<pre>      {{ indicator.code }}:{{ indicator.indicator }}</pre>
-										</td>
-										</tr>
-									{% endfor %}
-									</td>	
-									
-									</tbody>			
-									</table>
-								{% } %}
+							<td>{{ indicator.code }}</td>
+							<td>{{ indicator.indicator }}</td>
+							
+							<td>{{ indicator.total }}</td>
+							<td>{{ indicator.mean_of_verification }}</td>
+							<td>{{ indicator.location }}</td>
 
-							{% endfor %}				
+							<td>{{ indicator.frequency }}</td>
+							<td>{{ indicator.responsible }}</td>
+							<td>{{ indicator.important_assumptions }}</td>
+
+						</tr>
+						{% counter++ %}
+					{% endfor %}
+					
+					
+
+
+				{% endfor %}
+
+
+				{% if(obj.has_multi_outcome) { %}
+					<tr>
+						<th colspan="9" class="has_multi_outcome-bg">
+							{{outcome.outcomes[0].type}}
+						</th>
+					</tr>
+					{% for outcome in obj.outcomes %}
+						{% if(outcome.outcomes_len>0) { %}
+							
+							
+							{% for outcomee in outcome.outcomes %}
+								{% var countere=1; %}
+								{% for indicatore in outcomee.indicators %}
+									<tr>
+										{% if(countere == 1) { %}
+										<td rowspan="{{ outcomee.indicators_len }}" class="has_multi_outcome-bg">{{ outcomee.code }} {{ outcomee.subject }}</td>
+										{% } %}
+										<td>{{ indicatore.code }}</td>
+										<td>{{ indicatore.indicator }}</td>
+										
+										<td>{{ indicatore.total }}</td>
+										<td>{{ indicatore.mean_of_verification }}</td>
+										<td>{{ indicatore.location }}</td>
+			
+										<td>{{ indicatore.frequency }}</td>
+										<td>{{ indicatore.responsible }}</td>
+										<td>{{ indicatore.important_assumptions }}</td>
+			
+									</tr>
+									{% countere++ %}
+								{% endfor %}
+							{% endfor %}					
+
 						{% } %}
+
+
+
+
 
 
 					{% endfor %}
-					</tbody>
-					</table>
+				{% } %}	
+			{% } %}
+
+			
+			<tr>
+				<td colspan="9" class="output-bg">
+					Outputs
 				</td>
-				</tr>				
-				{% } %}
-			</td>
-		</tr>
-		{% endfor %}
+			</tr>
+		
+			{% for outcome in obj.outcomes %}					
+				{% for output in outcome.outputs %}		
+					{% var counter=1; %}
+					{% for indicator in output.indicators %}
+						<tr>
+							{% if(counter == 1) { %}
+								<td rowspan="{{ output.indicators_len }}" class="output-bg">{{ output.code }}:{{ output.subject }}</td>
+							{% } %}
+							<td>{{ indicator.code }}</td>
+							<td>{{ indicator.indicator }}</td>
+							
+							<td>{{ indicator.total }}</td>
+							<td>{{ indicator.mean_of_verification }}</td>
+							<td>{{ indicator.location }}</td>
+
+							<td>{{ indicator.frequency }}</td>
+							<td>{{ indicator.responsible }}</td>
+							<td>{{ indicator.important_assumptions }}</td>
+						</tr>
+						{% counter++ %}
+					{% endfor %}
+				{% endfor %}	
+			{% endfor %}	
+
+	{% endfor %}
+
 	</tbody>
+
 </table>
-
-
-<ul>{% for indicator, items in output.indicators|groupby("Output") %}
-	<li>{{ Output }}
-	  <ul>{% for output.indicators in items %}
-		<li>{{ output.indicators.name }}
-	  {% endfor %}</ul>
-	</li>
-  {% endfor %}</ul>

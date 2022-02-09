@@ -6,9 +6,16 @@ frappe.query_reports["Logframe Summery Report"] = {
 	"filters": [
 		{
 			"fieldname": "name",
-			"label": __("Project Proposal"),
+			"label": __("Sector"),
 			"fieldtype": "Link",
-			"options": "Project Proposal",
+			"options": "Programs",
+			"width": "80",
+		},
+		{
+			"fieldname": "group_by_sector",
+			"label": __("Group By Sector"),
+			"fieldtype": "Check",
+			"default": 1,
 			"width": "80",
 		},
 		// {

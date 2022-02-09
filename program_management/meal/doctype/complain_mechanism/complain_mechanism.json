@@ -1,4 +1,6 @@
 {
+ "actions": [],
+ "allow_import": 1,
  "autoname": "naming_series:",
  "creation": "2020-07-26 14:03:57.842303",
  "doctype": "DocType",
@@ -9,55 +11,63 @@
   "project_details_section",
   "project",
   "project_name",
-  "fund_project_code",
-  "project_location",
-  "column_break_4",
+  "ax_code",
+  "column_break_6",
+  "project_proposal",
   "expected_start_date",
   "expected_end_date",
   "project_manager",
   "project_manager_name",
-  "complain_mechanism_details_section",
-  "date_of_complain",
+  "complaint_details_section",
   "entry_date",
+  "date_of_complain",
+  "mechanism_used",
   "name_of_complainant",
-  "column_break_14",
-  "age_group",
+  "column_break_17",
+  "program",
   "gender",
-  "relationship_of_the_complainant_to_the_project",
   "mobile_number",
-  "section_break_18",
+  "age_group",
+  "relationship_of_the_complainant_to_the_project",
+  "gov_section",
   "governorate",
   "district",
-  "column_break_21",
+  "column_break_26",
   "village",
   "sub_district",
-  "section_break_24",
-  "mechanism_used",
-  "subject_of_complain",
-  "condition_classification",
-  "column_break_28",
-  "severity_of_the_condition",
-  "complaint_recipient",
-  "name_of_complaint_recipient",
-  "section_break_32",
-  "details_of_complain",
+  "classification_section",
+  "complaints_category",
+  "complaint_type_weight",
+  "column_break_32",
+  "receipt_by",
+  "recipient_name",
+  "recipient_email",
+  "complaint_description_section",
+  "complaint_description",
   "complaint_supporting_documents",
-  "concerned_with_resolving_the_complaint",
-  "name_of_concerned_with_resolving_the_complaint",
-  "email_of_concerned_with_resolving_the_complaint",
-  "section_break_36",
-  "confirm_the_complaint",
-  "column_break_38",
-  "reason_of_complaint",
-  "column_break_40",
-  "action_taken_by_administration",
-  "section_break_42",
-  "complaint_status",
-  "closing_date_of_the_complaint",
-  "result_of_the_follow_up_meal_assistant",
+  "sovled_by_section",
+  "concerned_with_resolving",
+  "concerned_with_resolving_name",
+  "concerned_with_resolving_email",
+  "permission",
+  "hide_all_fields",
   "column_break_45",
-  "has_a_complaint_form_been_created",
-  "notes",
+  "complaint_name_check",
+  "complaint_gender_check",
+  "column_break_48",
+  "complaint_mobile_no_check",
+  "complaint_governorate_check",
+  "response_and_follow_up_details_section",
+  "confirm_the_complaint",
+  "column_break_49",
+  "reason_of_complaint",
+  "column_break_51",
+  "action_taken",
+  "complain_status_details_section",
+  "complaint_status",
+  "result_of_the_follow_up_meal_assistant",
+  "column_break_56",
+  "closing_date",
   "amended_from"
  ],
  "fields": [
@@ -77,17 +87,6 @@
    "fieldtype": "Data",
    "label": "Project Name",
    "read_only": 1
-  },
-  {
-   "fetch_from": "project.fund_project_code",
-   "fieldname": "fund_project_code",
-   "fieldtype": "Data",
-   "label": "Fund Project Code",
-   "read_only": 1
-  },
-  {
-   "fieldname": "column_break_4",
-   "fieldtype": "Column Break"
   },
   {
    "fetch_from": "project.expected_start_date",
@@ -111,28 +110,16 @@
    "read_only": 1
   },
   {
-   "fetch_from": "project.project_location",
-   "fieldname": "project_location",
-   "fieldtype": "Data",
-   "label": "Project Location",
-   "read_only": 1
-  },
-  {
-   "fieldname": "complain_mechanism_details_section",
-   "fieldtype": "Section Break",
-   "label": "Complain Details"
-  },
-  {
    "fieldname": "date_of_complain",
    "fieldtype": "Date",
    "label": "Date of Complain",
    "reqd": 1
   },
   {
-   "description": "Optional",
    "fieldname": "name_of_complainant",
    "fieldtype": "Small Text",
-   "label": "Name of Complainant"
+   "label": "Name/s of Complainant",
+   "reqd": 1
   },
   {
    "description": "Optional",
@@ -143,10 +130,6 @@
    "options": "Gender"
   },
   {
-   "fieldname": "column_break_14",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "age_group",
    "fieldtype": "Link",
    "label": "Age Group",
@@ -155,6 +138,7 @@
   {
    "fieldname": "relationship_of_the_complainant_to_the_project",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Relationship of the Complainant to the Project",
    "options": "Relationship of the Complainant to the Project"
   },
@@ -164,10 +148,6 @@
    "fieldtype": "Data",
    "label": "Mobile Number",
    "options": "Phone"
-  },
-  {
-   "fieldname": "section_break_18",
-   "fieldtype": "Section Break"
   },
   {
    "fieldname": "governorate",
@@ -184,17 +164,9 @@
    "reqd": 1
   },
   {
-   "fieldname": "column_break_21",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "village",
    "fieldtype": "Data",
    "label": "Village"
-  },
-  {
-   "fieldname": "section_break_24",
-   "fieldtype": "Section Break"
   },
   {
    "fieldname": "mechanism_used",
@@ -204,63 +176,9 @@
    "reqd": 1
   },
   {
-   "fieldname": "subject_of_complain",
-   "fieldtype": "Data",
-   "label": "Subject of Complain",
-   "reqd": 1
-  },
-  {
-   "fieldname": "condition_classification",
-   "fieldtype": "Select",
-   "label": "Condition Classification",
-   "options": "\nUrgent\nMedium\nNot Urgent",
-   "reqd": 1
-  },
-  {
-   "fieldname": "column_break_28",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "severity_of_the_condition",
-   "fieldtype": "Select",
-   "label": "Severity of the Condition",
-   "options": "\nSimple\nMedium\nComplex",
-   "reqd": 1
-  },
-  {
-   "fieldname": "complaint_recipient",
-   "fieldtype": "Link",
-   "ignore_user_permissions": 1,
-   "label": "Complaint Recipient",
-   "options": "Employee",
-   "reqd": 1
-  },
-  {
-   "fieldname": "section_break_32",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "details_of_complain",
-   "fieldtype": "Text Editor",
-   "label": "Details of Complain"
-  },
-  {
    "fieldname": "complaint_supporting_documents",
    "fieldtype": "Attach",
    "label": "Complaint Supporting Documents"
-  },
-  {
-   "fieldname": "concerned_with_resolving_the_complaint",
-   "fieldtype": "Link",
-   "ignore_user_permissions": 1,
-   "in_standard_filter": 1,
-   "label": "Concerned with Resolving the Complaint",
-   "options": "Employee"
-  },
-  {
-   "fieldname": "section_break_36",
-   "fieldtype": "Section Break",
-   "label": "Response and Follow Up Details"
   },
   {
    "fieldname": "confirm_the_complaint",
@@ -268,32 +186,9 @@
    "label": "Confirm the Complaint"
   },
   {
-   "fieldname": "column_break_38",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "reason_of_complaint",
    "fieldtype": "Small Text",
    "label": "Reason of Complaint"
-  },
-  {
-   "fieldname": "column_break_40",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "action_taken_by_administration",
-   "fieldtype": "Small Text",
-   "label": "Action Taken By Administration"
-  },
-  {
-   "fieldname": "section_break_42",
-   "fieldtype": "Section Break",
-   "label": "Complain Status Details"
-  },
-  {
-   "fieldname": "closing_date_of_the_complaint",
-   "fieldtype": "Date",
-   "label": "Closing Date of the Complaint"
   },
   {
    "fieldname": "complaint_status",
@@ -301,11 +196,8 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Complaint Status",
-   "options": "Open\nClosed"
-  },
-  {
-   "fieldname": "column_break_45",
-   "fieldtype": "Column Break"
+   "options": "Registered\nUnder Investigation\nSolved\nUnreleated",
+   "reqd": 1
   },
   {
    "fieldname": "result_of_the_follow_up_meal_assistant",
@@ -313,20 +205,11 @@
    "label": "Result of the Follow-up MEAL Assistant"
   },
   {
-   "fieldname": "has_a_complaint_form_been_created",
-   "fieldtype": "Select",
-   "label": "Has a Complaint Form Been Created?",
-   "options": "No\nYes"
-  },
-  {
-   "fieldname": "notes",
-   "fieldtype": "Small Text",
-   "label": "Notes"
-  },
-  {
+   "default": "Today",
    "fieldname": "entry_date",
    "fieldtype": "Date",
    "label": "Entry Date",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -348,22 +231,6 @@
    "reqd": 1
   },
   {
-   "fetch_from": "complaint_recipient.employee_name",
-   "fieldname": "name_of_complaint_recipient",
-   "fieldtype": "Data",
-   "label": "Name of Complaint Recipient",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "concerned_with_resolving_the_complaint.employee_name",
-   "fieldname": "name_of_concerned_with_resolving_the_complaint",
-   "fieldtype": "Data",
-   "ignore_user_permissions": 1,
-   "in_list_view": 1,
-   "label": "Name of Concerned with Resolving the Complaint",
-   "read_only": 1
-  },
-  {
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "label": "Amended From",
@@ -373,29 +240,231 @@
    "read_only": 1
   },
   {
-   "fetch_from": "concerned_with_resolving_the_complaint.user_id",
-   "fieldname": "email_of_concerned_with_resolving_the_complaint",
+   "fetch_from": "project.project_manager_name",
+   "fieldname": "project_manager_name",
+   "fieldtype": "Data",
+   "label": "Project Manager Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.ax_code",
+   "fieldname": "ax_code",
+   "fieldtype": "Data",
+   "label": "AX Code",
+   "read_only": 1
+  },
+  {
+   "fieldname": "complaints_category",
+   "fieldtype": "Link",
+   "label": "Complaints Category",
+   "options": "Complaints Category",
+   "reqd": 1
+  },
+  {
+   "fieldname": "complaint_type_weight",
+   "fieldtype": "Select",
+   "label": "Complaint Type Weight",
+   "options": "\nUrgent\nMedium\nNormal\nLow",
+   "reqd": 1
+  },
+  {
+   "fieldname": "action_taken",
+   "fieldtype": "Small Text",
+   "label": "Action Taken"
+  },
+  {
+   "fieldname": "closing_date",
+   "fieldtype": "Date",
+   "label": "Closing Date"
+  },
+  {
+   "fieldname": "response_and_follow_up_details_section",
+   "fieldtype": "Section Break",
+   "label": "Response and Follow Up Details"
+  },
+  {
+   "fieldname": "complain_status_details_section",
+   "fieldtype": "Section Break",
+   "label": "Complain Status Details"
+  },
+  {
+   "fieldname": "concerned_with_resolving",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_standard_filter": 1,
+   "label": "Concerned with Resolving the Complaint",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "concerned_with_resolving.employee_name",
+   "fieldname": "concerned_with_resolving_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name of Concerned with Resolving the Complaint",
+   "read_only": 1
+  },
+  {
+   "fieldname": "program",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Sector",
+   "options": "Programs"
+  },
+  {
+   "fetch_from": "project.project_proposal",
+   "fieldname": "project_proposal",
+   "fieldtype": "Link",
+   "label": "Project Proposal",
+   "options": "Project Proposal",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "gov_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "classification_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "complaint_details_section",
+   "fieldtype": "Section Break",
+   "label": "Complaint Details"
+  },
+  {
+   "fieldname": "sovled_by_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "complaint_description_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "complaint_description",
+   "fieldtype": "Text Editor",
+   "label": "Complaint Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_26",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_32",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "receipt_by",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Receipt by",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "receipt_by.employee_name",
+   "fieldname": "recipient_name",
+   "fieldtype": "Data",
+   "label": "Recipient's Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "receipt_by.user_id",
+   "fieldname": "recipient_email",
+   "fieldtype": "Link",
+   "label": "Recipient's Email",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "concerned_with_resolving.user_id",
+   "fieldname": "concerned_with_resolving_email",
    "fieldtype": "Link",
    "label": "Email of Concerned with Resolving the Complaint",
    "options": "User",
    "read_only": 1
   },
   {
-   "fetch_from": "project.project_manager_name",
-   "fieldname": "project_manager_name",
-   "fieldtype": "Data",
-   "label": "Project Manager Name",
-   "read_only": 1
+   "fieldname": "column_break_49",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_51",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_56",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "hide_all_fields",
+   "fieldtype": "Check",
+   "label": "Hide All Fields",
+   "read_only_depends_on": "eval:doc.only_description_and_name == 1"
+  },
+  {
+   "default": "0",
+   "fieldname": "complaint_name_check",
+   "fieldtype": "Check",
+   "label": "Hide Complaint Name",
+   "read_only_depends_on": "eval:doc.hide_all_fields == 1"
+  },
+  {
+   "default": "0",
+   "fieldname": "complaint_gender_check",
+   "fieldtype": "Check",
+   "label": "Hide Complaint Gender",
+   "read_only_depends_on": "eval:doc.hide_all_fields == 1"
+  },
+  {
+   "default": "0",
+   "fieldname": "complaint_mobile_no_check",
+   "fieldtype": "Check",
+   "label": "Hide Complaint Mobile No",
+   "read_only_depends_on": "eval:doc.hide_all_fields == 1"
+  },
+  {
+   "default": "0",
+   "fieldname": "complaint_governorate_check",
+   "fieldtype": "Check",
+   "label": "Hide Complaint Governorate",
+   "read_only_depends_on": "eval:doc.hide_all_fields == 1"
+  },
+  {
+   "fieldname": "column_break_45",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_48",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "permission",
+   "fieldtype": "Section Break"
   }
  ],
  "is_submittable": 1,
- "modified": "2021-01-23 00:20:37.693898",
+ "links": [],
+ "modified": "2021-12-13 21:01:25.425469",
  "modified_by": "Administrator",
  "module": "MEAL",
  "name": "Complain Mechanism",
- "owner": "t.azzan@partner-cons.com",
+ "owner": "Administrator",
  "permissions": [
   {
+   "amend": 1,
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -405,9 +474,12 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   },
   {
+   "amend": 1,
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -417,18 +489,23 @@
    "report": 1,
    "role": "Projects Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   },
   {
+   "amend": 1,
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
    "export": 1,
+   "import": 1,
    "print": 1,
    "read": 1,
    "report": 1,
    "role": "Complaints Officer",
    "share": 1,
+   "submit": 1,
    "write": 1
   },
   {
@@ -436,16 +513,18 @@
    "delete": 1,
    "email": 1,
    "export": 1,
+   "import": 1,
    "print": 1,
    "read": 1,
    "report": 1,
    "role": "MEAL Senior",
    "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "title_field": "subject_of_complain",
+ "title_field": "complaint_description",
  "track_changes": 1
 }

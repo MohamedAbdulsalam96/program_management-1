@@ -10,11 +10,24 @@ frappe.ui.form.on('Work Plan', {
 		frm.events.fill_activity(frm);
 	},
 	fill_activity: function (frm) {
-		return frappe.call({
-			doc: frm.doc,
-			method: 'fill_activity',
+		var project = frm.doc.project;
+		if (!project)
+		return;
+		
+		console.log(project);
+		frappe.call({
+			method: 'program_management.program_management.doctype.work_plan.work_plan.fill_activity',
+			args: {'project': project},
+			freeze: true,
 			callback: function(r) {
-				if (r.docs[0].work_plan_details){
+				if (r.message){
+					frm.clear_table("work_plan_details");
+						r.message.forEach(function(d){
+							var new_row = frm.add_child("work_plan_details");
+							new_row.activity = d.activity;
+							new_row.activity_name = d.activity_name;
+					   });
+					frm.refresh_field("work_plan_details");
 					frm.save();
 					frm.refresh();
 				}
@@ -44,7 +57,7 @@ frappe.ui.form.on('Work Plan', {
     	return{
 	    	filters: [
 		    
-		    	['Activity', 'output', '=', d.output]
+		    	['Project Activity', 'output', '=', d.output]
 	    	]
             	}
         });

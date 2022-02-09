@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "allow_rename": 1,
  "autoname": "naming_series:",
  "creation": "2020-08-12 18:55:42.545316",
@@ -13,7 +14,6 @@
   "section_break_9",
   "project",
   "project_name",
-  "fund_project_code",
   "donor",
   "project_location",
   "column_breack_6",
@@ -69,13 +69,6 @@
    "read_only": 1
   },
   {
-   "fetch_from": "project.fund_code",
-   "fieldname": "fund_project_code",
-   "fieldtype": "Data",
-   "label": "Fund Project Code",
-   "read_only": 1
-  },
-  {
    "fetch_from": "project.donor",
    "fieldname": "donor",
    "fieldtype": "Data",
@@ -96,7 +89,6 @@
    "read_only": 1
   },
   {
-   "fetch_from": "project.project_location",
    "fieldname": "project_location",
    "fieldtype": "Data",
    "label": "Project Location",
@@ -265,12 +257,14 @@
    "read_only": 1
   }
  ],
+ "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "modified": "2021-03-17 03:40:22.568536",
+ "links": [],
+ "modified": "2022-02-06 09:46:02.786560",
  "modified_by": "Administrator",
  "module": "MEAL",
  "name": "Field Visit Plan",
- "owner": "t.azzan@partner-cons.com",
+ "owner": "Administrator",
  "permissions": [
   {
    "create": 1,

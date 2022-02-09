@@ -9,13 +9,17 @@
   "subject",
   "priority",
   "column_break_3",
+  "mandatory",
+  "comment_if_no",
   "date",
   "attach",
   "section_break_6",
-  "description"
+  "description",
+  "no"
  ],
  "fields": [
   {
+   "columns": 3,
    "fieldname": "subject",
    "fieldtype": "Small Text",
    "in_list_view": 1,
@@ -23,10 +27,11 @@
    "reqd": 1
   },
   {
+   "columns": 1,
    "fieldname": "priority",
    "fieldtype": "Select",
    "in_list_view": 1,
-   "label": "Priority ",
+   "label": "Priority",
    "options": "\nOptional\nRecommended\nRequired",
    "reqd": 1
   },
@@ -35,12 +40,14 @@
    "fieldtype": "Column Break"
   },
   {
+   "columns": 1,
    "fieldname": "date",
    "fieldtype": "Date",
-   "in_list_view": 1,
+   "hidden": 1,
    "label": "Date"
   },
   {
+   "columns": 1,
    "fieldname": "attach",
    "fieldtype": "Attach",
    "in_list_view": 1,
@@ -56,17 +63,41 @@
    "label": "Description"
   },
   {
+   "columns": 1,
    "fieldname": "reference",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Reference",
    "reqd": 1
+  },
+  {
+   "fieldname": "no",
+   "fieldtype": "Int",
+   "label": "No",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "mandatory",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Mandatory",
+   "options": "\nYes\nNo"
+  },
+  {
+   "columns": 2,
+   "depends_on": "eval:doc.mandatory==\"No\"",
+   "fieldname": "comment_if_no",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Comment if No",
+   "mandatory_depends_on": "eval:doc.mandatory==\"No\""
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2021-09-27 22:06:34.262602",
+ "modified": "2021-12-14 23:51:51.527004",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Analysis and Design Stage",

@@ -64,7 +64,7 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Activities",
-   "link_to": "Activity",
+   "link_to": "Project Activity",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -150,13 +150,13 @@
    "type": "Link"
   }
  ],
- "modified": "2021-09-20 20:39:32.254729",
+ "modified": "2021-12-06 05:57:46.801151",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Programs Management",
  "owner": "Administrator",
  "pin_to_bottom": 0,
- "pin_to_top": 0,
+ "pin_to_top": 1,
  "shortcuts": [
   {
    "color": "#4463F0",
@@ -164,6 +164,12 @@
    "format": "{} Draft",
    "label": "Project Proposal",
    "link_to": "Project Proposal",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "Project",
+   "link_to": "Project",
    "type": "DocType"
   }
  ],

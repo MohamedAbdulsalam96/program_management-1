@@ -172,6 +172,7 @@
   {
    "fieldname": "hhs",
    "fieldtype": "Int",
+   "hidden": 1,
    "label": "HHs"
   },
   {
@@ -183,7 +184,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-10-06 16:01:36.951823",
+ "modified": "2021-10-12 10:05:57.107214",
  "modified_by": "Administrator",
  "module": "MEAL",
  "name": "Achieved Indicator",

@@ -1,0 +1,74 @@
+<style>
+	.thead-dark th
+	{
+		vertical-align: inherit !important;
+	}
+	.outcome-bg
+	{
+		background-color: rgb(255, 254, 253);
+	}
+	.has_multi_outcome-bg
+	{
+		background-color: #acdfff;
+	}
+	.output-bg
+	{
+		background-color: #b7ffff;
+	}
+</style>
+<table class="table table-bordered display indicators">
+	<tbody>
+		{% for pro_act in pro_act_list %}		
+			<tr>
+				<!-- <td style="background-color: black; color:cornsilk">
+					{{ __("Project Activity") }}
+				</td> -->
+				<td style="background-color: antiquewhite;" colspan="8">
+					{{ pro_act.main_activity }}
+
+				</td>
+			</tr>
+
+
+			<!-- <tr class="thead-light cen">
+				<th>Type</th>
+				<th>Subject</th>
+
+			</tr> -->
+			
+
+			{% for main_act in pro_act.main_act_list %}
+				
+				{% if (main_act.sub_act_list.length == 0) { %}
+					<tr>
+							<td class="outcome-bg">{{ main_act.subject }}</td><td class="outcome-bg"></td>
+					</tr>
+				{% } else { %}
+				
+					{% var counter=1; %}
+
+					{% for sub_act in main_act.sub_act_list %}
+			
+						<tr>
+							{% if (counter == 1) { %}
+								<td rowspan="{{ main_act.sub_act_list.length }}" class="outcome-bg">{{ main_act.subject }}</td>
+							{% } %}
+							<!-- <td class="outcome-bg">{{ __("Sub-MEAL Activity") }}</td> -->
+							<td>{{ sub_act.subject }}</td>
+							
+						</tr>
+						{% counter++ %}
+						
+					{% endfor %}
+
+				{% } %}
+				
+			{% endfor %}
+
+				
+
+		{% endfor %}
+
+	</tbody>
+
+</table>

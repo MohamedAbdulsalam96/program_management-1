@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "autoname": "naming_series:",
  "creation": "2020-07-18 21:00:26.799010",
  "doctype": "DocType",
@@ -98,7 +99,7 @@
    "fieldname": "activity",
    "fieldtype": "Link",
    "label": "Activity",
-   "options": "Activity"
+   "options": "Project Activity"
   },
   {
    "depends_on": "eval:doc.type==\"Indicator\"",
@@ -108,9 +109,11 @@
    "options": "Indicators"
   }
  ],
+ "index_web_pages_for_search": 1,
  "is_tree": 1,
- "modified": "2021-03-15 23:45:17.551059",
- "modified_by": "o.mutawakel@partner-cons.com",
+ "links": [],
+ "modified": "2021-11-06 09:43:27.699019",
+ "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Logframe",
  "nsm_parent_field": "parent_logical_framework_chart",

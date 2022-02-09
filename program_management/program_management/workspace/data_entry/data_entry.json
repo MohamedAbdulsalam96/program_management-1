@@ -1,0 +1,43 @@
+{
+ "category": "Modules",
+ "charts": [],
+ "creation": "2022-02-06 21:48:47.956077",
+ "developer_mode_only": 0,
+ "disable_user_customization": 1,
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "extends_another_page": 0,
+ "hide_custom": 0,
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "label": "Data Entry",
+ "links": [],
+ "modified": "2022-02-06 21:53:50.248542",
+ "modified_by": "Administrator",
+ "module": "Program Management",
+ "name": "Data Entry",
+ "owner": "Administrator",
+ "pin_to_bottom": 0,
+ "pin_to_top": 1,
+ "shortcuts": [
+  {
+   "doc_view": "",
+   "label": "IPTT",
+   "link_to": "Indicator Log Tool",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "IPTT Summary Tool",
+   "link_to": "IPTT Summary Tool",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "Complaint Mechanism",
+   "link_to": "Complain Mechanism",
+   "type": "DocType"
+  }
+ ]
+}

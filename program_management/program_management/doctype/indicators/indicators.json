@@ -11,18 +11,20 @@
   "project",
   "column_break_3",
   "project_proposal",
+  "source_of_fund",
   "section_break_5",
   "code",
   "indicator",
   "column_break_8",
   "linked_with",
   "output",
-  "linked_with_outcome",
-  "linked_with_objective",
   "activity",
+  "indicator_weight",
   "section_break_12",
   "is_percentage",
+  "tracking_beneficiaries",
   "is_cumulative",
+  "months_no",
   "indicator_detail",
   "section_break_15",
   "total_men",
@@ -40,8 +42,10 @@
   "mean_of_verification",
   "frequency",
   "responsible",
+  "column_break_34",
   "meal_activities",
-  "location"
+  "location",
+  "important_assumptions"
  ],
  "fields": [
   {
@@ -67,7 +71,7 @@
    "fieldname": "output",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Objective/Outcome/Output",
+   "label": "LFW",
    "mandatory_depends_on": "eval:doc.linked_with!=\"Activity\"",
    "options": "Outcome and Output"
   },
@@ -80,14 +84,14 @@
    "fieldname": "indicator_detail",
    "fieldtype": "Table",
    "label": "Indicator Detail",
-   "options": "Indicator Detail"
+   "options": "Indicator Detail",
+   "reqd": 1
   },
   {
+   "depends_on": "project",
    "fetch_from": "project.project_proposal",
    "fieldname": "project_proposal",
    "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
    "label": "Project Proposal",
    "options": "Project Proposal",
    "read_only": 1,
@@ -99,7 +103,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Linked With",
-   "options": "\nObjective\nOutcome\nOutput",
+   "options": "\nImpact\nProject Goal\nObjective\nUltimate Outcome\nIntermediate Outcome\nImmediate Outcomes\nOutcome\nOutput",
    "reqd": 1
   },
   {
@@ -151,15 +155,14 @@
    "fieldtype": "Link",
    "hidden": 1,
    "label": "Activity",
-   "mandatory_depends_on": "eval:doc.linked_with==\"Activity\"",
-   "options": "Activity"
+   "options": "Project Activity"
   },
   {
    "default": "0",
-   "depends_on": "eval:doc.is_cumulative==0",
    "fieldname": "is_percentage",
    "fieldtype": "Check",
-   "label": "Is Percentage"
+   "label": "Is Percentage",
+   "read_only_depends_on": "eval:doc.is_cumulative==1 || doc.tracking_beneficiaries==1"
   },
   {
    "fieldname": "mean_of_verification",
@@ -217,10 +220,10 @@
   },
   {
    "default": "0",
-   "depends_on": "eval:doc.is_percentage==0",
    "fieldname": "is_cumulative",
    "fieldtype": "Check",
-   "label": "Is Cumulative"
+   "label": "Is Repeated",
+   "read_only_depends_on": "eval:doc.is_percentage==1"
   },
   {
    "fieldname": "frequency",
@@ -236,6 +239,7 @@
   {
    "fieldname": "meal_activities",
    "fieldtype": "Small Text",
+   "hidden": 1,
    "label": "MEAL Activities"
   },
   {
@@ -245,25 +249,48 @@
    "read_only": 1
   },
   {
-   "fetch_from": "output.parent_outcome_and_output",
-   "fieldname": "linked_with_outcome",
-   "fieldtype": "Link",
-   "label": "Linked With Outcome",
-   "options": "Outcome and Output",
-   "read_only": 1
+   "fieldname": "important_assumptions",
+   "fieldtype": "Small Text",
+   "label": "Important Assumptions"
   },
   {
-   "fetch_from": "linked_with_outcome.parent_outcome_and_output",
-   "fieldname": "linked_with_objective",
+   "fieldname": "column_break_34",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "project",
+   "fetch_from": "project_proposal.source_of_fund",
+   "fieldname": "source_of_fund",
    "fieldtype": "Link",
-   "label": "Linked With Objective",
-   "options": "Outcome and Output",
-   "read_only": 1
+   "label": "Source Of Fund",
+   "options": "Source Of Fund",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.is_cumulative==1",
+   "fieldname": "months_no",
+   "fieldtype": "Int",
+   "label": "Repeat Months",
+   "mandatory_depends_on": "eval:doc.is_cumulative==1"
+  },
+  {
+   "fieldname": "indicator_weight",
+   "fieldtype": "Float",
+   "label": "Weight",
+   "non_negative": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "tracking_beneficiaries",
+   "fieldtype": "Check",
+   "label": "Tracking Beneficiaries",
+   "read_only_depends_on": "eval:doc.is_percentage==1"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-10-05 23:58:20.324859",
+ "modified": "2022-02-02 20:02:15.900249",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Indicators",
@@ -306,6 +333,7 @@
    "write": 1
   }
  ],
+ "search_fields": "indicator",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

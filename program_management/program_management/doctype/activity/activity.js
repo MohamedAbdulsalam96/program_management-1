@@ -1,28 +1,35 @@
-// Copyright (c) 2020, Akram Mutaher and contributors
-// For license information, please see license.txt
-
 frappe.ui.form.on('Activity', {
-	// refresh: function(frm) {
+	setup(frm) {
+		cur_frm.set_query("output", function() {			
+			return{
+				filters: {
+					project: frm.doc.project,
+					type: frm.doc.linked_with
+				}}
+			});
+	},
+	source_of_fund: function(frm) {
+		var op = "";
+		if (frm.doc.source_of_fund == "IRW"){
+			op = ['Impact', 'Outcome', 'Output'];
+			frm.set_df_property('linked_with', 'options', [""].concat(op));
+		}	
+		else if(frm.doc.source_of_fund == "OCHA"){
+			op = ['Objective', 'Outcome', 'Output'];
+			frm.set_df_property('linked_with', 'options', [""].concat(op));
+		}	
+		else if(frm.doc.source_of_fund == "GAC"){
+			op = ['Ultimate Outcome', 'Intermediate Outcome', 'Immediate Outcomes', 'Output'];
+			frm.set_df_property('linked_with', 'options', [""].concat(op));
+		}	
+	},
 
-	// }
 });
 
-frappe.ui.form.on('Activity', {
-	refresh(frm) {
-		// your code here
-	}
-})
-frappe.ui.form.on('Activity', {
-	refresh(frm) {
-	cur_frm.set_query("output", function(doc, cdt, cdn) {
-	    var d = locals[cdt][cdn];
-    	return{
-	    	filters: [
-		    
-		    	['Outcome and Output', 'type', '=', d.linked_with],
-		    	['Outcome and Output', 'project_proposal', '=', d.project_proposal]
-	    	]
-            	}
-        });
-	}
-})
+
+frappe.ui.form.on('Activity',  'validate',  function(frm) {
+    if (frm.doc.start_date > frm.doc.end_date) {
+        msgprint('End Date can not by be before Start Date');
+        validated = false;
+    } 
+});

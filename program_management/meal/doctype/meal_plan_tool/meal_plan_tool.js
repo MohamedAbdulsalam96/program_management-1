@@ -58,27 +58,27 @@ frappe.ui.form.on('MEAL Plan Tool', {
 
 	},
 
-	submit_result: function(frm) {
-		if (frm.doc.show_submit) {
-			frm.page.set_primary_action(__("Submit"), function() {
-				frappe.call({
-					method: "program_management.meal.api_meal_plan.submit_assessment_results",
-					args: {
-						"indicators": frm.doc.indicators						
-					},
-					callback: function(r) {
-						if (r.message) {
-							frappe.msgprint(__("{0} Result submittted", [r.message]));
-						} else {
-							frappe.msgprint(__("No Result to submit"));
-						}
-						frm.events.assessment_plan(frm);
-					}
-				});
-			});
-		}
-		else {
-			frm.page.clear_primary_action();
-		}
-	}
+	// submit_result: function(frm) {
+	// 	if (frm.doc.show_submit) {
+	// 		frm.page.set_primary_action(__("Submit"), function() {
+	// 			frappe.call({
+	// 				method: "program_management.meal.api_meal_plan.submit_assessment_results",
+	// 				args: {
+	// 					"indicators": frm.doc.indicators						
+	// 				},
+	// 				callback: function(r) {
+	// 					if (r.message) {
+	// 						frappe.msgprint(__("{0} Result submittted", [r.message]));
+	// 					} else {
+	// 						frappe.msgprint(__("No Result to submit"));
+	// 					}
+	// 					frm.events.assessment_plan(frm);
+	// 				}
+	// 			});
+	// 		});
+	// 	}
+	// 	else {
+	// 		frm.page.clear_primary_action();
+	// 	}
+	// }
 });

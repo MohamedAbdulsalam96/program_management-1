@@ -1,0 +1,36 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2021-12-09 11:42:41.712006",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "Default Letterhead",
+ "modified": "2021-12-09 11:42:58.226705",
+ "modified_by": "Administrator",
+ "module": "MEAL",
+ "name": "Complaint Mechanism Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Complain Mechanism",
+ "report_name": "Complaint Mechanism Report",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "MEAL Senior"
+  },
+  {
+   "role": "Complaints Officer"
+  },
+  {
+   "role": "Projects Manager"
+  }
+ ]
+}

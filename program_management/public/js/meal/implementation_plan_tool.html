@@ -1,0 +1,74 @@
+<style>
+    table td, th{
+        word-break: break-all;
+		padding: 5px 0 !important;
+    }
+    </style>
+    
+    <div style="overflow-x:auto;">
+    <table class="table table-bordered assessment-result-tool">
+        <thead style="background-color: #404040; color:cornsilk; text-align:center">
+			<tr>
+			<th style="width: 50px"> No. </th>
+			<th style="width: 50px"> # </th>
+			<th style="width: 450px"> Activity </th>
+			<th style="width: 90px"> Progress </th>
+			<th style="width: 90px"> Start Date </th>
+			<th style="width: 90px"> End Date </th>
+			{% for(const [key, value] of Object.entries(years)) { %}
+				{% for(const [key_m, value_m] of Object.entries(value)) { %}
+				<th style="width: 75px !important;">{{ value_m["month"] }} / {{ key }}</th>
+				{% endfor %}
+			{% endfor %}
+		</tr>
+	</thead>
+	<tbody>
+		{% for a in activity %}
+		<tr class="text-muted">
+			<td class="total text-center"> {{ a.idx }} </td>
+			<td class="total text-center"> {{ a.code }} </td>
+			<th class="total text-center"> {{ a.activity }} </th>
+			<th class="total text-center"> {{ a._progress }} % </th>
+			<th class="total text-center"> {{ a.start_date }} </th>
+			<th class="total text-center"> {{ a.end_date }} </th>
+			{% var pro=0; %}
+
+			
+			{% for(const [key, value] of Object.entries(years)) { %}
+                {% for(const [key_m, value_m] of Object.entries(value)) { %}
+					{% var in_month=0; %}
+					{% for d in a.dates %}
+					
+						{% if(d == value_m["date"]) { %}
+							{% pro += a.per; %} 
+							{% if pro <= a._progress  %}
+								{% in_month=1; %} 
+							{% else %}
+								{% in_month=2; %} 
+							{% endif %}
+						
+						{% } %}
+
+					{% endfor %} 
+					
+					{% if in_month == 1 %}
+					<td style="background-color: #9accd3; border-right: none; border-left: none;"> </td>
+					{% endif %}
+
+					{% if in_month == 2 %}
+					<td style="background-color: #d1d1d4;  border-right: none; border-left: none;"> </td>
+					{% endif %}
+
+					{% if in_month == 0%}
+					<td style="border-right: none; border-left: none;"> </td>
+					{% endif %}
+
+                {% endfor %} 
+            {% endfor %} 
+			
+		</tr>
+
+		{% endfor %} 
+	</tbody>
+</table>
+</div>

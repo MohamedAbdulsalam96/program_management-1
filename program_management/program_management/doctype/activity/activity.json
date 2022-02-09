@@ -10,6 +10,7 @@
   "project",
   "column_break_3",
   "project_proposal",
+  "source_of_fund",
   "section_break_5",
   "code",
   "activity",
@@ -50,12 +51,12 @@
   },
   {
    "allow_in_quick_entry": 1,
-   "depends_on": "eval:doc.linked_with!=\"Indicator\"",
+   "depends_on": "linked_with",
    "fieldname": "output",
    "fieldtype": "Link",
    "in_standard_filter": 1,
    "label": "Objective/Outcome/Output",
-   "mandatory_depends_on": "eval:doc.linked_with!=\"Indicator\"",
+   "mandatory_depends_on": "linked_with",
    "options": "Outcome and Output"
   },
   {
@@ -85,7 +86,6 @@
    "fetch_from": "project.project_proposal",
    "fieldname": "project_proposal",
    "fieldtype": "Link",
-   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Project Proposal",
    "options": "Project Proposal",
@@ -93,13 +93,12 @@
    "reqd": 1
   },
   {
-   "allow_in_quick_entry": 1,
    "fieldname": "linked_with",
    "fieldtype": "Select",
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Linked With",
-   "options": "\nObjective\nOutcome\nOutput\nIndicator",
+   "options": "\nImpact\nProject Goal\nObjective\nUltimate Outcome\nIntermediate Outcome\nImmediate Outcomes\nOutcome\nOutput",
    "reqd": 1
   },
   {
@@ -158,11 +157,19 @@
    "depends_on": "project",
    "fieldname": "section_break_18",
    "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "project_proposal.source_of_fund",
+   "fieldname": "source_of_fund",
+   "fieldtype": "Link",
+   "label": "Source Of Fund",
+   "options": "Source Of Fund",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-09-29 11:05:09.574656",
+ "modified": "2021-10-30 11:34:29.331361",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Activity",

@@ -1,0 +1,97 @@
+{
+ "actions": [],
+ "creation": "2021-11-02 13:18:54.467123",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "project",
+  "project_duration",
+  "percent_complete",
+  "rag",
+  "html_5",
+  "section_break_2",
+  "summary_html"
+ ],
+ "fields": [
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Project",
+   "options": "Project",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "summary_html",
+   "fieldtype": "HTML",
+   "label": "Summary HTML"
+  },
+  {
+   "fetch_from": "project.period_of_implementation",
+   "fieldname": "project_duration",
+   "fieldtype": "Data",
+   "label": "Project Period",
+   "read_only": 1
+  },
+  {
+   "depends_on": "project",
+   "fetch_from": "project.percent_complete",
+   "fieldname": "percent_complete",
+   "fieldtype": "Percent",
+   "label": "Project Progress",
+   "read_only": 1
+  },
+  {
+   "depends_on": "project",
+   "fieldname": "rag",
+   "fieldtype": "Color",
+   "label": "RAG",
+   "read_only": 1
+  },
+  {
+   "fieldname": "html_5",
+   "fieldtype": "HTML"
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2022-02-03 09:58:32.172610",
+ "modified_by": "Administrator",
+ "module": "MEAL",
+ "name": "IPTT Summary Tool",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Projects Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

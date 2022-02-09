@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "autoname": "naming_series:",
  "creation": "2021-03-14 18:36:44.951094",
  "doctype": "DocType",
@@ -25,13 +26,9 @@
   "get_activities",
   "report_details",
   "section_break_4",
-  "strengths_and_weaknesses",
-  "section_break_8",
   "project_team",
   "section_break_10",
-  "risks_and_solutions",
-  "section_break_6",
-  "recommendations_for_programs"
+  "risks_and_solutions"
  ],
  "fields": [
   {
@@ -69,16 +66,6 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "strengths_and_weaknesses",
-   "fieldtype": "Table",
-   "label": "Strengths and Weaknesses",
-   "options": "Table strengths and weaknesses"
-  },
-  {
-   "fieldname": "section_break_8",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "project_team",
    "fieldtype": "Table",
    "label": "Project Team",
@@ -93,16 +80,6 @@
    "fieldtype": "Table",
    "label": "Risks and Solutions",
    "options": "Risks and Solutions"
-  },
-  {
-   "fieldname": "section_break_6",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "recommendations_for_programs",
-   "fieldtype": "Table",
-   "label": "Recommendations for programs",
-   "options": "Recommendations for programs"
   },
   {
    "fieldname": "project_details_section",
@@ -200,11 +177,13 @@
    "read_only": 1
   }
  ],
- "modified": "2021-04-07 12:07:32.075463",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-10-12 20:58:47.819834",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Managers Monthly Report",
- "owner": "o.mutawakel@partner-cons.com",
+ "owner": "Administrator",
  "permissions": [
   {
    "create": 1,

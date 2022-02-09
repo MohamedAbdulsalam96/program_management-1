@@ -4,5 +4,5 @@
 # import frappe
 import unittest
 
-class TestComplaintMechanism(unittest.TestCase):
+class TestProjectProposalPipeline(unittest.TestCase):
 	pass

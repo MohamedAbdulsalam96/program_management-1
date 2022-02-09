@@ -45,3 +45,53 @@ def make_project(source_name, target_doc=None):
 	}, target_doc)
 	target_doc.from_assessment = "Project Proposal"
 	return target_doc
+
+
+@frappe.whitelist()
+@frappe.validate_and_sanitize_search_inputs
+def get_governorate(doctype, txt, searchfield, start, page_len, filters):
+	if not filters: filters = {}
+	condition = ""
+	if filters.get("parent"):
+		if filters.get("type"):
+			if filters.get("type")=="Project":
+				filters["parent"] = frappe.get_value("Project", filters.get("parent"), "project_proposal")
+		condition += "and parent = %(parent)s"
+	
+	return frappe.db.sql("""select governorate from `tabGovernorates`
+				where `governorate` LIKE %(txt)s
+				{condition} 
+			order by idx desc, name"""
+			.format(condition=condition), {
+				'txt': '%' + txt + '%',
+				'parent': filters.get("parent", "")
+			})
+
+
+@frappe.whitelist()
+@frappe.validate_and_sanitize_search_inputs
+def get_district(doctype, txt, searchfield, start, page_len, filters):
+	if not filters: filters = {}
+	condition = ""
+	if filters.get("parent"):
+		condition += "and parent = %(parent)s"
+	
+	return frappe.db.sql("""select district from `tabDistricts`
+				where `district` LIKE %(txt)s
+				{condition} 
+			order by idx desc, name"""
+			.format(condition=condition), {
+				'txt': '%' + txt + '%',
+				'parent': filters.get("parent", "")
+			})
+
+@frappe.whitelist()
+def get_governorate_district(parent):
+	res = {}
+	res['governorate'] =  frappe.db.sql("""select governorate from `tabGovernorates`
+		where parent = %(parent)s
+		order by idx desc, name""", {'parent': parent})
+	res['district'] =  frappe.db.sql("""select district from `tabDistricts`
+		where parent = %(parent)s
+		order by idx desc, name""", {'parent': parent})
+	return res

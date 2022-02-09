@@ -1,0 +1,230 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2021-10-31 12:08:25.487812",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "project",
+  "column_break_3",
+  "project_proposal",
+  "source_of_fund",
+  "section_break_5",
+  "type",
+  "main_activity",
+  "subject",
+  "is_group",
+  "parent_meal_activity",
+  "column_break_10",
+  "start_date",
+  "end_date",
+  "duration",
+  "means_of_verification",
+  "section_break_18",
+  "assumption",
+  "lft",
+  "rgt",
+  "old_parent"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "no_copy": 1,
+   "options": "MEAL-ACT-.YY.-"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Project",
+   "options": "Project",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "project.project_proposal",
+   "fieldname": "project_proposal",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Project Proposal",
+   "options": "Project Proposal",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "project_proposal.source_of_fund",
+   "fieldname": "source_of_fund",
+   "fieldtype": "Link",
+   "label": "Source Of Fund",
+   "options": "Source Of Fund",
+   "read_only": 1
+  },
+  {
+   "depends_on": "project",
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Type",
+   "options": "\nMEAL Activity\nMEAL Sub-Activity",
+   "reqd": 1
+  },
+  {
+   "fieldname": "means_of_verification",
+   "fieldtype": "Data",
+   "label": "Means of Verification"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "duration",
+   "fieldtype": "Int",
+   "label": "Duration",
+   "read_only": 1
+  },
+  {
+   "depends_on": "project",
+   "fieldname": "section_break_18",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "assumption",
+   "fieldtype": "Text Editor",
+   "label": "Assumption"
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Group",
+   "read_only": 1
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "label": "Old Parent",
+   "options": "MEAL Activity"
+  },
+  {
+   "depends_on": "eval:doc.type == \"MEAL Sub-Activity\"",
+   "fieldname": "parent_meal_activity",
+   "fieldtype": "Link",
+   "label": "Parent MEAL Activity",
+   "mandatory_depends_on": "eval:doc.type == \"MEAL Sub-Activity\"",
+   "options": "MEAL Activity"
+  },
+  {
+   "depends_on": "eval:doc.type == \"MEAL Activity\"",
+   "fieldname": "main_activity",
+   "fieldtype": "Link",
+   "label": "Main Activity",
+   "mandatory_depends_on": "eval:doc.type == \"MEAL Activity\"",
+   "options": "Project Activity"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "subject",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Subject",
+   "length": 400,
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_tree": 1,
+ "links": [],
+ "modified": "2021-11-06 09:41:11.403363",
+ "modified_by": "Administrator",
+ "module": "MEAL",
+ "name": "MEAL Activity",
+ "nsm_parent_field": "parent_meal_activity",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "subject",
+ "track_changes": 1
+}

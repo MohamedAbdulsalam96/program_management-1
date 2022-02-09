@@ -1,0 +1,112 @@
+{
+ "actions": [],
+ "creation": "2021-10-12 19:22:31.475413",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "project",
+  "project_proposal",
+  "donor",
+  "sla_start_date",
+  "sla_end_date",
+  "location",
+  "currency_of_fund",
+  "project_budget",
+  "project_budget_usd",
+  "project_budget_gbp",
+  "gbp_currency"
+ ],
+ "fields": [
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Project",
+   "options": "Project",
+   "reqd": 1
+  },
+  {
+   "fieldname": "project_proposal",
+   "fieldtype": "Link",
+   "label": "Project Proposal",
+   "options": "Project Proposal"
+  },
+  {
+   "fieldname": "donor",
+   "fieldtype": "Table",
+   "label": "Donor",
+   "options": "Donors Details"
+  },
+  {
+   "fieldname": "sla_start_date",
+   "fieldtype": "Date",
+   "label": "SLA Start Date"
+  },
+  {
+   "fieldname": "sla_end_date",
+   "fieldtype": "Date",
+   "label": "SLA End Date"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Small Text",
+   "label": "Location"
+  },
+  {
+   "fieldname": "currency_of_fund",
+   "fieldtype": "Link",
+   "label": "Currency of Fund",
+   "options": "Currency"
+  },
+  {
+   "depends_on": "eval:doc.currency_of_fund!=\"USD\"",
+   "fieldname": "project_budget_usd",
+   "fieldtype": "Currency",
+   "label": "Project Budget USD"
+  },
+  {
+   "fieldname": "project_budget_gbp",
+   "fieldtype": "Currency",
+   "label": "Project Budget GBP",
+   "options": "gbp_currency"
+  },
+  {
+   "fieldname": "gbp_currency",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "GBP Currency",
+   "options": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "project_budget",
+   "fieldtype": "Currency",
+   "label": "Project Budget i"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-10-12 19:25:26.918868",
+ "modified_by": "Administrator",
+ "module": "Program Management",
+ "name": "SAL",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

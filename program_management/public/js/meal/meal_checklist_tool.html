@@ -1,0 +1,157 @@
+<style>
+	.thead-dark th
+	{
+		vertical-align: inherit !important;
+	}
+	.outcome-bg
+	{
+		background-color: antiquewhite;
+	}
+	.output-bg
+	{
+		background-color: azure;
+	}
+</style>
+<table class="table table-bordered display indicators">
+	<tbody>
+			<tr class="p-3 mb-2 bg-warning text-dark font-weight-bold text-center">
+				<td colspan="6"> Analysis and Design Stage </td>
+			</tr>
+
+			<tr class="p-3 mb-2 bg-primary text-white font-weight-bold text-center">
+				<td>Reference</th>
+				<td>Subject</th>
+				<td>Priority</th>
+				<td>Has project incorporated this requirement in project design, planned activities and BUDGET? [Y/N]</th>
+				<td>If No, Please Provide Reason / Any Other Comments</th>
+				<!-- <td>Date</th> -->
+				
+			</tr>
+		{% for an in project.analysis_and_design_stage %}	
+			<tr>
+				<td>{{ an.reference }}</td>
+				<td>{{ an.subject }}</td>
+				<td>{{ an.priority }}</td>
+				<td>{{ an.mandatory }}</td>
+
+			{% if an.comment_if_no %}
+				<td class="p-3 mb-2 bg-warning text-white font-weight-bold text-center">{{ an.comment_if_no }}</td>
+			{% endif %}
+
+			{% if !an.comment_if_no %}
+				<td>{{ an.comment_if_no }}</td>
+			{% endif %}
+
+				<!-- <td>{{ an.date }}</td>	 -->
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+<table class="table table-bordered display indicators">
+	<tbody>
+			<tr class="p-3 mb-2 bg-warning text-dark font-weight-bold text-center">
+				<td colspan="6"> Planning Stage </td>
+			</tr>
+
+			<tr class="p-3 mb-2 bg-primary text-white font-weight-bold text-center">
+				<td>Reference</th>
+				<td>Subject</th>
+				<td>Priority</th>
+				<td>Has project incorporated this requirement in project design, planned activities and BUDGET? [Y/N]</th>
+				<td>If No, Please Provide Reason / Any Other Comments</th>
+				<!-- <td>Date</th> -->
+				
+			</tr>
+		{% for pl in project.planning_stage %}	
+			<tr>
+				<td>{{ pl.reference }}</td>
+				<td>{{ pl.subject }}</td>
+				<td>{{ pl.priority }}</td>
+				<td>{{ pl.mandatory }}</td>
+
+			{% if pl.comment_if_no %}
+				<td class="p-3 mb-2 bg-warning text-white font-weight-bold text-center">{{ pl.comment_if_no }}</td>
+			{% endif %}
+
+			{% if !pl.comment_if_no %}
+				<td>{{ pl.comment_if_no }}</td>
+			{% endif %}
+
+				<!-- <td>{{ pl.date }}</td>	 -->
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+<table class="table table-bordered display indicators">
+	<tbody>
+			<tr class="p-3 mb-2 bg-warning text-dark font-weight-bold text-center">
+				<td colspan="6"> Implementation Stage </td>
+			</tr>
+
+			<tr class="p-3 mb-2 bg-primary text-white font-weight-bold text-center">
+				<td>Reference</th>
+				<td>Subject</th>
+				<td>Priority</th>
+				<td>Has project incorporated this requirement in project design, planned activities and BUDGET? [Y/N]</th>
+				<td>If No, Please Provide Reason / Any Other Comments</th>
+				<!-- <td>Date</th> -->
+				
+			</tr>
+		{% for im in project.implementation_stage %}	
+			<tr>
+				<td>{{ im.reference }}</td>
+				<td>{{ im.subject }}</td>
+				<td>{{ im.priority }}</td>
+				<td>{{ im.mandatory }}</td>
+				
+			{% if im.comment_if_no %}
+				<td class="p-3 mb-2 bg-warning text-white font-weight-bold text-center">{{ im.comment_if_no }}</td>
+			{% endif %}
+
+			{% if !im.comment_if_no %}
+				<td>{{ im.comment_if_no }}</td>
+			{% endif %}
+
+				<!-- <td>{{ im.date }}</td>	 -->
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+<table class="table table-bordered display indicators">
+	<tbody>
+			<tr class="p-3 mb-2 bg-warning text-dark font-weight-bold text-center">
+				<td colspan="6"> Evaluations and Reporting and Project Closure Stage </td>
+			</tr>
+
+			<tr class="p-3 mb-2 bg-primary text-white font-weight-bold text-center">
+				<td>Reference</th>
+				<td>Subject</th>
+				<td>Priority</th>
+				<td>Has project incorporated this requirement in project design, planned activities and BUDGET? [Y/N]</th>
+				<td>If No, Please Provide Reason / Any Other Comments</th>
+				<!-- <td>Date</th> -->
+				
+			</tr>
+		{% for ev in project.evaluations_and_reporting_and_project_closure_stage %}	
+			<tr>
+				<td>{{ ev.reference }}</td>
+				<td>{{ ev.subject }}</td>
+				<td>{{ ev.priority }}</td>
+				<td>{{ ev.mandatory }}</td>
+
+			{% if ev.comment_if_no %}
+				<td class="p-3 mb-2 bg-warning text-white font-weight-bold text-center">{{ ev.comment_if_no }}</td>
+			{% endif %}
+
+			{% if !ev.comment_if_no %}
+				<td>{{ ev.comment_if_no }}</td>
+			{% endif %}
+
+				<!-- <td>{{ ev.date }}</td>	 -->
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>

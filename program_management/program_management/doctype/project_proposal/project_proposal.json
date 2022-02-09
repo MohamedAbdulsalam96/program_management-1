@@ -10,6 +10,7 @@
  "field_order": [
   "naming_series",
   "source_of_fund",
+  "project_proposal_pipeline",
   "section_break_3",
   "project_title",
   "submitted_by",
@@ -23,7 +24,9 @@
   "planned_start_date",
   "planned_end_date",
   "project_duration",
+  "project_budget_currency",
   "project_budget_usd",
+  "gbp_currency",
   "project_budget_gbp",
   "lead_implementing_partner",
   "downstream_delivery_partners",
@@ -49,6 +52,8 @@
   "total_unclassified",
   "column_break_42",
   "total",
+  "with_disability",
+  "without_disability",
   "section_break_44",
   "donors",
   "address_contacts",
@@ -84,7 +89,8 @@
    "fieldtype": "Small Text",
    "in_global_search": 1,
    "in_standard_filter": 1,
-   "label": "Project Title"
+   "label": "Project Title",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_3",
@@ -128,10 +134,12 @@
    "options": "Targeted Programs"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "donors",
    "fieldtype": "Table",
    "label": "Donors",
-   "options": "Donors Details"
+   "options": "Donors Details",
+   "reqd": 1
   },
   {
    "depends_on": "source_of_fund",
@@ -248,6 +256,7 @@
    "label": "Problem Statement"
   },
   {
+   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "total_men",
    "fieldtype": "Int",
@@ -255,6 +264,7 @@
    "read_only": 1
   },
   {
+   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "total_women",
    "fieldtype": "Int",
@@ -262,6 +272,7 @@
    "read_only": 1
   },
   {
+   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "total_boys",
    "fieldtype": "Int",
@@ -269,6 +280,7 @@
    "read_only": 1
   },
   {
+   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "total_girls",
    "fieldtype": "Int",
@@ -276,6 +288,7 @@
    "read_only": 1
   },
   {
+   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "total_unclassified",
    "fieldtype": "Int",
@@ -283,6 +296,7 @@
    "read_only": 1
   },
   {
+   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "total",
    "fieldtype": "Int",
@@ -293,13 +307,15 @@
    "fieldname": "districts",
    "fieldtype": "Table MultiSelect",
    "label": "Districts",
-   "options": "Districts"
+   "options": "Districts",
+   "reqd": 1
   },
   {
    "fieldname": "governorates",
    "fieldtype": "Table MultiSelect",
    "label": "Governorates",
-   "options": "Governorates"
+   "options": "Governorates",
+   "reqd": 1
   },
   {
    "fieldname": "submitted_by",
@@ -415,16 +431,22 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "project_budget_usd",
    "fieldtype": "Currency",
    "in_list_view": 1,
-   "label": "Project Budget - USD"
+   "label": "Project Budget Amount",
+   "options": "project_budget_currency",
+   "reqd": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "project_budget_gbp",
    "fieldtype": "Currency",
    "in_standard_filter": 1,
-   "label": "Project Budget - GBP"
+   "label": "Project Budget - GBP",
+   "options": "gbp_currency",
+   "reqd": 1
   },
   {
    "fieldname": "strategies_types",
@@ -432,12 +454,47 @@
    "label": "Strategies Types",
    "mandatory_depends_on": "eval:doc.source_of_fund==\"IRW\"",
    "options": "Strategies Types"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "USD",
+   "fieldname": "project_budget_currency",
+   "fieldtype": "Link",
+   "label": "Project Budget Currency",
+   "options": "Currency"
+  },
+  {
+   "default": "GBP",
+   "fieldname": "gbp_currency",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "GBP Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "project_proposal_pipeline",
+   "fieldtype": "Link",
+   "label": "Project Proposal Pipeline",
+   "options": "Project Proposal Pipeline",
+   "read_only": 1
+  },
+  {
+   "fieldname": "with_disability",
+   "fieldtype": "Int",
+   "label": "With Disability",
+   "read_only": 1
+  },
+  {
+   "fieldname": "without_disability",
+   "fieldtype": "Int",
+   "label": "Without Disability",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-10-03 17:17:49.353053",
+ "modified": "2021-12-15 13:26:33.705436",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Project Proposal",

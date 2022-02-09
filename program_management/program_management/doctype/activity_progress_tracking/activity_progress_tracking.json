@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "creation": "2021-03-15 01:41:15.302843",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -19,7 +20,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Activity",
-   "options": "Activity"
+   "options": "Project Activity"
   },
   {
    "fieldname": "column_break_3",
@@ -67,8 +68,10 @@
    "read_only": 1
   }
  ],
+ "index_web_pages_for_search": 1,
  "istable": 1,
- "modified": "2021-03-15 01:58:59.433100",
+ "links": [],
+ "modified": "2021-11-06 09:44:03.221751",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Activity Progress Tracking",

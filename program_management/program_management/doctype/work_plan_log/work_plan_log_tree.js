@@ -5,28 +5,35 @@ frappe.treeview_settings['Work Plan Log'] = {
 	add_tree_node:  "program_management.program_management.doctype.work_plan_log.work_plan_log.add_node",
 	filters: [
 		{
-			fieldname: "work_plan",
+			fieldname: "project",
 			fieldtype:"Link",
-			options: "Work Plan",
-			label: __("Work Plan"),
+			options: "Project",
+			label: __("Project"),
+			reqd:1
 		},
-		{
-			fieldname: "work_plan_log",
-			fieldtype:"Link",
-			options: "Work Plan Log",
-			label: __("Work Plan Log"),
-			get_query: function() {
-				var me = frappe.treeview_settings['Work Plan Log'];
-				var work_plan = me.page.fields_dict.work_plan.get_value();
-				var args = [["Work Plan Log", 'is_group', '=', 1]];
-				if(work_plan){
-					args.push(["Work Plan Log", 'work_plan', "=", work_plan]);
-				}
-				return {
-					filters: args
-				};
-			}
-		}
+		// {
+		// 	fieldname: "work_plan",
+		// 	fieldtype:"Link",
+		// 	options: "Work Plan",
+		// 	label: __("Work Plan"),
+		// },
+		// {
+		// 	fieldname: "work_plan_log",
+		// 	fieldtype:"Link",
+		// 	options: "Work Plan Log",
+		// 	label: __("Work Plan Log"),
+		// 	get_query: function() {
+		// 		var me = frappe.treeview_settings['Work Plan Log'];
+		// 		var work_plan = me.page.fields_dict.work_plan.get_value();
+		// 		var args = [["Work Plan Log", 'is_group', '=', 1]];
+		// 		if(work_plan){
+		// 			args.push(["Work Plan Log", 'work_plan', "=", work_plan]);
+		// 		}
+		// 		return {
+		// 			filters: args
+		// 		};
+		// 	}
+		// }
 	],
 	breadcrumb: "Program Management",
 	get_tree_root: false,
@@ -36,6 +43,22 @@ frappe.treeview_settings['Work Plan Log'] = {
 		frappe.treeview_settings['Work Plan Log'].page = {};
 		$.extend(frappe.treeview_settings['Work Plan Log'].page, me.page);
 		me.make_tree();
+	},
+	onrender: function(node) {
+		if (frappe.boot.user.can_read.indexOf("Work Plan Log") !== -1) {
+
+			// show Dr if positive since balance is calculated as debit - credit else show Cr
+			let balance = node.data.balance_in_account_currency || node.data.balance;
+			let dr_or_cr = balance > 0 ? "Dr": "Cr";
+
+			if (node.data && node.data.progress!==undefined) {
+				$('<span class="balance-area pull-right">'
+					
+					+ node.data.progress
+
+					+ '</span>').insertBefore(node.$ul);
+			}
+		}
 	},
 	/*toolbar: [
 		{

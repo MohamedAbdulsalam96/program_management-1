@@ -1,6 +1,11 @@
 {
 	"js/erpnext.min.js": [		
 		"public/js/meal/indicator_log_tool.html",
-		"public/js/meal/meal_plan_tool.html"
+		"public/js/meal/meal_plan_tool.html",
+		"public/js/meal/meal_checklist_tool.html",
+		"public/js/meal/iptt_summary_tool.html",
+		"public/js/meal/implementation_plan_tool.html",
+		"public/js/meal/iptt_logs.html",
+		"public/js/meal/meal_activity_tool.html"
 	]
 }

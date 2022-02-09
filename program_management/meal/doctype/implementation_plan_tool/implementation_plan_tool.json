@@ -1,0 +1,133 @@
+{
+ "actions": [],
+ "creation": "2021-11-03 21:05:04.720892",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "project",
+  "project_budget_currency",
+  "project_duration",
+  "column_break_4",
+  "project_proposal",
+  "project_budget",
+  "implementation_period_section",
+  "from_date",
+  "column_break_8",
+  "to_date",
+  "section_break_10",
+  "implementation_html"
+ ],
+ "fields": [
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Project",
+   "options": "Project",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "project.project_proposal",
+   "fieldname": "project_proposal",
+   "fieldtype": "Link",
+   "label": "Project Proposal",
+   "options": "Project Proposal",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project_proposal.project_budget_currency",
+   "fieldname": "project_budget_currency",
+   "fieldtype": "Link",
+   "label": "Project Budget Currency",
+   "options": "Currency",
+   "read_only": 1
+  },
+  {
+   "depends_on": "project",
+   "fetch_from": "project_proposal.project_budget_USD",
+   "fieldname": "project_budget",
+   "fieldtype": "Currency",
+   "label": "Value",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.project_duration",
+   "fieldname": "project_duration",
+   "fieldtype": "Data",
+   "label": "Duration (In Months)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "implementation_period_section",
+   "fieldtype": "Section Break",
+   "label": "Implementation Period"
+  },
+  {
+   "fetch_from": "project.expected_start_date",
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "project.expected_end_date",
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "implementation_html",
+   "fieldtype": "HTML",
+   "label": "Implementation HTML"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2021-12-14 11:38:44.740977",
+ "modified_by": "Administrator",
+ "module": "MEAL",
+ "name": "Implementation Plan Tool",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Projects Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1,
+ "track_seen": 1
+}

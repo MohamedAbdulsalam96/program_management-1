@@ -1,0 +1,52 @@
+{
+ "actions": [],
+ "creation": "2021-10-20 19:13:55.616840",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "original_due_date",
+  "revised_due_date",
+  "column_break_3",
+  "justification"
+ ],
+ "fields": [
+  {
+   "fieldname": "original_due_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Original Due Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "revised_due_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Revised Due Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "justification",
+   "fieldtype": "Long Text",
+   "in_list_view": 1,
+   "label": "Justification ",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-10-20 19:13:55.616840",
+ "modified_by": "Administrator",
+ "module": "Program Management",
+ "name": "Reporting Date History",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

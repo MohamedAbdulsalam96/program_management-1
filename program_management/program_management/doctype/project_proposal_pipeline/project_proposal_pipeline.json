@@ -1,0 +1,181 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2021-12-04 11:54:20.104255",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "column_break_3",
+  "source_of_fund",
+  "section_break_4",
+  "donors",
+  "column_break_6",
+  "targeted_programs",
+  "section_break_5",
+  "donor_currency",
+  "fund_amount",
+  "column_break_8",
+  "exchange_rate",
+  "amount_lc",
+  "section_break_14",
+  "fund_confirmation",
+  "co_comment",
+  "column_break_17",
+  "status_co",
+  "hq_comment",
+  "section_break_20",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "PIPE-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "source_of_fund",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Income Source",
+   "options": "Source Of Fund",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "donor_currency",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Donor Currency",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "description": "Donor Currency",
+   "fieldname": "fund_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Fund Amount",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.donor_currency!=\"USD\"",
+   "fieldname": "exchange_rate",
+   "fieldtype": "Float",
+   "label": "Exchange Rate",
+   "mandatory_depends_on": "eval:doc.donor_currency!=\"USD\""
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "targeted_programs",
+   "fieldtype": "Table",
+   "label": "Sectors",
+   "options": "Targeted Programs",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amount_lc",
+   "fieldtype": "Currency",
+   "label": "Amount LC",
+   "options": "Company:company:default_currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_14",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "fund_confirmation",
+   "fieldtype": "Select",
+   "label": "Fund Confirmation",
+   "options": "\nConfirmed Fund\nFundraising",
+   "reqd": 1
+  },
+  {
+   "fieldname": "co_comment",
+   "fieldtype": "Small Text",
+   "label": "CO Comment"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status_co",
+   "fieldtype": "Select",
+   "label": "Status CO",
+   "options": "\nUnder Review / CO\nUnder Review Donor\nUnder Review IPD\nUnder Review Regional Finance\nUnder IRY Finance"
+  },
+  {
+   "fieldname": "hq_comment",
+   "fieldtype": "Small Text",
+   "label": "HQ Comment"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Project Proposal Pipeline",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "donors",
+   "fieldtype": "Table",
+   "label": "Donors",
+   "options": "Donors Details",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_20",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2021-12-04 13:02:33.452006",
+ "modified_by": "Administrator",
+ "module": "Program Management",
+ "name": "Project Proposal Pipeline",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

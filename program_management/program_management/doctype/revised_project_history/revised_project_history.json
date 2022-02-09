@@ -1,0 +1,52 @@
+{
+ "actions": [],
+ "creation": "2021-10-20 19:17:05.709975",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "original_start_date",
+  "revised_end_date",
+  "column_break_3",
+  "justification"
+ ],
+ "fields": [
+  {
+   "fieldname": "original_start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Original Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "revised_end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Revised End Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "justification",
+   "fieldtype": "Long Text",
+   "in_list_view": 1,
+   "label": "Justification ",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-10-20 19:17:05.709975",
+ "modified_by": "Administrator",
+ "module": "Program Management",
+ "name": "Revised Project History",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

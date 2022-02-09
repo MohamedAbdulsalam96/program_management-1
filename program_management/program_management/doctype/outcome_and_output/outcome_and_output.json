@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "format:{code} {type}-{project}/{program}",
  "creation": "2020-07-19 21:43:06.148154",
@@ -11,6 +12,7 @@
   "project",
   "column_break_3",
   "project_proposal",
+  "source_of_fund",
   "section_break_5",
   "type",
   "program",
@@ -39,6 +41,7 @@
    "fieldtype": "Small Text",
    "in_list_view": 1,
    "label": "Subject",
+   "no_copy": 1,
    "reqd": 1
   },
   {
@@ -46,8 +49,6 @@
    "fetch_from": "project.project_proposal",
    "fieldname": "project_proposal",
    "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
    "label": "Project Proposal",
    "options": "Project Proposal",
    "read_only": 1,
@@ -86,11 +87,10 @@
    "options": "Outcome and Output"
   },
   {
-   "depends_on": "eval:doc.project && doc.type!=\"Objective\" ",
    "fieldname": "parent_outcome_and_output",
    "fieldtype": "Link",
    "label": "Parent Outcome and Output",
-   "mandatory_depends_on": "eval:doc.type!=\"Objective\"",
+   "no_copy": 1,
    "options": "Outcome and Output"
   },
   {
@@ -102,9 +102,10 @@
    "depends_on": "project",
    "fieldname": "type",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Type",
-   "options": "\nObjective\nOutcome\nOutput",
+   "options": "\nImpact\nProject Goal\nObjective\nUltimate Outcome\nIntermediate Outcome\nImmediate Outcomes\nOutcome\nOutput",
    "reqd": 1
   },
   {
@@ -118,13 +119,16 @@
    "depends_on": "eval:doc.project && doc.type!=\"Objective\" ",
    "fieldname": "program",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Program",
-   "mandatory_depends_on": "eval:doc.type!=\"Objective\"",
    "options": "Programs"
   },
   {
    "fieldname": "project",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Project",
    "options": "Project",
    "reqd": 1
@@ -147,12 +151,24 @@
    "fieldname": "section_break_13",
    "fieldtype": "Section Break",
    "label": "More Details"
+  },
+  {
+   "depends_on": "project",
+   "fetch_from": "project_proposal.source_of_fund",
+   "fieldname": "source_of_fund",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Source Of Fund",
+   "options": "Source Of Fund",
+   "read_only": 1,
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2021-09-28 19:54:35.246257",
+ "modified": "2021-12-07 09:58:07.564961",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Outcome and Output",

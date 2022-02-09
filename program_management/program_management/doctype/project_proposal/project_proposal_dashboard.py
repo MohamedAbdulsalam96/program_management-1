@@ -11,7 +11,7 @@ def get_data():
 			},
 			{
 				'label': _('Logical Framework'),
-				'items': ['Outcome and Output', 'Indicators', 'Activity',]
+				'items': ['Outcome and Output', 'Indicators', 'Project Activity',]
 			},
 			{
 				'label': _('Plans'),

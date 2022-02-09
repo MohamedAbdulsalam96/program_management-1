@@ -1,0 +1,218 @@
+{
+ "actions": [],
+ "allow_copy": 1,
+ "creation": "2021-10-19 16:45:58.344938",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "project",
+  "project_name",
+  "original_start_date",
+  "project_start_date",
+  "column_break_4",
+  "extension_date",
+  "project_proposal",
+  "original_end_date",
+  "project_end_date",
+  "section_break_11",
+  "project_extension",
+  "revised_project_history",
+  "revised_start_date",
+  "column_break_13",
+  "revised_end_date",
+  "section_break_8",
+  "reporting_date_history",
+  "original_due_date",
+  "revised_due_date",
+  "section_break_14",
+  "justification",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Project",
+   "options": "Project",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "project.project_name",
+   "fieldname": "project_name",
+   "fieldtype": "Small Text",
+   "label": "Project Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "project.project_proposal",
+   "fetch_if_empty": 1,
+   "fieldname": "project_proposal",
+   "fieldtype": "Link",
+   "label": "Project Proposal",
+   "options": "Project Proposal",
+   "read_only": 1
+  },
+  {
+   "description": "Please note: Altered reporting schedule will affect payment schedule",
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break",
+   "label": "Reporting Due Dates"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "NCE",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "project_extension",
+   "fieldtype": "Table",
+   "hidden": 1,
+   "label": "Project Extension",
+   "options": "Project Extension History"
+  },
+  {
+   "default": "Today",
+   "fieldname": "extension_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Extension Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_11",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "original_due_date",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Original Due Date"
+  },
+  {
+   "fieldname": "revised_due_date",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Revised Due Date"
+  },
+  {
+   "fieldname": "section_break_14",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "justification",
+   "fieldtype": "Text Editor",
+   "label": "Reasons for Change and/or Replace Clauses:"
+  },
+  {
+   "fieldname": "reporting_date_history",
+   "fieldtype": "Table",
+   "label": "Reporting Date History",
+   "options": "Reporting Date History"
+  },
+  {
+   "fieldname": "revised_project_history",
+   "fieldtype": "Table",
+   "hidden": 1,
+   "label": "Revised Project History",
+   "options": "Revised Project History"
+  },
+  {
+   "fieldname": "revised_start_date",
+   "fieldtype": "Date",
+   "label": "Revised Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "revised_end_date",
+   "fieldtype": "Date",
+   "label": "Revised End Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "project.expected_start_date",
+   "fetch_if_empty": 1,
+   "fieldname": "project_start_date",
+   "fieldtype": "Date",
+   "label": "Current Start Date",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.expected_end_date",
+   "fetch_if_empty": 1,
+   "fieldname": "project_end_date",
+   "fieldtype": "Date",
+   "label": "Current End Date",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.original_start_date",
+   "fetch_if_empty": 1,
+   "fieldname": "original_start_date",
+   "fieldtype": "Date",
+   "label": "Original Start Date",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.original_end_date",
+   "fetch_if_empty": 1,
+   "fieldname": "original_end_date",
+   "fieldtype": "Date",
+   "label": "Original End Date",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2022-01-04 21:09:34.948717",
+ "modified_by": "Administrator",
+ "module": "Program Management",
+ "name": "NCE",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

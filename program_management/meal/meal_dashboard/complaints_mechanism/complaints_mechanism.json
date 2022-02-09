@@ -2,30 +2,34 @@
  "cards": [],
  "charts": [
   {
-   "chart": "Complaint Mechanism - By Channel",
-   "width": "Half"
+   "chart": "Complaint Mechanism - By Status",
+   "width": "Full"
   },
   {
    "chart": "Complaint Mechanism - By Cities",
    "width": "Half"
   },
   {
-   "chart": "Complaint Mechanism - Donor",
+   "chart": "Complaint Mechanism - By Channel",
    "width": "Half"
   },
   {
    "chart": "Complaint Mechanism - By Programs",
    "width": "Half"
+  },
+  {
+   "chart": "Complaint Mechanism - By Gender",
+   "width": "Full"
   }
  ],
- "creation": "2021-09-17 00:20:25.284149",
+ "creation": "2021-12-11 21:08:16.639191",
  "dashboard_name": "Complaints Mechanism",
  "docstatus": 0,
  "doctype": "Dashboard",
  "idx": 0,
- "is_default": 0,
+ "is_default": 1,
  "is_standard": 1,
- "modified": "2021-09-18 12:03:00.634853",
+ "modified": "2022-01-11 18:14:24.602836",
  "modified_by": "Administrator",
  "module": "MEAL",
  "name": "Complaints Mechanism",

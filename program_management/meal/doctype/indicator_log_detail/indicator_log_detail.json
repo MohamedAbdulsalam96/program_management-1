@@ -25,8 +25,12 @@
   "unclassified",
   "column_break_18",
   "total",
+  "permission_section_section",
+  "user",
   "section_break_20",
-  "remarks"
+  "remarks",
+  "cumulative_progress",
+  "in_progress"
  ],
  "fields": [
   {
@@ -172,12 +176,35 @@
    "fieldname": "remarks",
    "fieldtype": "Small Text",
    "label": "Remarks"
+  },
+  {
+   "fieldname": "cumulative_progress",
+   "fieldtype": "Percent",
+   "label": "Cumulative Progress",
+   "read_only": 1
+  },
+  {
+   "fieldname": "in_progress",
+   "fieldtype": "Percent",
+   "label": "% Remaining",
+   "read_only": 1
+  },
+  {
+   "fieldname": "permission_section_section",
+   "fieldtype": "Section Break",
+   "label": "Permission Section"
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "User",
+   "options": "User"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2021-10-07 19:09:48.836228",
+ "modified": "2022-01-15 13:39:01.888202",
  "modified_by": "Administrator",
  "module": "MEAL",
  "name": "Indicator Log Detail",

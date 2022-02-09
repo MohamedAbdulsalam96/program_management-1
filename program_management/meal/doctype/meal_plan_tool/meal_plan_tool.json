@@ -23,16 +23,16 @@
    "fieldtype": "Section Break"
   },
   {
+   "depends_on": "project",
    "fieldname": "meal_plan_html",
    "fieldtype": "HTML",
    "label": "MEAL Plan HTML"
   }
  ],
- "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-10-04 21:39:30.077385",
+ "modified": "2022-01-04 21:58:01.372099",
  "modified_by": "Administrator",
  "module": "MEAL",
  "name": "MEAL Plan Tool",

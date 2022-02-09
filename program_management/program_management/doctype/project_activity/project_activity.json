@@ -1,0 +1,285 @@
+{
+ "actions": [],
+ "autoname": "format:{code} Activity-{output}",
+ "creation": "2021-11-06 09:28:19.402791",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "project",
+  "expected_start_date",
+  "expected_end_date",
+  "column_break_3",
+  "project_proposal",
+  "source_of_fund",
+  "status",
+  "completed_on",
+  "section_break_5",
+  "code",
+  "activity",
+  "description",
+  "progress",
+  "means_of_verification",
+  "column_break_10",
+  "linked_with",
+  "output",
+  "indicator",
+  "start_date",
+  "end_date",
+  "edit_dates",
+  "duration",
+  "color",
+  "more_information_section",
+  "review_date",
+  "column_break_27",
+  "closing_date",
+  "section_break_18",
+  "assumption"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "no_copy": 1,
+   "options": "ACT-.YYYY.-####"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Project",
+   "options": "Project",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "project.project_proposal",
+   "fieldname": "project_proposal",
+   "fieldtype": "Link",
+   "label": "Project Proposal",
+   "options": "Project Proposal",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "project_proposal.source_of_fund",
+   "fieldname": "source_of_fund",
+   "fieldtype": "Link",
+   "label": "Source Of Fund",
+   "options": "Source Of Fund",
+   "read_only": 1
+  },
+  {
+   "depends_on": "project",
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Code",
+   "reqd": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "activity",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Activity",
+   "length": 400,
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "means_of_verification",
+   "fieldtype": "Data",
+   "label": "Means of Verification"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "linked_with",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Linked With",
+   "options": "\nImpact\nProject Goal\nObjective\nUltimate Outcome\nIntermediate Outcome\nImmediate Outcomes\nOutcome\nOutput",
+   "reqd": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "depends_on": "linked_with",
+   "fieldname": "output",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Objective/Outcome/Output",
+   "mandatory_depends_on": "linked_with",
+   "options": "Outcome and Output"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "depends_on": "eval:doc.linked_with==\"Indicator\"",
+   "fieldname": "indicator",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Indicator",
+   "mandatory_depends_on": "eval:doc.linked_with==\"Indicator\"",
+   "options": "Indicators"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "edit_dates",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Edit Dates"
+  },
+  {
+   "fieldname": "duration",
+   "fieldtype": "Int",
+   "label": "Duration",
+   "read_only": 1
+  },
+  {
+   "depends_on": "project",
+   "fieldname": "section_break_18",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "assumption",
+   "fieldtype": "Text Editor",
+   "label": "Assumption"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Color",
+   "label": "Color"
+  },
+  {
+   "fetch_from": "project.expected_start_date",
+   "fieldname": "expected_start_date",
+   "fieldtype": "Date",
+   "label": "Expected Start Date",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.expected_end_date",
+   "fieldname": "expected_end_date",
+   "fieldtype": "Date",
+   "label": "Expected End Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Open\nWorking\nPending Review\nOverdue\nCompleted"
+  },
+  {
+   "depends_on": "eval:doc.status==\"Completed\"",
+   "fieldname": "completed_on",
+   "fieldtype": "Date",
+   "label": "Completed On",
+   "mandatory_depends_on": "eval:doc.status==\"Completed\""
+  },
+  {
+   "fieldname": "progress",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "% Progress"
+  },
+  {
+   "fieldname": "more_information_section",
+   "fieldtype": "Section Break",
+   "label": "More Information"
+  },
+  {
+   "fieldname": "review_date",
+   "fieldtype": "Date",
+   "label": "Review Date"
+  },
+  {
+   "fieldname": "column_break_27",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "closing_date",
+   "fieldtype": "Date",
+   "label": "Closing Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-01-15 20:52:17.633607",
+ "modified_by": "Administrator",
+ "module": "Program Management",
+ "name": "Project Activity",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

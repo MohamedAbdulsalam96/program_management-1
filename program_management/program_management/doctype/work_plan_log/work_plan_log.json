@@ -1,5 +1,6 @@
 {
- "autoname": "format:{project_proposal}-{subject}",
+ "actions": [],
+ "autoname": "format:{project}-{subject}",
  "creation": "2021-01-10 19:30:31.119893",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -8,13 +9,14 @@
   "naming_series",
   "work_plan",
   "parent_work_plan_log",
-  "project_proposal",
   "subject",
-  "column_break_6",
   "activity",
   "activity_name",
+  "column_break_6",
+  "project",
   "status",
   "is_group",
+  "progress",
   "time_line_section",
   "expected_start_date",
   "expected_end_date",
@@ -23,7 +25,6 @@
   "actual_start_date",
   "actual_end_date",
   "actual_duration",
-  "progress",
   "section_break_15",
   "details",
   "lft",
@@ -41,20 +42,10 @@
   {
    "fieldname": "work_plan",
    "fieldtype": "Link",
-   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Work Plan",
    "options": "Work Plan",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "parent_work_plan_log.project_proposal",
-   "fetch_if_empty": 1,
-   "fieldname": "project_proposal",
-   "fieldtype": "Link",
-   "label": "Project Proposal",
-   "options": "Project Proposal",
-   "read_only": 1
+   "reqd": 1
   },
   {
    "fieldname": "status",
@@ -66,14 +57,12 @@
    "read_only": 1
   },
   {
-   "fetch_from": "parent_work_plan_log.activity",
-   "fetch_if_empty": 1,
    "fieldname": "activity",
    "fieldtype": "Link",
    "in_standard_filter": 1,
    "label": "Activity",
-   "options": "Activity",
-   "read_only": 1
+   "options": "Project Activity",
+   "reqd": 1
   },
   {
    "fetch_from": "activity.activity",
@@ -85,6 +74,7 @@
   {
    "fieldname": "time_line_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Time Line"
   },
   {
@@ -124,9 +114,7 @@
    "fieldname": "progress",
    "fieldtype": "Percent",
    "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Progress",
-   "read_only": 1
+   "label": "Progress"
   },
   {
    "fieldname": "section_break_15",
@@ -157,7 +145,7 @@
    "default": "0",
    "fieldname": "is_group",
    "fieldtype": "Check",
-   "in_list_view": 1,
+   "hidden": 1,
    "label": "Is Group",
    "read_only": 1
   },
@@ -171,8 +159,7 @@
   {
    "fieldname": "parent_work_plan_log",
    "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
+   "hidden": 1,
    "label": "Parent Work Plan Log",
    "options": "Work Plan Log"
   },
@@ -181,7 +168,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Subject"
+   "label": "Subject",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_6",
@@ -200,10 +188,20 @@
    "fieldtype": "Int",
    "label": "Actual Duration",
    "read_only": 1
+  },
+  {
+   "fetch_from": "work_plan.project",
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project",
+   "read_only": 1
   }
  ],
+ "index_web_pages_for_search": 1,
  "is_tree": 1,
- "modified": "2021-02-17 23:22:39.473635",
+ "links": [],
+ "modified": "2022-01-27 22:59:01.956660",
  "modified_by": "Administrator",
  "module": "Program Management",
  "name": "Work Plan Log",
@@ -237,5 +235,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
+ "title_field": "subject",
  "track_changes": 1
 }
